@@ -265,7 +265,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-copy-right">
-                        <p>Copyright &#169; 2019 BAPPEDA KAB. JAYAPURA</a></p>
+                        <p>Created By Budi Handoko And Friends</a></p>
                     </div>
                 </div>
             </div>

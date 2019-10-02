@@ -15,4 +15,18 @@ class M_pegawai extends CI_Model{
   {
     $this->db->insert('tb_pegawai',$data);
   }
+  function update_pegawai($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
+  function detail_pegawai($id_pegawai)
+  {
+    $query = $this->db->query("SELECT * FROM tb_pegawai
+    LEFT JOIN tb_pangkat ON tb_pegawai.id_pangkat = tb_pangkat.id_pangkat
+    LEFT JOIN tb_jabatan ON tb_pegawai.id_jabatan = tb_jabatan.id_jabatan
+    WHERE id_pegawai = '$id_pegawai' ");
+
+    return $query->result();
+  }
 }
