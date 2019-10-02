@@ -1,4 +1,4 @@
-# Sistem Informasi Reminder & Notifikasi Kepangkatan
+# Sistem Informasi Reminder & Notifikasi Proper ( READ K-4 )
 ----------------------------------------------------
 
 ## System Requirements :
