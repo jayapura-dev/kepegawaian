@@ -1,5 +1,4 @@
 # Sistem Informasi Reminder & Notifikasi Proper ( READ K-4 )
-----------------------------------------------------
 
 ## System Requirements :
 * Bahasa Utama :
@@ -54,3 +53,8 @@
   - Menambahkan Fungsi hitung Masa Kerja pada Modul Pegawai [Solved]
   - Menambahkan Fungsi hitung selisih tmt pangkat dan kenaikan pangkat selanjutnya [Solved]
   - Menambahkan Fungsi Lihat Pegawai yang akan naik pangkat pada Modul kpb [Solved]
+
+* Jumat 4 Oktober 2019
+  - Menambahkan Fungsi Lihat Notifikasi usulan KP [Solved]
+  - Menambahkan Fungsi Hitung selisih dari tanggal sekarang ke tanggal KP [Solved]
+  - Memperbaiki View MasterLayout [Solved]
