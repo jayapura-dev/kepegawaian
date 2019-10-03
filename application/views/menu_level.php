@@ -14,12 +14,12 @@
         </li>
         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-envelope-o"></i> <span class="mini-dn">Kepangkatan</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                <a href="#" class="dropdown-item">KPB</a>
+                <a href="<?php echo base_url()?>kpb" class="dropdown-item">KPB</a>
                 <a href="#" class="dropdown-item">KGB</a>
                 <a href="#" class="dropdown-item">KGB</a>
             </div>
         </li>
-      
+
         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Pengguna</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
                 <a href="#" class="dropdown-item">Level</a>

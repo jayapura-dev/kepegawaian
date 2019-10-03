@@ -14,8 +14,14 @@ class kpb extends MX_Controller {
   {
     $data['title'] = 'Kenaikan Pangkat';
     $data['kpb'] = $this->M_kpb->kpb();
-
     $this->template->load('MasterLayout','r-kpb',$data);
+  }
+  public function naik_pangkat()
+  {
+    $data['title'] = 'Pegawai Naik Pangkat';
+    $data['naik'] = $this->M_kpb->data_naik_pangkat();
+
+    $this->template->load('MasterLayout','r-datanaikpangkat',$data);
   }
   public function create_kpb($id_pegawai)
   {

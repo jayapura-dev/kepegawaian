@@ -49,3 +49,8 @@
   - Menambahkan tb kpb (kenainakan pangkat) [Solved]
   - Menambahkan Modul kpb [Solved]
   - Menambahkan Fungsi CRUD kpb [Not Solved]
+
+* Kamis 3 Oktober 2019
+  - Menambahkan Fungsi hitung Masa Kerja pada Modul Pegawai [Solved]
+  - Menambahkan Fungsi hitung selisih tmt pangkat dan kenaikan pangkat selanjutnya [Solved]
+  - Menambahkan Fungsi Lihat Pegawai yang akan naik pangkat pada Modul kpb [Solved]

@@ -73,8 +73,7 @@
                                     <td><?php echo $item->pangkat ?> </br> <?php echo $item->tmt_pkt ?></td>
                                     <td><?php echo $item->jenis_kp ?></td>
                                     <td><?php echo $item->unit_kerja ?></td>
-
-                                    <td></td>
+                                    <td><?php echo $item->masa_kerja ?> Tahun</td>
                                     <td>
                                       <a href="<?php echo base_url()?>pegawai/detail_pegawai/<?php echo $item->id_pegawai ?>" type="button" title="Detail Data Pegawai" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-user"></i></a>
                                       <a href="#modalupdate" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs" onclick="update(

@@ -11,7 +11,7 @@
                             <ul class="breadcome-menu">
                                 <li><a href="#">Data</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><span class="bread-blod">Kenaikan Pangkat</span>
+                                <li><span class="bread-blod">Usulan Kenaikan Pangkat Pegawai</span>
                                 </li>
                             </ul>
                         </div>
@@ -21,6 +21,7 @@
         </div>
     </div>
 </div>
+
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
         <div class="row">
@@ -31,8 +32,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data<span class="table-project-n"></span> Kenaikan Pangkat Pejabat</h1>
-                          
+                            <h4>Daftar<span class="table-project-n"></span> Pejabat yang akan naik pangkat Kurang dari 60 Hari</h4>
                         </div>
                     </div>
                     <div class="sparkline13-graph">
@@ -49,21 +49,20 @@
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="nama">Nama Pegawai</th>
-                                        <th data-field="pangkat">Naik Pangkat</th>
-                                        <th data-field="nama">File</th>
+                                        <th data-field="nip">Nip</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   <?php
                                   $no = 1;
-                                  foreach($kpb as $item){
+                                  foreach($naik as $item){
                                   ?>
                                   <tr>
                                     <td><?php echo $no++ ?></td>
-                                    <td><?php echo $item->nama ?> <br/> <?php echo $item->nip ?></td>
-                                    <td><?php echo $item->pangkat ?> </br> <?php echo $item->tmt_kpb ?></td>
-                                    <td></td>
+                                    <td><?php echo $item->nama ?></td>
+                                    <td><?php echo $item->nip ?></td>
+                                    
                                     <td>
                                       <a href="#" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-edit"></i></a>
                                       <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>

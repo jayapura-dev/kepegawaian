@@ -64,7 +64,7 @@
                                         <li class="nav-item dropdown">
                                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">API <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
                                             <div role="menu" class="dropdown-menu animated flipInX">
-                                                <a href="<?php echo base_url()?>Api/Dokumentasi" class="dropdown-item">Dokumentasi API </a>
+                                                <a href="#" class="dropdown-item">Dokumentasi API </a>
 
                                             </div>
                                         </li>
@@ -76,6 +76,7 @@
                             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                                 <div class="header-right-info">
                                     <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                        <?php $this->load->view('reminder') ?>
                                         <li class="nav-item">
                                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                                 <span class="adminpro-icon adminpro-user-rounded header-riht-inf"></span>
