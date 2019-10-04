@@ -48,4 +48,9 @@ class M_pegawai extends CI_Model{
 
     return $query->result();
   }
+  function update_foto($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
 }

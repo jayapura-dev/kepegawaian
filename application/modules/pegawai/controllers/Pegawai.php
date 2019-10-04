@@ -5,7 +5,7 @@ class pegawai extends MX_Controller {
   public function __construct()
   {
     parent::__construct();
-    $this->load->library('form_validation');
+    $this->load->library(array('upload','session','form_validation'));
     $this->load->database();
     $this->load->model('M_pegawai');
     Modules::run('auth/cek_login');
@@ -114,8 +114,54 @@ class pegawai extends MX_Controller {
   public function detail_pegawai($id_pegawai)
   {
     $data['title'] = 'Detail Pegawai';
-    $data['detail'] = $this->M_pegawai->detail_pegawai($id_pegawai);
+    $data['detail'] = $this->M_pegawai->detail_pegawai($this->uri->segment(3));
 
     $this->template->load('MasterLayout','l-pegawai',$data);
+  }
+  public function update_foto_proses()
+  {
+    $config['upload_path'] = './images/foto_pegawai';
+		$config['allowed_types'] = 'gif|jpg|png';
+    $config['encrypt_name'] = TRUE;
+    $config['overwrite'] = TRUE;
+		$config['max_width']  = 1024*3;
+		$config['max_height']  = 768*3;
+    $config['max_size'] = 1024*3;
+
+    $this->upload->initialize($config);
+
+    if ( ! $this->upload->do_upload('path_foto'))
+		{
+			$path_foto = "";
+			$this->session->set_flashdata(
+        "error",
+        "<div class='alert alert-danger fade in'>
+            <a href='#' class='close' data-dismiss='alert'>&times;</a>
+            <strong>error !</strong> Gagal Menambah Data!
+        </div>"
+      );
+      redirect('pegawai');
+		} else{
+      $path_foto = $this->upload->file_name;
+
+      $id_pegawai = $this->input->post('id_pegawai');
+
+      $data = array(
+        'id_pegawai' => $id_pegawai,
+        'path_foto' => $path_foto
+      );
+
+      $where = array(
+        'id_pegawai' => $id_pegawai
+      );
+
+      $this->M_pegawai->update_foto($where, $data,'tb_pegawai');
+      $this->session->set_flashdata("update_foto","
+                <div class='alert alert-success fade in'>
+                    <a href='#' class='close' data-dismiss='alert'>&times;</a>
+                    <strong>Success !</strong> Anda Telah Mengganti Foto Profil Pegawai!
+                </div>");
+      redirect('pegawai/detail_pegawai/'.$id_pegawai.'');
+    }
   }
 }

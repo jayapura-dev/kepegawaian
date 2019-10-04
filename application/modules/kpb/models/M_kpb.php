@@ -12,6 +12,22 @@ class M_kpb extends CI_Model{
   {
     $this->db->insert('tb_kpb',$data);
   }
+  
+  // update TMT pangkat pada tb_pegawai
+  function update_tmt_pkt($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
+
+  function detail($id_pegawai)
+  {
+    $query = $this->db->query("SELECT * FROM tb_pegawai
+    LEFT JOIN tb_pangkat ON tb_pegawai.id_pangkat = tb_pangkat.id_pangkat
+    WHERE id_pegawai = '$id_pegawai' ");
+
+    return $query->row_array();
+  }
   function data_naik_pangkat()
   {
     $query = $this->db->query("SELECT

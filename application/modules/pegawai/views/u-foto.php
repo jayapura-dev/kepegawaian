@@ -14,8 +14,8 @@
                                             <label class="login2 pull-right pull-right-pro"></label>
                                         </div>
                                         <div class="col-lg-9">
-                                          <input name="id_pegawai" type="hidden" id="xid_pegawai" class="form-control" />
-                                          <input name="path_foto" type="file" class="form-control" />
+                                          <input name="id_pegawai" type="text" id="xxid_pegawai" class="form-control" />
+                                          <input name="path_foto" id="xxpath_foto" type="file" class="form-control" />
                                         </div>
                                     </div>
                                   </div>

@@ -32,7 +32,7 @@
         <div class="project-details-descri shadow-reset">
           <div class=" contact-img-v2">
             <?php if($item->path_foto != ''){ ?>
-            <img class="center" src="<?php echo base_url()?>images/profil/<?php echo $item->path_foto ?>" width="190px" alt="">
+            <img class="center" src="<?php echo base_url()?>images/foto_pegawai/<?php echo $item->path_foto ?>" width="190px" height="120" alt="">
           <?php } else{?>
             <img class="center" src="<?php echo base_url()?>images/profil/guest.png" width="190px" alt="">
           <?php } ?>
@@ -145,7 +145,7 @@
 </div>
 
 <script type="text/javascript">
-  function uddate_foto(id_pegawai,path_foto){
+  function update_foto(id_pegawai,path_foto){
     $('#xxid_pegawai').val(id_pegawai);
     $('#xxpath_foto').val(path_foto);
   }

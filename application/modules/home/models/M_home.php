@@ -18,7 +18,8 @@ class M_home extends CI_Model{
     nama,
     nip,
     tgl_kp,
-    selisih
+    selisih,
+    path_foto
     FROM data_kp_notif
     WHERE selisih <= 60 ");
 

@@ -24,14 +24,17 @@ foreach($notif as $i){
             <li>
                 <a href="#">
                     <div class="notification-icon">
-                        <span class="adminpro-icon adminpro-checked-pro"></span>
+                        <img src="<?php echo base_url()?>images/foto_pegawai/<?php echo $kp->path_foto ?>" width="90px" alt="">
                     </div>
                     <div class="notification-content">
+                        <p> <strong><?php echo $kp->nama ?></strong>  <?php echo $kp->tgl_kp ?> : <?php echo $kp->selisih ?> Hari Lagi</p>
+                    </div>
+                    <!--<div class="notification-content">
                         <h5><strong><?php echo $kp->nama ?></strong> / <?php echo $kp->tgl_kp ?> : <?php echo $kp->selisih ?> Hari Lagi</h5>
                         <p>Nip. <?php echo $kp->nip ?></p>
                         <br/>
                         <span class="notification-date"></span>
-                    </div>
+                    </div>!-->
                 </a>
             </li>
           <?php } ?>
@@ -73,7 +76,7 @@ foreach($notif as $i){
             </li>!-->
         </ul>
         <div class="notification-view">
-            <a href="<?php echo base_url()?>kpb/naik_pangkat">Lihat Data Usulan KP</a>
+            <a href="<?php echo base_url()?>kpb/usulan_kp">Lihat Data Usulan KP</a>
         </div>
     </div>
 </li>
