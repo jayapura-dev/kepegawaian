@@ -32,7 +32,7 @@
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
                             <h1>Data<span class="table-project-n"></span> Kenaikan Pangkat Pejabat</h1>
-                          
+
                         </div>
                     </div>
                     <div class="sparkline13-graph">
@@ -49,8 +49,10 @@
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="nama">Nama Pegawai</th>
-                                        <th data-field="pangkat">Naik Pangkat</th>
-                                        <th data-field="nama">File</th>
+                                        <th data-field="pl">Pangkat Lama</th>
+                                        <th data-field="skkp">No SK</th>
+                                        <th data-field="pangkat">Pangkat Baru</th>
+                                        <th data-field="file">File</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -62,8 +64,10 @@
                                   <tr>
                                     <td><?php echo $no++ ?></td>
                                     <td><?php echo $item->nama ?> <br/> <?php echo $item->nip ?></td>
+                                    <td><?php echo $item->pkt_lama ?></td>
+                                    <td><?php echo $item->no_sk ?> <br/> <?php echo $item->tgl_sk ?></td>
                                     <td><?php echo $item->pangkat ?> </br> <?php echo $item->tmt_kpb ?></td>
-                                    <td></td>
+                                    <td><a href="<?php echo base_url()?>images/kpb/<?php echo $item->dok_kpb ?>" target="_blank"><img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a></td>
                                     <td>
                                       <a href="#" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-edit"></i></a>
                                       <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>

@@ -4,15 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_kpb extends CI_Model{
   function kpb()
   {
-    $query = $this->db->query("SELECT * FROM tb_kpb");
-
+    $query = $this->db->query("SELECT * FROM tb_kpb
+    LEFT JOIN tb_pegawai ON tb_kpb.id_pegawai = tb_pegawai.id_pegawai
+    LEFT JOIN tb_pangkat ON tb_kpb.id_pangkat = tb_pangkat.id_pangkat");
     return $query->result();
   }
-  function create_kpb()
+  function create_kpb($data)
   {
     $this->db->insert('tb_kpb',$data);
   }
-  
+
   // update TMT pangkat pada tb_pegawai
   function update_tmt_pkt($where,$data,$table)
   {

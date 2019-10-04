@@ -47,7 +47,7 @@
   - Menambahkan Fungsi DEtail Pegawai [Solved]
   - Menambahkan tb kpb (kenainakan pangkat) [Solved]
   - Menambahkan Modul kpb [Solved]
-  - Menambahkan Fungsi CRUD kpb [Not Solved]
+  - Menambahkan Fungsi CRUD kpb [Solved]
 
 * Kamis 3 Oktober 2019
   - Menambahkan Fungsi hitung Masa Kerja pada Modul Pegawai [Solved]
@@ -61,7 +61,7 @@
   - Memperbaiki View Notifikasi [Solved]
   - Memperbaiki Query data notofikasi pangkat [Solved]
   - Menambahkan Modul data master [Solved]
-  - Menambahkan Fungsi CRUD pangkat [Not Solved]
+  - Menambahkan Fungsi CRUD pangkat [Solved]
   - Menambahkan Fungsi CRUD jabatan [Not Solved]
   - Menambahkan Modul KGB [Solved]
   - Memperbaiki Modul home [Solved]
