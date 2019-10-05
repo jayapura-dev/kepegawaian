@@ -55,9 +55,9 @@
                                         <th data-field="nama">Nama Pejabat</th>
                                         <th data-field="jabatan">Jabatan</th>
                                         <th data-field="pangkat">Pangkat</th>
-                                        <th data-field="kp">KP</th>
+                                        <th data-field="kp">Jenis KP</th>
                                         <th data-field="uk">Unit Kerja</th>
-
+                                        <!--<th data-field="MK">MK</th>!-->
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -73,7 +73,7 @@
                                     <td><?php echo $item->pangkat ?> </br> <?php echo $item->tmt_pkt ?></td>
                                     <td><?php echo $item->jenis_kp ?></td>
                                     <td><?php echo $item->unit_kerja ?></td>
-
+                                    <!--<td><?php echo $item->masa_kerja ?> Tahun </td>!-->
                                     <td>
                                       <a href="<?php echo base_url()?>pegawai/detail_pegawai/<?php echo $item->id_pegawai ?>" type="button" title="Detail Data Pegawai" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-user"></i></a>
                                       <a href="#modalupdate" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs" onclick="update(
@@ -86,6 +86,8 @@
                                         '<?php echo $item->tmt_pkt ?>',
                                         '<?php echo $item->id_jabatan ?>',
                                         '<?php echo $item->tmt_jbt ?>',
+                                        '<?php echo $item->gapok_pegawai ?>',
+                                        '<?php echo $item->tmt_gapok ?>',
                                         '<?php echo $item->tmt_cpns ?>',
                                         '<?php echo $item->id_kp ?>',
                                         '<?php echo $item->id_unit ?>'
@@ -122,7 +124,7 @@
 </div>
 
 <script type="text/javascript">
-  function update(id_pegawai,nama,nip,jekel,pend_terahir,id_pangkat,tmt_pkt,id_jabatan,tmt_jbt,tmt_cpns,id_kp,id_unit)
+  function update(id_pegawai,nama,nip,jekel,pend_terahir,id_pangkat,tmt_pkt,id_jabatan,tmt_jbt,gapok,tmt_gapok,tmt_cpns,id_kp,id_unit)
   {
     $('#xid_pegawai').val(id_pegawai);
     $('#xnama').val(nama);
@@ -133,6 +135,8 @@
     $('#xtmt_pkt').val(tmt_pkt);
     $('#xid_jabatan').val(id_jabatan);
     $('#xtmt_jbt').val(tmt_jbt);
+    $('#xgapok').val(gapok);
+    $('#xtmt_gapok').val(tmt_gapok);
     $('#xtmt_cpns').val(tmt_cpns);
     $('#xid_kp').val(id_kp);
     $('#xid_unit').val(id_unit);

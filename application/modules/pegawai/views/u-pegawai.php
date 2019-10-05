@@ -104,6 +104,22 @@
           <div class="form-group-inner">
            <div class="row">
                <div class="col-lg-2">
+                   <label class="login2 pull-right pull-right-pro">Gaji Pokok</label>
+               </div>
+               <div class="col-lg-4">
+                   <input name="gapok_pegawai" type="text" id="xgapok" class="form-control" />
+               </div>
+               <div class="col-lg-1">
+                   <label class="login2 pull-right pull-right-pro">TMT</label>
+               </div>
+               <div class="col-lg-3">
+                   <input name="tmt_gapok" type="date" id="xtmt_gapok" class="form-control" />
+               </div>
+           </div>
+         </div>
+          <div class="form-group-inner">
+           <div class="row">
+               <div class="col-lg-2">
                    <label class="login2 pull-right pull-right-pro">TMT CPNS</label>
                </div>
                <div class="col-lg-4">

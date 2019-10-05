@@ -16,10 +16,13 @@ class M_pegawai extends CI_Model{
     tb_pegawai.id_pangkat as id_pangkat,
     tb_pegawai.id_unit as id_unit,
     tb_pegawai.id_kp as id_kp,
+    tb_pegawai.gapok_pegawai as gapok_pegawai,
+    tb_pegawai.tmt_gapok as tmt_gapok,
     tb_pegawai.tmt_cpns as tmt_cpns,
     tb_kp.jenis_kp as jenis_kp,
     tb_unit.unit_kerja as unit_kerja,
     tb_pangkat.pangkat as pangkat,
+    tb_pangkat.golongan as golongan,
     tb_jabatan.jabatan as jabatan,
     tb_pegawai.tmt_pkt + INTERVAL tb_kp.naik_pangkat DAY as selanjutnya,
     TIMESTAMPDIFF(YEAR, tb_pegawai.tmt_cpns, CURDATE()) as masa_kerja

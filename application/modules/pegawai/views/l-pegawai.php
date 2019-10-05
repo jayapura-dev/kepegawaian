@@ -78,7 +78,7 @@
                       <text> Jabatan</text>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                      <label>: <?php echo $item->jabatan ?></label>
+                      <label>: <?php echo $item->jabatan ?> / TMT : <?php echo $item->tmt_jbt ?></label>
                     </div>
                   </div>
                 </div>
@@ -89,7 +89,7 @@
                       <text> Pangkat/Gol</text>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                      <label>: <?php echo $item->pangkat ?></label>
+                      <label>: <?php echo $item->pangkat ?>/<?php echo $item->golongan ?> / TMT : <?php echo $item->tmt_pkt ?></label>
                     </div>
                   </div>
                 </div>
@@ -97,21 +97,10 @@
                 <div class="project-details-mg">
                   <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                      <text> TMT/Pangkat</text>
+                      <text> Gaji Pokok</text>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                      <label>: <?php echo $item->tmt_pkt ?></label>
-                    </div>
-                  </div>
-                </div>
-                <hr/>
-                <div class="project-details-mg">
-                  <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                      <text> TMT/Jabatan</text>
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                      <label>: <?php echo $item->tmt_jbt ?></label>
+                      <label>: Rp <?php echo number_format($item->gapok_pegawai) ?> / TMT : <?php echo $item->tmt_gapok ?></label>
                     </div>
                   </div>
                 </div>

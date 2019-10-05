@@ -23,7 +23,7 @@ class pegawai extends MX_Controller {
   public function create_pegawai()
   {
     $data['title'] = 'Tambah Pegawai';
-    $data['pangkat'] = $this->db->query("SELECT * FROM tb_pangkat")->result();
+    $data['pangkat'] = $this->db->query("SELECT * FROM tb_pangkat ORDER BY id_pangkat DESC")->result();
     $data['jabatan'] = $this->db->query("SELECT * FROM tb_jabatan")->result();
     $data['kp'] = $this->db->query("SELECT * FROM tb_kp")->result();
     $data['unit'] = $this->db->query("SELECT * FROM tb_unit")->result();
@@ -39,6 +39,8 @@ class pegawai extends MX_Controller {
     $tmt_pkt = $this->input->post('tmt_pkt');
     $id_jabatan = $this->input->post('id_jabatan');
     $tmt_jbt = $this->input->post('tmt_jbt');
+    $gapok_pegawai = $this->input->post('gapok_pegawai');
+    $tmt_gapok = $this->input->post('tmt_gapok');
     $tmt_cpns = $this->input->post('tmt_cpns');
     $id_kp = $this->input->post('id_kp');
     $id_unit = $this->input->post('id_unit');
@@ -52,6 +54,8 @@ class pegawai extends MX_Controller {
       'tmt_pkt'       => $tmt_pkt,
       'id_jabatan'    => $id_jabatan,
       'tmt_jbt'       => $tmt_jbt,
+      'gapok_pegawai' => $gapok_pegawai,
+      'tmt_gapok'     => $tmt_gapok,
       'tmt_cpns'      => $tmt_cpns,
       'id_kp'         => $id_kp,
       'id_unit'       => $id_unit
@@ -78,6 +82,8 @@ class pegawai extends MX_Controller {
     $tmt_pkt = $this->input->post('tmt_pkt');
     $id_jabatan = $this->input->post('id_jabatan');
     $tmt_jbt = $this->input->post('tmt_jbt');
+    $gapok_pegawai = $this->input->post('gapok_pegawai');
+    $tmt_gapok = $this->input->post('tmt_gapok');
     $tmt_cpns = $this->input->post('tmt_cpns');
     $id_kp = $this->input->post('id_kp');
     $id_unit = $this->input->post('id_unit');
@@ -92,6 +98,8 @@ class pegawai extends MX_Controller {
       'tmt_pkt'       => $tmt_pkt,
       'id_jabatan'    => $id_jabatan,
       'tmt_jbt'       => $tmt_jbt,
+      'gapok_pegawai' => $gapok_pegawai,
+      'tmt_gapok'     => $tmt_gapok,
       'tmt_cpns'      => $tmt_cpns,
       'id_kp'         => $id_kp,
       'id_unit'       => $id_unit

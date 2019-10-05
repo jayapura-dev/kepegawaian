@@ -5,7 +5,7 @@ class kpb extends MX_Controller {
   public function __construct()
   {
     parent::__construct();
-    $this->load->library('form_validation','upload');
+    $this->load->library(array('form_validation','upload'));
     $this->load->database();
     $this->load->model('M_kpb');
     Modules::run('auth/cek_login');

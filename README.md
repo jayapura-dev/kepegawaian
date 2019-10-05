@@ -1,4 +1,5 @@
 # Sistem Informasi Reminder & Notifikasi Proper ( READ K-4 )
+-------------------------------------------------------------------
 
 ## System Requirements :
 * Bahasa Utama :
@@ -65,3 +66,8 @@
   - Menambahkan Fungsi CRUD jabatan [Not Solved]
   - Menambahkan Modul KGB [Solved]
   - Memperbaiki Modul home [Solved]
+
+* Sabtu 5 Oktober 2019
+  - Menambahkan Field gapok & tmt_gapok pada tb pegawai [Solved]
+  - Memperbaiki CRUD Pegawai [Solved]
+  - Menambahkan Fungsi CRUD pada Modul KGB [Not Solved]

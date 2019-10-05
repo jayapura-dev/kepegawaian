@@ -48,8 +48,8 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="nama">Jabatan</th>
-
+                                        <th data-field="pangkat">Pangkat</th>
+                                        <th data-field="golongan">Golongan/Ruang</th>
                                         <th></th>
                                     </tr>
                                 </thead>
