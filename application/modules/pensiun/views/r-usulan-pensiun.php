@@ -11,7 +11,7 @@
                             <ul class="breadcome-menu">
                                 <li><a href="#">Pensiun</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><a href="#">Data Pensiun Pejabat</a> <span class="bread-slash">/</span>
+                                <li><a href="#">Usulan Pensiun</a> <span class="bread-slash">/</span>
                                 </li>
                             </ul>
                         </div>
@@ -31,8 +31,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data<span class="table-project-n"></span> Pensiun Pejabat</h1>
-
+                            <h1>Data<span class="table-project-n"></span> Pejabat Yang Akan Pensiun Kurang dari 6 Bulan</h1>
                         </div>
                     </div>
                     <div class="sparkline13-graph">
@@ -49,26 +48,26 @@
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="nama">Nama Pegawai</th>
-                                        <th data-field="gl">NIP</th>
-                                        <th data-field="nosk">No SK / Tgl</th>
-                                        <th data-field="file">File</th>
+                                        <th data-field="umur">Umur</th>
+                                        <th data-field="tgllahir">Tgl Lahir</th>
+                                        <th data-field="tglpensiun">Tgl Pensiun</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   <?php
                                   $no = 1;
-                                  foreach($pensiun as $item){
+                                  foreach($up as $item){
                                   ?>
                                   <tr>
                                     <td><?php echo $no++ ?></td>
                                     <td><?php echo $item->nama ?> <br/> <?php echo $item->nip ?></td>
-                                    <td><?php echo $item->no_sk ?> <br/> <?php echo $item->tgl_sk ?></td>
-                                    <td><?php echo $item->ket_pensiun ?> </td>
-                                    <td><a href="<?php echo base_url()?>images/pensiun/<?php echo $item->dok_pensiun ?>" target="_blank"><img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a></td>
+                                    <td><?php echo $item->umur ?> Tahun</td>
+                                    <td><?php echo $item->tgl_lahir ?> </td>
+                                    <td><?php echo $item->tgl_pensiun ?> </td>
                                     <td>
-                                      <a href="#" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-edit"></i></a>
-                                      <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                      <a href="<?php echo base_url()?>pensiun/create_pensiun/<?php echo $item->id_pegawai ?>" title="Tambah Data Pensiun Pejabat" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
+                                      <a href="#" type="button" title="Matikan Notifikasi Untuk Pegawai ini" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-bell"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>

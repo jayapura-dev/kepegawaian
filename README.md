@@ -79,3 +79,5 @@
   - Menambahkan Modul Pensiun [Solved]
   - Memperbaiki Fungsi Update & Create Pegawai pada Modul Pegawai [Solved]
   - Menambahkan Fungsi substring NIP untuk tgl lahir, tmt cpns, dan Jenis Kelamin [Solved]
+  - Menambahkan Fungsi CRUD Pensiun [Not Solved]
+  - Memperbaiki Partial Notifikasi KGB, KP, Pensiun [Solved]

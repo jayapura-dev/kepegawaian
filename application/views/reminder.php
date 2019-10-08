@@ -2,25 +2,39 @@
 $this->load->model('home/M_home');
 $notif = $this->M_home->hitung_kp();
 $data_kp = $this->M_home->data_kp();
+
 $notif_kgb = $this->M_home->hitung_kgb();
 $data_kgb = $this->M_home->data_ukgb();
+
+$notif_pen = $this->M_home->hitung_pensiun();
+$data_pen = $this->M_home->data_pensiun();
 foreach($notif as $i){
   $signal = $i->jumlah_pejabat;
 }
 foreach($notif_kgb as $k){
   $signal_kgb = $k->jumlah_pejabat;
 }
+foreach($notif_pen as $p){
+  $signal_pen = $p->jumlah_pejabat;
+}
 ?>
 
+<!-- Start Notifikasi KP !-->
+<?php if ($signal === '0'): ?>
 <li class="nav-item">
   <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-    <?php if($signal != ''){ ?>
+    <i class="fa fa-bell" aria-hidden="true"></i>
+  </a>
+  <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated flipInX">
+    <text class="text-center"><strong>Tidak Ada Notifikasi KP</strong></text>
+  </div>
+<?php
+else:?>
+</li>
+  <li class="nav-item">
+  <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
     <i class="fa fa-bell-o" aria-hidden="true"></i>
     <span class="badge badge-info"><?php echo $signal ?></span>
-    <?php }
-    else{?>
-    <i class="fa fa-bell-o" aria-hidden="true"></i>
-  <?php } ?>
   </a>
     <div role="menu" class="notification-author dropdown-menu animated flipInX">
         <div class="notification-single-top">
@@ -34,28 +48,37 @@ foreach($notif_kgb as $k){
                         <img src="<?php echo base_url()?>images/foto_pegawai/<?php echo $kp->path_foto ?>" width="90px" alt="">
                     </div>
                     <div class="notification-content">
-                        <p> <strong><?php echo $kp->nama ?></strong>  <?php echo $kp->tgl_kp ?> : <?php echo $kp->selisih ?> Hari Lagi</p>
+                        <p> <strong><?php echo $kp->nama ?></strong>  <?php echo $kp->tgl_kp ?> <br/><?php echo $kp->selisih ?> Hari Lagi</p>
                     </div>
 
                 </a>
             </li>
-          <?php } ?>
-
+            <?php } ?>
         </ul>
         <div class="notification-view">
             <a href="<?php echo base_url()?>kpb/usulan_kp">Lihat Data Usulan KP</a>
         </div>
     </div>
 </li>
+<?php endif ?>
+<!-- End Notifikasi KP !-->
+
+<!-- Start Notifikasi KGB !-->
+<?php if ($signal_kgb === '0'): ?>
 <li class="nav-item">
   <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-    <?php if($signal_kgb != ''){ ?>
+    <i class="fa fa-money" aria-hidden="true"></i>
+  </a>
+  <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated flipInX">
+    <text class="text-center"><strong>Tidak Ada Notifikasi KGB</strong></text>
+  </div>
+</li>
+
+<?php else: ?>
+<li class="nav-item">
+  <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
     <i class="fa fa-money" aria-hidden="true"></i>
     <span class="badge badge-info"><?php echo $signal_kgb ?></span>
-    <?php }
-    else{ ?>
-    <i class="fa fa-money" aria-hidden="true"></i>
-    <?php } ?>
   </a>
     <div role="menu" class="notification-author dropdown-menu animated flipInX">
         <div class="notification-single-top">
@@ -69,7 +92,7 @@ foreach($notif_kgb as $k){
                         <img src="<?php echo base_url()?>images/foto_pegawai/<?php echo $gb->path_foto ?>" width="90px" alt="">
                     </div>
                     <div class="notification-content">
-                        <p> <strong><?php echo $gb->nama ?></strong>  <?php echo $gb->tgl_ukgb ?> : <?php echo $gb->selisih ?> Hari Lagi</p>
+                        <p> <strong><?php echo $gb->nama ?></strong>  <?php echo $gb->tgl_ukgb ?> <br/><?php echo $gb->selisih ?> Hari Lagi</p>
                     </div>
                 </a>
             </li>
@@ -80,3 +103,50 @@ foreach($notif_kgb as $k){
         </div>
     </div>
 </li>
+<?php endif ?>
+<!-- End Notifikasi KGB !-->
+
+<!-- Start Notifikasi Pensiun !-->
+<?php if ($signal_pen === '0'): ?>
+<li class="nav-item">
+  <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+    <i class="fa fa-user" aria-hidden="true"></i>
+  </a>
+  <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated flipInX">
+    <text class="text-center"><strong>Tidak Ada Notifikasi Pensiun</strong></text>
+  </div>
+</li>
+
+<?php else: ?>
+<li class="nav-item">
+  <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+
+    <i class="fa fa-user" aria-hidden="true"></i>
+    <span class="badge badge-info"><?php echo $signal_pen ?></span>
+  </a>
+    <div role="menu" class="notification-author dropdown-menu animated flipInX">
+        <div class="notification-single-top">
+            <h1>Usulan Pensiun</h1>
+        </div>
+        <ul class="notification-menu">
+            <?php foreach($data_pen as $pen){?>
+            <li>
+                <a href="#">
+                    <div class="notification-icon">
+                        <img src="<?php echo base_url()?>images/foto_pegawai/<?php echo $pen->path_foto ?>" width="70px" alt="">
+                    </div>
+                    <div class="notification-content">
+                        <p><strong><?php echo $pen->nama ?></strong> <?php echo $pen->tgl_pensiun ?> <br/><?php echo $pen->selisih ?> Hari Lagi </p>
+                        <h5></h5>
+                    </div>
+                </a>
+            </li>
+          <?php } ?>
+        </ul>
+        <div class="notification-view">
+            <a href="<?php echo base_url()?>pensiun/usulan_pensiun">Lihat Data Usulan Pensiun</a>
+        </div>
+    </div>
+</li>
+<?php endif ?>
+<!-- End Notifikasi Pensiun !-->

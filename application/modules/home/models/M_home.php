@@ -51,4 +51,30 @@ class M_home extends CI_Model{
     return $query->result();
   }
   // End Usulan KGB
+
+  // Start Usulan Pensiun
+  function data_pensiun()
+  {
+      $query = $this->db->query("SELECT
+      id_pegawai,
+      nama,
+      nip,
+      path_foto,
+      tgl_lahir,
+      tgl_pensiun,
+      umur,
+      selisih
+      FROM data_usulan_pensiun
+      WHERE selisih <= 180 ");
+
+      return $query->result();
+  }
+  function hitung_pensiun()
+  {
+    $query = $this->db->query("SELECT
+      COUNT(id_pegawai) as jumlah_pejabat
+      FROM data_usulan_pensiun
+      WHERE selisih <= 180 ");
+    return $query->result();
+  }
 }
