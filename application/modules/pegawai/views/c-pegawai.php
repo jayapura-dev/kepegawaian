@@ -1,3 +1,5 @@
+<script src="<?php echo base_url()?>assets/js/jquery-1.11.3.min.js"></script>
+
 <div class="breadcome-area mg-b-30 small-dn">
     <div class="container-fluid">
         <div class="row">
@@ -55,23 +57,27 @@
                                            <label class="login2 pull-right pull-right-pro">Nip</label>
                                        </div>
                                        <div class="col-lg-4">
-                                           <input name="nip" type="text" class="form-control" />
+                                           <input name="nip" type="text" id="nip" onchange="get_tgl_lahir()" class="form-control" />
                                        </div>
+                                       <div class="col-lg-4">
+                                           <input name="tgl_lahir" type="text" id="tgl_lahir" readonly="true" onchange="get_tgl_lahir()" class="form-control" />
+                                       </div>
+
                                    </div>
                                  </div>
                                  <div class="form-group-inner">
                                   <div class="row">
                                       <div class="col-lg-2">
-                                          <label class="login2 pull-right pull-right-pro">JK</label>
+                                          <label class="login2 pull-right pull-right-pro">TMT CPNS</label>
                                       </div>
                                       <div class="col-lg-4">
-                                        <select name="jekel" class="form-control">
-                                            <option value="L">LAKI-LAKI</option>
-                                            <option value="P">PEREMPUAN</option>
-                                        </select>
+                                          <input type="text" name="tmt_cpns" id="tmt_cpns" readonly="true" onchange="get_tgl_lahir()" class="form-control">
+                                      </div>
+                                      <div class="col-lg-4">
+                                        <input name="jekel" type="text" id="jekel" readonly="true" onchange="get_tgl_lahir()" class="form-control" />
                                       </div>
                                   </div>
-                                 </div>
+                                </div>
                                 <div class="form-group-inner">
                                  <div class="row">
                                      <div class="col-lg-2">
@@ -85,47 +91,42 @@
                                            <option value="S2">S2</option>
                                        </select>
                                      </div>
+                                     <div class="col-lg-1">
+                                         <label class="login2 pull-right pull-right-pro">Bidang</label>
+                                     </div>
+                                     <div class="col-lg-4">
+                                         <input name="bidang" type="text" class="form-control" placeholder="Bidang Kekhususan" />
+                                     </div>
                                  </div>
                                </div>
-                               <div class="form-group-inner">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <label class="login2 pull-right pull-right-pro">Pangkat/Gol</label>
-                                    </div>
-                                    <div class="col-lg-4">
-                                      <select name="id_pangkat" class="chosen-select form-control">
-                                           <option value="">-- Pilih --</option>
-                                            <?php
-                                            foreach($pangkat as $p => $val)
-                                            {?>
-                                            <option value="<?php echo $val->id_pangkat;?>"><?php echo $val->pangkat; ?></option>
-                                            <?php
-                                            }?>
-                                       </select>
-                                    </div>
-                                    <div class="col-lg-1">
-                                        <label class="login2 pull-right pull-right-pro">TMT</label>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <input name="tmt_pkt" type="date" class="form-control" />
-                                    </div>
-                                </div>
-                              </div>
+
+                              <div class="form-group-inner">
+                               <div class="row">
+                                   <div class="col-lg-2">
+                                       <label class="login2 pull-right pull-right-pro">Jenis KP</label>
+                                   </div>
+                                   <div class="col-lg-4">
+                                     <select name="id_kp" class="form-control">
+                                         <option value="">-- Pilih --</option>
+                                          <?php
+                                          foreach($kp as $j => $val)
+                                          {?>
+                                          <option value="<?php echo $val->id_kp;?>"><?php echo $val->jenis_kp; ?></option>
+                                          <?php
+                                          }?>
+                                     </select>
+                                   </div>
+                               </div>
+                             </div>
                                <div class="form-group-inner">
                                 <div class="row">
                                     <div class="col-lg-2">
                                         <label class="login2 pull-right pull-right-pro">Jabatan</label>
                                     </div>
                                     <div class="col-lg-4">
-                                      <select name="id_jabatan" class="chosen-select form-control">
-                                           <option value="">-- Pilih --</option>
-                                            <?php
-                                            foreach($jabatan as $j => $val)
-                                            {?>
-                                            <option value="<?php echo $val->id_jabatan;?>"><?php echo $val->jabatan; ?></option>
-                                            <?php
-                                            }?>
-                                       </select>
+                                      <select class="form-control" name="id_jabatan">
+
+                                      </select>
                                     </div>
                                     <div class="col-lg-1">
                                         <label class="login2 pull-right pull-right-pro">TMT</label>
@@ -135,6 +136,30 @@
                                     </div>
                                 </div>
                               </div>
+                              <div class="form-group-inner">
+                               <div class="row">
+                                   <div class="col-lg-2">
+                                       <label class="login2 pull-right pull-right-pro">Pangkat/Gol</label>
+                                   </div>
+                                   <div class="col-lg-4">
+                                     <select name="id_pangkat" class="chosen-select form-control">
+                                          <option value="">-- Pilih --</option>
+                                           <?php
+                                           foreach($pangkat as $p => $val)
+                                           {?>
+                                           <option value="<?php echo $val->id_pangkat;?>"><?php echo $val->pangkat; ?></option>
+                                           <?php
+                                           }?>
+                                      </select>
+                                   </div>
+                                   <div class="col-lg-1">
+                                       <label class="login2 pull-right pull-right-pro">TMT</label>
+                                   </div>
+                                   <div class="col-lg-3">
+                                       <input name="tmt_pkt" type="date" class="form-control" />
+                                   </div>
+                               </div>
+                             </div>
                               <div class="form-group-inner">
                                <div class="row">
                                    <div class="col-lg-2">
@@ -148,34 +173,6 @@
                                    </div>
                                    <div class="col-lg-3">
                                        <input name="tmt_gapok" type="date" class="form-control" />
-                                   </div>
-                               </div>
-                             </div>
-                              <div class="form-group-inner">
-                               <div class="row">
-                                   <div class="col-lg-2">
-                                       <label class="login2 pull-right pull-right-pro">TMT CPNS</label>
-                                   </div>
-                                   <div class="col-lg-4">
-                                     <input type="date" name="tmt_cpns" class="form-control">
-                                   </div>
-                               </div>
-                              </div>
-                              <div class="form-group-inner">
-                               <div class="row">
-                                   <div class="col-lg-2">
-                                       <label class="login2 pull-right pull-right-pro">KP</label>
-                                   </div>
-                                   <div class="col-lg-4">
-                                     <select name="id_kp" class="form-control">
-                                         <option value="">-- Pilih --</option>
-                                          <?php
-                                          foreach($kp as $j => $val)
-                                          {?>
-                                          <option value="<?php echo $val->id_kp;?>"><?php echo $val->jenis_kp; ?></option>
-                                          <?php
-                                          }?>
-                                     </select>
                                    </div>
                                </div>
                              </div>
@@ -219,3 +216,56 @@
   </div>
 </div>
 <br/>
+
+<script type="text/javascript">
+  $('select[name="id_kp"]').on('change', function() {
+      var id_kp = $(this).val();
+      if(id_kp) {
+          $.ajax({
+              url: '<?php echo base_url("pegawai/get_jabatan/") ?>'+id_kp,
+              type: "GET",
+              dataType: "json",
+              success:function(data) {
+                  $('select[name="id_jabatan"]').empty();
+                  $.each(data, function(key, value) {
+                      $('select[name="id_jabatan"]').append('<option value="'+ value.id_jabatan +'">'+ value.jabatan+'</option>');
+                  });
+              }
+          });
+      }else{
+          $('select[name="id_jabatan"]').empty();
+      }
+  });
+
+  function get_tgl_lahir()
+  {
+    var nip = $('#nip').val();
+    var tgl_lahir = nip.substr(0,8);
+    var deteksi = nip.substr(14,1);
+    var tmt_cp = nip.substr(8, 6);
+
+    // Membuat Format date untuk tanggal lahir
+    var tahun_lahir = tgl_lahir.substr(0,4);
+    var bulan_lahir = tgl_lahir.substr(4,2);
+    var hari_lahir = tgl_lahir.substr(6,2);
+    var gabung = tahun_lahir + '-' + bulan_lahir + '-' + hari_lahir;
+    $('#tgl_lahir').val(gabung);
+
+    var tahun_cpns = tmt_cp.substr(0, 4);
+    var bulan_cpns = tmt_cp.substr(4,2);
+
+    var gabung_tmt_cp = tahun_cpns + '-' + bulan_cpns + '-01';
+    $('#tmt_cpns').val(gabung_tmt_cp);
+
+    // Membuat Validasi untuk Jenis Kelamin
+    if(deteksi=='1'){
+      $('#jekel').val('LAKI-LAKI');
+    }
+    else if(deteksi=='2'){
+      $('#jekel').val('PEREMPUAN');
+    }
+    else{
+      $('#jekel').val('-');
+    }
+  }
+</script>

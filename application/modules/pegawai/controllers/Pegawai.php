@@ -29,12 +29,19 @@ class pegawai extends MX_Controller {
     $data['unit'] = $this->db->query("SELECT * FROM tb_unit")->result();
     $this->template->load('MasterLayout','c-pegawai',$data);
   }
+  function get_jabatan($id_kp)
+  {
+      $result = $this->db->where("id_kp",$id_kp)->get("tb_jabatan")->result();
+      echo json_encode($result);
+  }
   public function create_pegawai_proses()
   {
     $nama = $this->input->post('nama');
     $nip = $this->input->post('nip');
+    $tgl_lahir = $this->input->post('tgl_lahir');
     $jekel = $this->input->post('jekel');
     $pend_terahir = $this->input->post('pend_terahir');
+    $bidang = $this->input->post('bidang');
     $id_pangkat = $this->input->post('id_pangkat');
     $tmt_pkt = $this->input->post('tmt_pkt');
     $id_jabatan = $this->input->post('id_jabatan');
@@ -48,8 +55,10 @@ class pegawai extends MX_Controller {
     $data = array(
       'nama'          => $nama,
       'nip'           => $nip,
+      'tgl_lahir'     => $tgl_lahir,
       'jekel'         => $jekel,
       'pend_terahir'  => $pend_terahir,
+      'bidang'        => $bidang,
       'id_pangkat'    => $id_pangkat,
       'tmt_pkt'       => $tmt_pkt,
       'id_jabatan'    => $id_jabatan,
@@ -76,6 +85,7 @@ class pegawai extends MX_Controller {
     $id_pegawai = $this->input->post('id_pegawai');
     $nama = $this->input->post('nama');
     $nip = $this->input->post('nip');
+    $tgl_lahir = date($this->input->post('tgl_lahir'));
     $jekel = $this->input->post('jekel');
     $pend_terahir = $this->input->post('pend_terahir');
     $id_pangkat = $this->input->post('id_pangkat');
@@ -92,6 +102,7 @@ class pegawai extends MX_Controller {
       'id_pegawai'    => $id_pegawai,
       'nama'          => $nama,
       'nip'           => $nip,
+      'tgl_lahir'     => $tgl_lahir,
       'jekel'         => $jekel,
       'pend_terahir'  => $pend_terahir,
       'id_pangkat'    => $id_pangkat,

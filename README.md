@@ -14,8 +14,6 @@
 * Library :
   - Indo Tanggal (Tanggal Indonesia)
   - Template (UI Applikasi)
-  - recurseZip (.Zip Extension)
-  - Google Maps API V3
   - Security (encrypt & decrypt)
 
 * Module :
@@ -71,3 +69,13 @@
   - Menambahkan Field gapok & tmt_gapok pada tb pegawai [Solved]
   - Memperbaiki CRUD Pegawai [Solved]
   - Menambahkan Fungsi CRUD pada Modul KGB [Not Solved]
+
+* Minggu 6 Oktober 2019
+  - Meperbaiki halaman partial reminder (Notifikasi) [Solved]
+  - Menambahkan Notifikasi KGB pada halaman partial reminder [Solved]
+
+* Selasa 8 Oktober 2019
+  - Menambahkan tb pensiun [Solved]
+  - Menambahkan Modul Pensiun [Solved]
+  - Memperbaiki Fungsi Update & Create Pegawai pada Modul Pegawai [Solved]
+  - Menambahkan Fungsi substring NIP untuk tgl lahir, tmt cpns, dan Jenis Kelamin [Solved]

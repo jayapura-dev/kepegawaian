@@ -80,8 +80,10 @@
                                         '<?php echo $item->id_pegawai ?>',
                                         '<?php echo $item->nama ?>',
                                         '<?php echo $item->nip ?>',
+                                        '<?php echo $item->tgl_lahir ?>',
                                         '<?php echo $item->jekel ?>',
                                         '<?php echo $item->pend_terahir ?>',
+                                        '<?php echo $item->bidang ?>',
                                         '<?php echo $item->id_pangkat ?>',
                                         '<?php echo $item->tmt_pkt ?>',
                                         '<?php echo $item->id_jabatan ?>',
@@ -124,13 +126,15 @@
 </div>
 
 <script type="text/javascript">
-  function update(id_pegawai,nama,nip,jekel,pend_terahir,id_pangkat,tmt_pkt,id_jabatan,tmt_jbt,gapok,tmt_gapok,tmt_cpns,id_kp,id_unit)
+  function update(id_pegawai,nama,nip,tgl_lahir,jekel,pend_terahir,bidang,id_pangkat,tmt_pkt,id_jabatan,tmt_jbt,gapok,tmt_gapok,tmt_cpns,id_kp,id_unit)
   {
     $('#xid_pegawai').val(id_pegawai);
     $('#xnama').val(nama);
     $('#xnip').val(nip);
+    $('#tgl_lahir').val(tgl_lahir);
     $('#xjekel').val(jekel);
     $('#xpend_terahir').val(pend_terahir);
+    $('#xbidang').val(bidang);
     $('#xid_pangkat').val(id_pangkat);
     $('#xtmt_pkt').val(tmt_pkt);
     $('#xid_jabatan').val(id_jabatan);
@@ -141,7 +145,39 @@
     $('#xid_kp').val(id_kp);
     $('#xid_unit').val(id_unit);
   }
+  function get_tgl_lahir()
+  {
+    var nip = $('#xnip').val();
+    var tgl_lahir = nip.substr(0,8);
+    var deteksi = nip.substr(14,1);
+    var tmt_cp = nip.substr(8, 6);
 
+    // Membuat Format date untuk tanggal lahir
+    var tahun_lahir = tgl_lahir.substr(0,4);
+    var bulan_lahir = tgl_lahir.substr(4,2);
+    var hari_lahir = tgl_lahir.substr(6,2);
+    var gabung = tahun_lahir + '-' + bulan_lahir + '-' + hari_lahir;
+    $('#tgl_lahir').val(gabung);
+
+    // Membuat Format Date untuk TMT CPNS
+    var tahun_cpns = tmt_cp.substr(0, 4);
+    var bulan_cpns = tmt_cp.substr(4,2);
+
+    var gabung_tmt_cp = tahun_cpns + '-' + bulan_cpns + '-01';
+    $('#xtmt_cpns').val(gabung_tmt_cp);
+
+    // Membuat Validasi untuk Jenis Kelamin
+    if(deteksi=='1'){
+      $('#xjekel').val('LAKI-LAKI');
+    }
+    else if(deteksi=='2'){
+      $('#xjekel').val('PEREMPUAN');
+    }
+    else{
+      $('#xjekel').val('-');
+    }
+
+  }
 
   window.setTimeout("waktu()",1000);
 

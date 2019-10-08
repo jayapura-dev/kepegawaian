@@ -11,7 +11,7 @@
                             <ul class="breadcome-menu">
                                 <li><a href="#">Gaji</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><span class="bread-blod">Usulan Kenaikan Gaji</span>
+                                <li><a href="#">Kenaikan Gaji Berkala</a> <span class="bread-slash">/</span>
                                 </li>
                             </ul>
                         </div>
@@ -21,7 +21,6 @@
         </div>
     </div>
 </div>
-
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
         <div class="row">
@@ -32,7 +31,8 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h5>Daftar<span class="table-project-n"></span> Pejabat yang akan naik Gaji Kurang dari 60 Hari</h5>
+                            <h1>Data<span class="table-project-n"></span> Kenaikan Gaji Berkala</h1>
+
                         </div>
                     </div>
                     <div class="sparkline13-graph">
@@ -49,22 +49,28 @@
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="nama">Nama Pegawai</th>
-                                        <th data-field="nip">Nip</th>
+                                        <th data-field="gl">Gapok Lama</th>
+                                        <th data-field="nosk">No SK / Tgl</th>
+                                        <th data-field="gb">Gapok Baru</th>
+                                        <th data-field="file">File</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   <?php
                                   $no = 1;
-                                  foreach($usulankgb as $item){
+                                  foreach($kgb as $item){
                                   ?>
                                   <tr>
                                     <td><?php echo $no++ ?></td>
-                                    <td><?php echo $item->nama ?></td>
-                                    <td><?php echo $item->nip ?></td>
+                                    <td><?php echo $item->nama ?> <br/> <?php echo $item->nip ?></td>
+                                    <td><?php echo number_format($item->gapok_lama) ?></td>
+                                    <td><?php echo $item->no_sk ?> <br/> <?php echo $item->tgl_sk ?></td>
+                                    <td><?php echo number_format($item->gapok_baru) ?> </td>
+                                    <td><a href="<?php echo base_url()?>images/kgb/<?php echo $item->dok_kgb ?>" target="_blank"><img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a></td>
                                     <td>
-                                      <a href="<?php echo base_url()?>kgb/create_kgb/<?php echo $item->id_pegawai ?>" title="Tambah Data KP" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
-                                      <a href="#" type="button" title="Matikan Notifikasi Untuk Pegawai ini" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-bell"></i></a>
+                                      <a href="#" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-edit"></i></a>
+                                      <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>

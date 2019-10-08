@@ -21,23 +21,27 @@
                        <label class="login2 pull-right pull-right-pro">Nip</label>
                    </div>
                    <div class="col-lg-4">
-                       <input name="nip" type="text" id="xnip" class="form-control" />
+                       <input name="nip" type="text" id="xnip" onchange="get_tgl_lahir()" class="form-control" />
                    </div>
+                   <div class="col-lg-4">
+                       <input name="tgl_lahir" type="text" id="tgl_lahir" readonly="true" onchange="get_tgl_lahir()" class="form-control" />
+                   </div>
+
                </div>
              </div>
              <div class="form-group-inner">
               <div class="row">
                   <div class="col-lg-2">
-                      <label class="login2 pull-right pull-right-pro">JK</label>
+                      <label class="login2 pull-right pull-right-pro">TMT CPNS</label>
                   </div>
                   <div class="col-lg-4">
-                    <select name="jekel" class="form-control" id="xjekel">
-                        <option value="L">LAKI-LAKI</option>
-                        <option value="P">PEREMPUAN</option>
-                    </select>
+                      <input type="text" name="tmt_cpns" id="xtmt_cpns" readonly="true" onchange="get_tgl_lahir()" class="form-control">
+                  </div>
+                  <div class="col-lg-4">
+                    <input name="jekel" type="text" id="xjekel" readonly="true" onchange="get_tgl_lahir()" class="form-control" />
                   </div>
               </div>
-             </div>
+            </div>
             <div class="form-group-inner">
              <div class="row">
                  <div class="col-lg-2">
@@ -50,6 +54,12 @@
                        <option value="S1">S1</option>
                        <option value="S2">S2</option>
                    </select>
+                 </div>
+                 <div class="col-lg-1">
+                     <label class="login2 pull-right pull-right-pro">Bidang</label>
+                 </div>
+                 <div class="col-lg-4">
+                     <input name="bidang" type="text" id="xbidang" class="form-control" placeholder="Bidang Kekhususan" />
                  </div>
              </div>
            </div>
@@ -117,16 +127,6 @@
                </div>
            </div>
          </div>
-          <div class="form-group-inner">
-           <div class="row">
-               <div class="col-lg-2">
-                   <label class="login2 pull-right pull-right-pro">TMT CPNS</label>
-               </div>
-               <div class="col-lg-4">
-                 <input type="date" name="tmt_cpns" id="xtmt_cpns" class="form-control">
-               </div>
-           </div>
-          </div>
           <div class="form-group-inner">
            <div class="row">
                <div class="col-lg-2">
