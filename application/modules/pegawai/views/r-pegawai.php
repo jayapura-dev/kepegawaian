@@ -95,6 +95,7 @@
                                         '<?php echo $item->id_unit ?>'
                                       )"><i class="fa fa-edit"></i></a>
                                       <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                      <a href="<?php echo base_url()?>jabatan/create_jabatan/<?php echo $item->id_pegawai ?>" type="button" title="Tambah Jabatan Baru" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-cogs"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>

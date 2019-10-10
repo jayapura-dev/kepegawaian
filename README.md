@@ -61,7 +61,7 @@
   - Memperbaiki Query data notofikasi pangkat [Solved]
   - Menambahkan Modul data master [Solved]
   - Menambahkan Fungsi CRUD pangkat [Solved]
-  - Menambahkan Fungsi CRUD jabatan [Not Solved]
+  - Menambahkan Fungsi CRUD jabatan [Solved]
   - Menambahkan Modul KGB [Solved]
   - Memperbaiki Modul home [Solved]
 

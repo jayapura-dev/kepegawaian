@@ -26,7 +26,6 @@ class M_kpb extends CI_Model{
     $query = $this->db->query("SELECT * FROM tb_pegawai
     LEFT JOIN tb_pangkat ON tb_pegawai.id_pangkat = tb_pangkat.id_pangkat
     WHERE id_pegawai = '$id_pegawai' ");
-
     return $query->row_array();
   }
   function data_naik_pangkat()
