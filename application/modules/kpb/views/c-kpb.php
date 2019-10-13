@@ -55,10 +55,10 @@
                                            <label class="login2 pull-right pull-right-pro">No SK</label>
                                        </div>
                                        <div class="col-lg-5">
-                                           <input name="no_skp" type="text" class="form-control" />
+                                           <input name="no_sk" type="text" class="form-control" />
                                        </div>
                                        <div class="col-lg-5">
-                                           <input name="tgl_sk" type="date" class="form-control" required="true" placeholder="Tanggal SK" />
+                                           <input name="tgl_sk" type="date" class="form-control" required="true" />
                                        </div>
                                    </div>
                                  </div>

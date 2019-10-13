@@ -27,6 +27,7 @@
             <div class="col-lg-12">
               <?php echo $this->session->flashdata('simpan');?>
               <?php echo $this->session->flashdata('update');?>
+              <?php echo $this->session->flashdata('update_file');?>
               <?php echo $this->session->flashdata('hapus');?>
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
@@ -67,10 +68,27 @@
                                     <td><?php echo $item->pkt_lama ?></td>
                                     <td><?php echo $item->no_sk ?> <br/> <?php echo $item->tgl_sk ?></td>
                                     <td><?php echo $item->pangkat ?> </br> <?php echo $item->tmt_kpb ?></td>
-                                    <td><a href="<?php echo base_url()?>images/kpb/<?php echo $item->dok_kpb ?>" target="_blank"><img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a></td>
                                     <td>
-                                      <a href="#" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-edit"></i></a>
-                                      <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                      <a href="<?php echo base_url()?>images/kpb/<?php echo $item->dok_kpb ?>" target="_blank"><img src="<?php echo base_url()?>assets/img/logo/file.png" width="30px"></img></a>
+                                      <a href="#modalupdatefile" data-toggle="modal" class="fa fa-edit" onclick="update_file(
+                                        '<?php echo $item->id_kpb ?>',
+                                        '<?php echo $item->nama ?>',
+                                        '<?php echo $item->dok_kpb ?>'
+                                      )"></a>
+                                    </td>
+                                    <td>
+                                      <a href="#modalupdate" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs" onclick="update(
+                                        '<?php echo $item->id_kpb ?>',
+                                        '<?php echo $item->id_pegawai ?>',
+                                        '<?php echo $item->nama ?>',
+                                        '<?php echo $item->no_sk ?>',
+                                        '<?php echo $item->tgl_sk ?>',
+                                        '<?php echo $item->pkt_lama ?>',
+                                        '<?php echo $item->id_pangkat ?>',
+                                        '<?php echo $item->tmt_kpb ?>',
+                                        '<?php echo $item->ket_kpb ?>'
+                                      )"><i class="fa fa-edit"></i></a>
+                                      <a href="<?php echo base_url()?>kpb/delete_kpb/<?php echo $item->id_kpb ?>" type="button" title="Hapus" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>
@@ -83,3 +101,56 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modalupdate" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id=""><i class="fa fa-plus-circle"></i> Form Edit Data Pangkat Pejabat </h4>
+			</div>
+			<div class="modal-body">
+        <?php $this->load->view('kpb/u-kpb'); ?>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="modalupdatefile" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id=""><i class="fa fa-plus-circle"></i> Form Edit Data Pangkat Pejabat </h4>
+			</div>
+			<div class="modal-body">
+        <?php $this->load->view('kpb/u-file-kpb'); ?>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  function update(id_kpb,id_pegawai,nama,no_sk,tgl_sk,pkt_lama,id_pangkat,tmt_kpb,ket_kpb){
+    $('#xid_kpb').val(id_kpb);
+    $('#xid_pegawai').val(id_pegawai);
+    $('#xnama').val(nama);
+    $('#xno_sk').val(no_sk);
+    $('#xtgl_sk').val(tgl_sk);
+    $('#xpkt_lama').val(pkt_lama);
+    $('#xid_pangkat').val(id_pangkat);
+    $('#xtmt_kpb').val(tmt_kpb);
+    $('#xket_kpb').val(ket_kpb);
+  }
+  function update_file(id_kpb,nama,dok_kpb){
+    $('#xxid_kpb').val(id_kpb);
+    $('#xxnama').val(nama);
+    $('#xxdok_kpb').val(dok_kpb);
+  }
+</script>

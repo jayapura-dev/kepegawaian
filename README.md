@@ -68,7 +68,7 @@
 * Sabtu 5 Oktober 2019
   - Menambahkan Field gapok & tmt_gapok pada tb pegawai [Solved]
   - Memperbaiki CRUD Pegawai [Solved]
-  - Menambahkan Fungsi CRUD pada Modul KGB [Not Solved]
+  - Menambahkan Fungsi CRUD pada Modul KGB [Solved]
 
 * Minggu 6 Oktober 2019
   - Meperbaiki halaman partial reminder (Notifikasi) [Solved]
@@ -79,5 +79,9 @@
   - Menambahkan Modul Pensiun [Solved]
   - Memperbaiki Fungsi Update & Create Pegawai pada Modul Pegawai [Solved]
   - Menambahkan Fungsi substring NIP untuk tgl lahir, tmt cpns, dan Jenis Kelamin [Solved]
-  - Menambahkan Fungsi CRUD Pensiun [Not Solved]
+  - Menambahkan Fungsi CRUD Pensiun [Solved]
   - Memperbaiki Partial Notifikasi KGB, KP, Pensiun [Solved]
+
+* Minggu 13 Oktober 2019
+  - Menambahkan fungsi Pencarian pada Modul kpb(pangkat) [Solved]
+  - Menambahakn fungsi CRUD Jabatan [Solved]

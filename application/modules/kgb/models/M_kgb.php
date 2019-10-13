@@ -23,9 +23,30 @@ class M_kgb extends CI_Model{
   {
     $this->db->insert('tb_kgb',$data);
   }
-  function update_tmt_gapok($where,$data,$table)
+  function detail_kgb($id_kgb)
+  {
+    $query = $this->db->query("SELECT * FROM tb_kgb
+    LEFT JOIN tb_pegawai ON tb_kgb.id_pegawai = tb_pegawai.id_pegawai
+    WHERE tb_kgb.id_kgb = '$id_kgb' ");
+    return $query->row_array();
+  }
+  function update_kgb($where,$data,$table)
   {
     $this->db->where($where);
     $this->db->update($table,$data);
+  }
+  function update_pegawai($where_pegawai,$data_pegawai,$table)
+  {
+    $this->db->where($where_pegawai);
+    $this->db->update($table,$data_pegawai);
+  }
+  function update_file_kgb($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
+  function delete_kgb($id_kgb = 0)
+  {
+    $this->db->delete('tb_kgb', array('id_kgb' => $id_kgb));
   }
 }
