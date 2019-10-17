@@ -85,3 +85,9 @@
 * Minggu 13 Oktober 2019
   - Menambahkan fungsi Pencarian pada Modul kpb(pangkat) [Solved]
   - Menambahakn fungsi CRUD Jabatan [Solved]
+
+* Kamis 17 Oktober 2019
+  - Menambahkan tb ijin belajar [Solved]
+  - Menambahkan Modul ijin belajar (ib) [Solved]
+  - Menambahkan fungsi CRUD Ijin Belajar [Solved]
+  - Membuat dan Menyimpan Folder Queryset [Solved]
