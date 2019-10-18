@@ -91,3 +91,8 @@
   - Menambahkan Modul ijin belajar (ib) [Solved]
   - Menambahkan fungsi CRUD Ijin Belajar [Solved]
   - Membuat dan Menyimpan Folder Queryset [Solved]
+
+* Jumat 18 Oktober 2019
+  - Menambahkan tb tugas belajar [Solved]
+  - Menambahkan Modul Tugas belajar [Solved]
+  - Menambahkan fungsi CRUD Tugas Belajar [Solved]

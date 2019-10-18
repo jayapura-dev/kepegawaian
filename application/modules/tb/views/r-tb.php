@@ -33,9 +33,9 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data<span class="table-project-n"></span> Ijin Belajar</h1>
+                            <h1>Data<span class="table-project-n"></span> Tugas Belajar</h1>
                             <div class="sparkline13-outline-icon">
-                              <span><a href="<?php echo base_url()?>ib/create_ijin" title="Tambah Ijin Belajar" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i></a></i></span>
+                              <span><a href="<?php echo base_url()?>tb/create_tb" title="Tambah Ijin Belajar" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i></a></i></span>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                                 <tbody>
                                   <?php
                                   $no = 1;
-                                  foreach($ib as $item){
+                                  foreach($tb as $item){
                                   ?>
                                   <tr>
                                     <td><?php echo $no++ ?></td>
@@ -72,18 +72,18 @@
                                     <td><?php echo $item->jenjang ?></td>
                                     <td><?php echo $item->lembaga ?> <br/> <?php echo $item->lokasi_pdk ?></td>
                                     <td><?php echo $item->no_sk ?> <br/> <?php echo $item->tgl_sk ?></td>
-                                    <td><?php echo $item->tmt_awal ?> s/d</br>  <?php echo $item->tmt_akhir ?></td>
+                                    <td><?php echo $item->tmt_awal ?> s/d </br>  <?php echo $item->tmt_akhir ?></td>
                                     <td>
-                                      <a href="<?php echo base_url()?>images/ijin_belajar/<?php echo $item->dok_ijin ?>" target="_blank"><img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a>
+                                      <a href="<?php echo base_url()?>images/tugas_belajar/<?php echo $item->dok_tgs ?>" target="_blank"><img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a>
                                       <a href="#modalupdatefile" data-toggle="modal" class="fa fa-edit" onclick="update_file(
-                                        '<?php echo $item->id_ijin ?>',
+                                        '<?php echo $item->id_tgs ?>',
                                         '<?php echo $item->nama ?>',
-                                        '<?php echo $item->dok_ijin ?>'
+                                        '<?php echo $item->dok_tgs ?>'
                                       )"></a>
                                     </td>
                                     <td>
-                                      <a href="#modalupdate" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs" onclick="update(
-                                        '<?php echo $item->id_ijin ?>',
+                                      <a href="#modalupdate" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs" onclick="update_tgs(
+                                        '<?php echo $item->id_tgs ?>',
                                         '<?php echo $item->id_pegawai ?>',
                                         '<?php echo $item->nama ?>',
                                         '<?php echo $item->id_jenjang ?>',
@@ -94,7 +94,7 @@
                                         '<?php echo $item->no_sk ?>',
                                         '<?php echo $item->tgl_sk ?>'
                                       )"><i class="fa fa-edit"></i></a>
-                                      <a href="<?php echo base_url()?>ib/delete_ijin/<?php echo $item->id_ijin ?>" type="button" title="Hapus" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                      <a href="<?php echo base_url()?>tb/delete_tgs/<?php echo $item->id_tgs ?>" type="button" title="Hapus" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>
@@ -113,10 +113,10 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id=""><i class="fa fa-edit"></i> Form Edit Data Ijin Belajar </h4>
+				<h4 class="modal-title" id=""><i class="fa fa-edit"></i> Form Edit Data Tugas Belajar </h4>
 			</div>
 			<div class="modal-body">
-        <?php $this->load->view('u-ib'); ?>
+        <?php $this->load->view('u-tb'); ?>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
@@ -130,10 +130,10 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id=""><i class="fa fa-plus-circle"></i> Form Edit file Ijin Belajar </h4>
+				<h4 class="modal-title" id=""><i class="fa fa-plus-circle"></i> Form Edit file Tugas Belajar </h4>
 			</div>
 			<div class="modal-body">
-        <?php $this->load->view('u-file-ib'); ?>
+        <?php $this->load->view('u-file-tb'); ?>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
@@ -143,8 +143,8 @@
 </div>
 
 <script type="text/javascript">
-  function update(id_ijin,id_pegawai,nama,id_jenjang,tmt_awal,tmt_akhir,lokasi_pdk,lembaga,no_sk,tgl_sk){
-    $('#id_ijin').val(id_ijin);
+  function update_tgs(id_tgs,id_pegawai,nama,id_jenjang,tmt_awal,tmt_akhir,lokasi_pdk,lembaga,no_sk,tgl_sk){
+    $('#id_tgs').val(id_tgs);
     $('#id_pegawai').val(id_pegawai);
     $('#nama').val(nama);
     $('#id_jenjang').val(id_jenjang);
@@ -155,9 +155,9 @@
     $('#no_sk').val(no_sk);
     $('#tgl_sk').val(tgl_sk);
   }
-  function update_file(id_ijin,nama,dok_ijin){
-    $('#xid_ijin').val(id_ijin);
+  function update_file(id_tgs,nama,dok_ijin){
+    $('#xid_tgs').val(id_tgs);
     $('#xnama').val(nama);
-    $('#xdok_ijin').val(dok_ijin);
+    $('#xdok_tgs').val(dok_tgs);
   }
 </script>

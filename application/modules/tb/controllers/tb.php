@@ -1,34 +1,34 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ib extends MX_Controller {
+class tb extends MX_Controller {
   public function __construct()
   {
     parent::__construct();
     $this->load->library(array('upload','session','form_validation'));
     $this->load->database();
-    $this->load->model('M_ib');
+    $this->load->model('M_tb');
     Modules::run('auth/cek_login');
   }
   public function index()
   {
-    $data['title'] = 'Tugas Belajar Pejabat';
-    $data['ib'] = $this->M_ib->tb();
+    $data['title'] = 'Data Tugas Belajar';
+    $data['tb'] = $this->M_tb->tb();
     $data['pegawai'] = $this->db->query("SELECT * FROM tb_pegawai")->result();
     $data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
-    $this->template->load('MasterLayout','r-ib',$data);
+    $this->template->load('MasterLayout','r-tb',$data);
   }
-  public function create_ijin()
+  public function create_tb()
   {
-    $data['title'] = 'Tambah Ijin Belajar';
+    $data['title'] = 'Tambah Tugas Belajar';
     $data['pegawai'] = $this->db->query("SELECT * FROM tb_pegawai")->result();
     $data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
 
-    $this->template->load('MasterLayout','c-ib',$data);
+    $this->template->load('MasterLayout','c-tb',$data);
   }
-  public function create_ijin_proses()
+  public function create_tb_proses()
   {
-    $config['upload_path'] = './images/ijin_belajar';
+    $config['upload_path'] = './images/tugas_belajar';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
     $config['overwrite'] = TRUE;
@@ -38,9 +38,9 @@ class ib extends MX_Controller {
 
     $this->upload->initialize($config);
 
-    if ( ! $this->upload->do_upload('dok_ijin'))
+    if ( ! $this->upload->do_upload('dok_tgs'))
 		{
-			$dok_ijin = "";
+			$dok_tgs = "";
 			$this->session->set_flashdata(
         "error",
         "<div class='alert alert-danger fade in'>
@@ -48,9 +48,9 @@ class ib extends MX_Controller {
             <strong>error !</strong> Gagal Menambah Data!
         </div>"
       );
-      redirect('ib');
+      redirect('tb');
 		} else{
-			$dok_ijin = $this->upload->file_name;
+			$dok_tgs= $this->upload->file_name;
       // Tambah Data Pangkat Pejabat pada tb_pegawai
       $data = array(
         'id_pegawai' => $this->input->post('id_pegawai'),
@@ -61,10 +61,10 @@ class ib extends MX_Controller {
         'lembaga' => $this->input->post('lembaga'),
         'no_sk' => $this->input->post('no_sk'),
         'tgl_sk' => $this->input->post('tgl_sk'),
-        'dok_ijin' => $dok_ijin,
+        'dok_tgs' => $dok_tgs,
       );
 
-      $this->M_ib->create_ijin($data);
+      $this->M_tb->create_tugas($data);
       $this->session->set_flashdata(
           "simpan",
           "<div class='alert alert-success fade in'>
@@ -73,11 +73,11 @@ class ib extends MX_Controller {
           </div>"
       );
     }
-    redirect('ib');
+    redirect('tb');
   }
-  public function update_ijin_proses()
+  public function update_tgs_proses()
   {
-    $id_ijin = $this->input->post('id_ijin');
+    $id_tgs = $this->input->post('id_tgs');
     $id_pegawai = $this->input->post('id_pegawai');
     $id_jenjang = $this->input->post('id_jenjang');
     $tmt_awal = $this->input->post('tmt_awal');
@@ -88,7 +88,7 @@ class ib extends MX_Controller {
     $tgl_sk = $this->input->post('tgl_sk');
 
     $data = array(
-      'id_ijin'       => $id_ijin,
+      'id_tgs'       => $id_tgs,
       'id_pegawai'  => $id_pegawai,
       'id_jenjang'       => $id_jenjang,
       'tmt_awal'  => $tmt_awal,
@@ -100,10 +100,10 @@ class ib extends MX_Controller {
     );
 
     $where = array(
-      'id_ijin'       => $id_ijin
+      'id_tgs'       => $id_tgs
     );
 
-    $this->M_ib->update_ijin($where,$data,'tb_ijin_bljr');
+    $this->M_tb->update_tgs($where,$data,'tb_tgs_bljr');
     $this->session->set_flashdata(
         "simpan",
         "<div class='alert alert-success fade in'>
@@ -111,11 +111,11 @@ class ib extends MX_Controller {
             <strong>Success !</strong> Berhasil Menyimpan!
         </div>"
     );
-    redirect('ib');
+    redirect('tb');
   }
-  public function updatefile_ijin_proses()
+  public function updatefile_tgs_proses()
   {
-    $config['upload_path'] = './images/ijin_belajar';
+    $config['upload_path'] = './images/tugas_belajar';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
     $config['overwrite'] = TRUE;
@@ -123,23 +123,23 @@ class ib extends MX_Controller {
 		$config['max_height']  = 768*3;
     $config['max_size'] = 1024*3;
 
-    $id_ijin = $this->input->post('id_ijin');
-    $file = $this->db->get_where('tb_ijin_bljr', ['id_ijin' => $id_ijin]);
+    $id_tgs = $this->input->post('id_tgs');
+    $file = $this->db->get_where('tb_tgs_bljr', ['id_tgs' => $id_tgs]);
 
     if($file->num_rows() > 0){
       $gambar = $file->row();
-      $name = $gambar->dok_ijin;
+      $name = $gambar->dok_tgs;
       if($name != null){
-        $delete_path = './images/ijin_belajar/'.$name;
+        $delete_path = './images/tugas_belajar/'.$name;
         @unlink($delete_path);
       }
     }
 
     $this->upload->initialize($config);
 
-    if ( ! $this->upload->do_upload('dok_ijin'))
+    if ( ! $this->upload->do_upload('dok_tgs'))
 		{
-			$dok_ijin = "";
+			$dok_tgs = "";
 			$this->session->set_flashdata(
         "error",
         "<div class='alert alert-danger fade in'>
@@ -147,20 +147,20 @@ class ib extends MX_Controller {
             <strong>error !</strong> Gagal Mengupdate Data!
         </div>"
       );
-      redirect('ib');
+      redirect('tb');
 		} else{
-			$dok_ijin = $this->upload->file_name;
+			$dok_tgs = $this->upload->file_name;
 
       $data = array(
-        'id_ijin' => $id_ijin,
-        'dok_ijin' => $dok_ijin,
+        'id_tgs' => $id_tgs,
+        'dok_tgs' => $dok_tgs,
       );
 
       $where = array(
-        'id_ijin'  => $id_ijin
+        'id_tgs'  => $id_tgs
       );
 
-      $this->M_ib->update_file_ijin($where,$data,'tb_ijin_bljr');
+      $this->M_tb->update_file_tgs($where,$data,'tb_tgs_bljr');
       $this->session->set_flashdata(
           "update_file",
           "<div class='alert alert-success fade in'>
@@ -168,37 +168,37 @@ class ib extends MX_Controller {
               <strong>Success !</strong> Berhasil Mengupdate File!
           </div>"
       );
-      redirect('ib');
+      redirect('tb');
     }
   }
-  public function delete_ijin($id_ijin)
+  public function delete_tgs($id_tgs)
   {
-    $data['title'] = 'Hapus Item Ijin Belajar';
-    $data['detail'] = $this->M_ib->detail_ijin($id_ijin);
+    $data['title'] = 'Hapus Item Tugas Belajar';
+    $data['detail'] = $this->M_tb->detail_tgs($id_tgs);
 
-    $this->template->load('MasterLayout','d-ib',$data);
+    $this->template->load('MasterLayout','d-tb',$data);
   }
-  function delete_ijin_proses($id_ijin = 0)
+  function delete_tgs_proses($id_tgs = 0)
   {
-    $id_ijin= $this->input->post('id_ijin');
-    $file = $this->db->get_where('tb_ijin_bljr', ['id_ijin' => $id_ijin]);
+    $id_tgs= $this->input->post('id_tgs');
+    $file = $this->db->get_where('tb_tgs_bljr', ['id_tgs' => $id_tgs]);
 
     if($file->num_rows() > 0){
       $gambar = $file->row();
-      $name = $gambar->dok_ijin;
+      $name = $gambar->dok_tgs;
       if($name != null){
-        $delete_path = './images/ijin_belajar/'.$name;
+        $delete_path = './images/tugas_belajar/'.$name;
         @unlink($delete_path);
       }
     }
 
-    $this->M_ib->delete_ijin($id_ijin);
+    $this->M_tb->delete_tgs($id_tgs);
     $this->session->set_flashdata("hapus","
         <div class='alert alert-success fade in'>
             <a href='#' class='close' data-dismiss='alert'>&times;</a>
             <strong>Success !</strong> Berhasil Menghapus Data!
         </div>"
     );
-    redirect('ib');
+    redirect('tb');
   }
 }
