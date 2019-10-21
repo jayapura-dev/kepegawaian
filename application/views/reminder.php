@@ -8,6 +8,10 @@ $data_kgb = $this->M_home->data_ukgb();
 
 $notif_pen = $this->M_home->hitung_pensiun();
 $data_pen = $this->M_home->data_pensiun();
+
+$notif_ib = $this->M_home->hitung_usulan_ib();
+$data_ib = $this->M_home->data_usulan_ijin();
+
 foreach($notif as $i){
   $signal = $i->jumlah_pejabat;
 }
@@ -16,6 +20,10 @@ foreach($notif_kgb as $k){
 }
 foreach($notif_pen as $p){
   $signal_pen = $p->jumlah_pejabat;
+}
+
+foreach($notif_ib as $ib){
+  $signal_ib = $ib->jumlah_pejabat;
 }
 ?>
 
@@ -150,3 +158,48 @@ else:?>
 </li>
 <?php endif ?>
 <!-- End Notifikasi Pensiun !-->
+
+<!-- Start Notifikasi Ijin Belajar !-->
+<?php if ($signal_ib === '0'): ?>
+<li class="nav-item">
+  <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+  </a>
+  <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated flipInX">
+    <text class="text-center"><strong>Tidak Ada Notifikasi Pensiun</strong></text>
+  </div>
+</li>
+
+<?php else: ?>
+<li class="nav-item">
+  <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+
+    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+    <span class="badge badge-info"><?php echo $signal_ib ?></span>
+  </a>
+    <div role="menu" class="notification-author dropdown-menu animated flipInX">
+        <div class="notification-single-top">
+            <h1>Usulan PIB</h1>
+        </div>
+        <ul class="notification-menu">
+            <?php foreach($data_ib as $ib){?>
+            <li>
+                <a href="#">
+                    <div class="notification-icon">
+                        <img src="<?php echo base_url()?>images/foto_pegawai/<?php echo $ib->path_foto ?>" width="70px" alt="">
+                    </div>
+                    <div class="notification-content">
+                        <p><strong><?php echo $ib->nama ?></strong> <?php echo $ib->tgl_akhir ?> <br/><?php echo $ib->selisih ?> Hari Lagi </p>
+                        <h5></h5>
+                    </div>
+                </a>
+            </li>
+          <?php } ?>
+        </ul>
+        <div class="notification-view">
+            <a href="<?php echo base_url()?>ib/usulan_pib">Lihat Data Usualan PIB</a>
+        </div>
+    </div>
+</li>
+<?php endif ?>
+<!-- End Notifikasi Ijin Belajar !-->

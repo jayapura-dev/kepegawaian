@@ -1,0 +1,9 @@
+SELECT 
+tb_pegawai.id_pegawai as id_pegawai,
+tb_pegawai.nama as nama,
+tb_pegawai.nip as nip,
+tb_pegawai.path_foto as path_foto,
+tb_pegawai.tgl_akhir as tgl_akhir,
+DATEDIFF(tb_pegawai.tgl_akhir, NOW()) as selisih
+FROM tb_pegawai
+WHERE tb_pegawai.status_tgs_belajar = 'ya'

@@ -9,9 +9,9 @@
                         </div>
                         <div class="col-lg-6">
                             <ul class="breadcome-menu">
-                                <li><a href="#">Data Master</a> <span class="bread-slash">/</span>
+                                <li><a href="#">Ijin Belajar</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><span class="bread-blod">Jabatan</span>
+                                <li><span class="bread-blod">Usulan PIB</span>
                                 </li>
                             </ul>
                         </div>
@@ -31,8 +31,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data<span class="table-project-n"></span> Master Jabatan</h1>
-
+                            <h5>Daftar<span class="table-project-n"></span> Pejabat Yang Harus Melakukan Perpajangan Ijin Belajar Kurang Dari 30 Hari</h5>
                         </div>
                     </div>
                     <div class="sparkline13-graph">
@@ -48,23 +47,22 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="kp">Jenis KP</th>
-                                        <th data-field="nama">Jabatan</th>
+                                        <th data-field="nama">Nama Pegawai</th>
+                                        <th data-field="akhir">Tgl Akhir</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   <?php
                                   $no = 1;
-                                  foreach($jabatan as $item){
+                                  foreach($usulan_pib as $item){
                                   ?>
                                   <tr>
                                     <td><?php echo $no++ ?></td>
-                                    <td><?php echo $item->jenis_kp ?></td>
-                                    <td><?php echo $item->jabatan ?> </td>
+                                    <td><?php echo $item->nama ?> <br/> <?php echo $item->nip ?></td>
+                                    <td><?php echo $item->tgl_akhir ?></td>
                                     <td>
-                                      <a href="#" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-edit"></i></a>
-                                      <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                      <a href="#" title="Tambah PIB" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>

@@ -164,6 +164,32 @@
               </div>
           </div>
         </div>
+        <div class="form-group-inner">
+         <div class="row">
+             <div class="col-lg-2">
+                 <label class="login2 pull-right pull-right-pro">Ijin Belajar</label>
+             </div>
+             <div class="col-lg-1">
+               <input type="radio" value="ya" name="status_ijin_belajar"> <i></i> Ya </label>
+             </div>
+             <div class="col-lg-1">
+               <input type="radio" value="tidak" checked="" name="status_ijin_belajar"> <i></i> Tidak </label>
+             </div>
+         </div>
+       </div>
+       <div class="form-group-inner">
+        <div class="row">
+            <div class="col-lg-2">
+                <label class="login2 pull-right pull-right-pro">Tugas Belajar</label>
+            </div>
+            <div class="col-lg-1">
+              <input type="radio" value="ya" name="status_tgs_belajar"> <i></i> Ya </label>
+            </div>
+            <div class="col-lg-1">
+              <input type="radio" value="tidak" checked="" name="status_tgs_belajar"> <i></i> Tidak </label>
+            </div>
+        </div>
+      </div>
           <div class="form-group-inner">
            <div class="row">
              <div class="col-lg-2">

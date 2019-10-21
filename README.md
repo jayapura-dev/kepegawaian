@@ -96,3 +96,6 @@
   - Menambahkan tb tugas belajar [Solved]
   - Menambahkan Modul Tugas belajar [Solved]
   - Menambahkan fungsi CRUD Tugas Belajar [Solved]
+
+* Senin 22 Oktober 2019
+  - Menambahkan Fungsi Reminder Ijin Belajar [Solved]

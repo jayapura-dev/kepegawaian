@@ -51,6 +51,8 @@ class pegawai extends MX_Controller {
     $tmt_cpns = $this->input->post('tmt_cpns');
     $id_kp = $this->input->post('id_kp');
     $id_unit = $this->input->post('id_unit');
+    $status_ijin_belajar = $this->input->post('status_ijin_belajar');
+    $status_tgs_belajar = $this->input->post('status_tgs_belajar');
 
     $data = array(
       'nama'          => $nama,
@@ -67,7 +69,9 @@ class pegawai extends MX_Controller {
       'tmt_gapok'     => $tmt_gapok,
       'tmt_cpns'      => $tmt_cpns,
       'id_kp'         => $id_kp,
-      'id_unit'       => $id_unit
+      'id_unit'       => $id_unit,
+      'status_ijin_belajar' => $status_ijin_belajar,
+      'status_tgs_belajar' => $status_tgs_belajar
     );
 
     $this->M_pegawai->create_pegawai($data);
@@ -97,6 +101,8 @@ class pegawai extends MX_Controller {
     $tmt_cpns = $this->input->post('tmt_cpns');
     $id_kp = $this->input->post('id_kp');
     $id_unit = $this->input->post('id_unit');
+    $status_ijin_belajar = $this->input->post('status_ijin_belajar');
+    $status_tgs_belajar = $this->input->post('status_tgs_belajar');
 
     $data = array(
       'id_pegawai'    => $id_pegawai,
@@ -113,7 +119,9 @@ class pegawai extends MX_Controller {
       'tmt_gapok'     => $tmt_gapok,
       'tmt_cpns'      => $tmt_cpns,
       'id_kp'         => $id_kp,
-      'id_unit'       => $id_unit
+      'id_unit'       => $id_unit,
+      'status_ijin_belajar' => $status_ijin_belajar,
+      'status_tgs_belajar' => $status_tgs_belajar
     );
 
     $where = array(

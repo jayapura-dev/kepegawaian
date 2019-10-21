@@ -77,4 +77,28 @@ class M_home extends CI_Model{
       WHERE selisih <= 180 ");
     return $query->result();
   }
+
+  // Data Ijin Belajar
+  function data_usulan_ijin()
+  {
+    $query = $this->db->query("SELECT
+    id_pegawai as id_pegawai,
+    nama as nama,
+    nip as nip,
+    tgl_akhir as tgl_akhir,
+    path_foto as path_foto,
+    selisih as selisih
+    FROM data_ijinbelajar_notif
+    WHERE selisih <= 30 ");
+
+    return $query->result();
+  }
+  function hitung_usulan_ib()
+  {
+    $query = $this->db->query("SELECT
+      COUNT(id_pegawai) as jumlah_pejabat
+      FROM data_ijinbelajar_notif
+      WHERE selisih <= 30 ");
+    return $query->result();
+  }
 }
