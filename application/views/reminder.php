@@ -171,7 +171,7 @@ else:?>
     <i class="fa fa-graduation-cap" aria-hidden="true"></i>
   </a>
   <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated flipInX">
-    <text class="text-center"><strong>Tidak Ada Notifikasi Pensiun</strong></text>
+    <text class="text-center"><strong>Tidak Ada Notifikasi PIB</strong></text>
   </div>
 </li>
 

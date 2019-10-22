@@ -33,10 +33,8 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data<span class="table-project-n"></span> Jabatan</h1>
-                            <div class="sparkline13-outline-icon">
-                              <span><a href="<?php echo base_url()?>jabatan/create_jabatan" title="Tambah Surat Masuk" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i></a></i></span>
-                            </div>
+                            <h1>Data<span class="table-project-n"></span> Jabatan Pejabat</h1>
+
                         </div>
                     </div>
                     <div class="sparkline13-graph">

@@ -62,7 +62,7 @@
                                     <td><?php echo $item->nama ?> <br/> <?php echo $item->nip ?></td>
                                     <td><?php echo $item->tgl_akhir ?></td>
                                     <td>
-                                      <a href="#" title="Tambah PIB" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
+                                      <a href="<?php echo base_url()?>tb/create_tb/<?php echo $item->id_pegawai ?>" title="Tambah PTB" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>

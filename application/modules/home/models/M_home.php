@@ -127,4 +127,17 @@ class M_home extends CI_Model{
     return $query->result();
   }
   // End Notif Ijin Belajar
+
+  function hitung_pejabat()
+  {
+    $query = $this->db->query("SELECT
+    COUNT(id_pegawai) as jumlah_pejabat,
+    COUNT(Distinct CASE WHEN id_kp = '1' THEN id_pegawai END) as jastruk,
+    COUNT(Distinct CASE WHEN id_kp = '2' THEN id_pegawai END) as jafung_umum,
+    COUNT(Distinct CASE WHEN id_kp = '3' THEN id_pegawai END) as jafung_tertentu
+    FROM tb_pegawai
+    ");
+
+    return $query->result();
+  }
 }

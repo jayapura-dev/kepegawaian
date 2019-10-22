@@ -65,12 +65,12 @@ class tb extends MX_Controller {
     redirect('tb/tugas_belajar');
   }
 
-  public function create_tb()
+  public function create_tb($id_pegawai)
   {
     $data['title'] = 'Tambah Tugas Belajar';
-    $data['pegawai'] = $this->db->query("SELECT * FROM tb_pegawai")->result();
-    $data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
-
+    //$data['pegawai'] = $this->db->query("SELECT * FROM tb_pegawai")->result();
+    //$data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
+    $data['detail'] = $this->db->get_where('tb_pegawai',['id_pegawai' => $id_pegawai])->row_array();
     $this->template->load('MasterLayout','c-tb',$data);
   }
   public function create_tb_proses()
@@ -111,7 +111,20 @@ class tb extends MX_Controller {
         'dok_tgs' => $dok_tgs,
       );
 
+      $id_pegawai = $this->input->post('id_pegawai');
+      $tmt_akhir = $this->input->post('tmt_akhir');
+
+      $data_pegawai = array(
+        'id_pegawai'   => $id_pegawai,
+        'tgl_akhir'    => $tmt_akhir,
+      );
+
+      $where_pegawai = array(
+        'id_pegawai'   => $id_pegawai
+      );
+
       $this->M_tb->create_tugas($data);
+      $this->M_tb->update_data_pegawai($where_pegawai,$data_pegawai,'tb_pegawai');
       $this->session->set_flashdata(
           "simpan",
           "<div class='alert alert-success fade in'>

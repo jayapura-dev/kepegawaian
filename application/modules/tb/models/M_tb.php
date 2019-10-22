@@ -7,7 +7,6 @@ class M_tb extends CI_Model{
     $query = $this->db->query("SELECT * FROM tb_tgs_bljr
     LEFT JOIN tb_pegawai ON tb_tgs_bljr.id_pegawai = tb_pegawai.id_pegawai
     LEFT JOIN tb_jenjang ON tb_tgs_bljr.id_jenjang = tb_jenjang.id_jenjang");
-
     return $query->result();
   }
   function pejabat_tb()
@@ -37,9 +36,19 @@ class M_tb extends CI_Model{
 
     return $query->result();
   }
+  function update_tgs_pejabat($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
   function create_tugas($data)
   {
     $this->db->insert('tb_tgs_bljr',$data);
+  }
+  function update_data_pegawai($where_pegawai,$data_pegawai,$table)
+  {
+    $this->db->where($where_pegawai);
+    $this->db->update($table,$data_pegawai);
   }
   function update_tgs($where,$data,$table)
   {

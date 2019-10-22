@@ -102,3 +102,8 @@
   - Menambahkan Fungsi Reminder Tugas Belajar [Solved]
   - Menambahkan Fungsi Lihat Usulan Perpanjangan Ijin Belajar [Solved]
   - Menambahkan Fungsi Lihat Usulan Perpanjangan Tugas Belajar [Solved]
+
+* Rabu 23 Oktober 2019
+  - Memperbaiki View Dashboard [Not Solved]
+  - Memperbaiki View Reminder [Solved]
+  - Memperbaiki Menu Side bar [Solved]

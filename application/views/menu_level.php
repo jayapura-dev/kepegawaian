@@ -43,7 +43,7 @@
             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
                 <a href="<?php echo base_url()?>ib/usulan_pib">Usulan PIB</a>
                 <a href="<?php echo base_url()?>ib/ijin_belajar" class="dropdown-item">Ijin Belajar</a>
-                <a href="<?php echo base_url()?>ib">Data Ijin Belajar</a>
+                <a href="<?php echo base_url()?>ib">PIB</a>
 
             </div>
         </li>
@@ -51,7 +51,7 @@
             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
               <a href="<?php echo base_url()?>tb/usulan_ptb">Usulan PTB</a>
               <a href="<?php echo base_url()?>tb/tugas_belajar" class="dropdown-item">Tugas Belajar</a>
-              <a href="#">Perpanjang Tugas</a>
+              <a href="<?php echo base_url()?>tb">PTB</a>
             </div>
         </li>
 

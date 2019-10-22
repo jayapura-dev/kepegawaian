@@ -62,12 +62,12 @@ class ib extends MX_Controller {
     );
     redirect('ib/ijin_belajar');
   }
-  public function create_ijin()
+  public function create_ijin($id_pegawai)
   {
     $data['title'] = 'Tambah Ijin Belajar';
-    $data['pegawai'] = $this->db->query("SELECT * FROM tb_pegawai")->result();
-    $data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
-
+    //$data['pegawai'] = $this->db->query("SELECT * FROM tb_pegawai WHERE status_ijin_belajar = 'ya' ")->result();
+    //$data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
+    $data['detail'] = $this->db->get_where('tb_pegawai',['id_pegawai' => $id_pegawai])->row_array();
     $this->template->load('MasterLayout','c-ib',$data);
   }
   public function create_ijin_proses()
@@ -95,7 +95,9 @@ class ib extends MX_Controller {
       redirect('ib');
 		} else{
 			$dok_ijin = $this->upload->file_name;
-      // Tambah Data Pangkat Pejabat pada tb_pegawai
+
+      // Tambah Data Perpanjangan Ijin Belajar
+
       $data = array(
         'id_pegawai' => $this->input->post('id_pegawai'),
         'id_jenjang' => $this->input->post('id_jenjang'),
@@ -108,7 +110,21 @@ class ib extends MX_Controller {
         'dok_ijin' => $dok_ijin,
       );
 
+      // Update Data Pegawai ijin Belajar
+      $id_pegawai = $this->input->post('id_pegawai');
+      $tmt_akhir = $this->input->post('tmt_akhir');
+
+      $data_pegawai = array(
+        'id_pegawai'    => $id_pegawai,
+        'tgl_akhir'     => $tmt_akhir,
+      );
+
+      $where_pegawai = array(
+        'id_pegawai'    => $id_pegawai
+      );
+
       $this->M_ib->create_ijin($data);
+      $this->M_ib->update_data_pegawai($where_pegawai,$data_pegawai,'tb_pegawai');
       $this->session->set_flashdata(
           "simpan",
           "<div class='alert alert-success fade in'>
@@ -132,22 +148,35 @@ class ib extends MX_Controller {
     $tgl_sk = $this->input->post('tgl_sk');
 
     $data = array(
-      'id_ijin'       => $id_ijin,
-      'id_pegawai'  => $id_pegawai,
-      'id_jenjang'       => $id_jenjang,
-      'tmt_awal'  => $tmt_awal,
-      'tmt_akhir'       => $tmt_akhir,
-      'lokasi_pdk'  => $lokasi_pdk,
-      'lembaga'  => $lembaga,
-      'no_sk'       => $no_sk,
-      'tgl_sk'  => $tgl_sk
+      'id_ijin'      => $id_ijin,
+      'id_pegawai'   => $id_pegawai,
+      'id_jenjang'   => $id_jenjang,
+      'tmt_awal'     => $tmt_awal,
+      'tmt_akhir'    => $tmt_akhir,
+      'lokasi_pdk'   => $lokasi_pdk,
+      'lembaga'      => $lembaga,
+      'no_sk'        => $no_sk,
+      'tgl_sk'       => $tgl_sk
     );
 
     $where = array(
-      'id_ijin'       => $id_ijin
+      'id_ijin'      => $id_ijin
+    );
+
+    $id_pegawai = $this->input->post('id_pegawai');
+    $tmt_akhir = $this->input->post('tmt_akhir');
+
+    $data_pegawai = array(
+      'id_pegawai'   => $id_pegawai,
+      'tgl_akhir'    => $tmt_akhir,
+    );
+
+    $where_pegawai = array(
+      'id_pegawai'   => $id_pegawai
     );
 
     $this->M_ib->update_ijin($where,$data,'tb_ijin_bljr');
+    $this->M_ib->update_data_pegawai($where_pegawai,$data_pegawai,'tb_pegawai');
     $this->session->set_flashdata(
         "simpan",
         "<div class='alert alert-success fade in'>

@@ -41,46 +41,23 @@
                                         <div class="col-lg-2">
                                             <label class="login2 pull-right pull-right-pro">Pejabat</label>
                                         </div>
-                                        <div class="col-lg-10">
-                                          <select name="id_pegawai" class="form-control">
-                                              <option value="">-- Pilih --</option>
-                                               <?php
-                                               foreach($pegawai as $j => $val)
-                                               {?>
-                                               <option value="<?php echo $val->id_pegawai;?>"><?php echo $val->nama; ?></option>
-                                               <?php
-                                               }?>
-                                          </select>
+                                        <div class="col-lg-8">
+                                          <input type="text" readonly="true" name="nama" class="form-control" value="<?php echo $detail['nama'] ?>">
+                                          <input type="hidden" name="id_pegawai" value="<?php echo $detail['id_pegawai'] ?>">
+                                          <input type="hidden" name="id_jenjang" value="<?php echo $detail['id_jenjang'] ?>">
                                         </div>
                                     </div>
                                   </div>
-                                  <div class="form-group-inner">
-                                   <div class="row">
-                                       <div class="col-lg-2">
-                                           <label class="login2 pull-right pull-right-pro">Jenjang</label>
-                                       </div>
-                                       <div class="col-lg-6">
-                                         <select name="id_jenjang" class="form-control">
-                                             <option value="">-- Pilih --</option>
-                                              <?php
-                                              foreach($jenjang as $j => $val)
-                                              {?>
-                                              <option value="<?php echo $val->id_jenjang;?>"><?php echo $val->jenjang; ?></option>
-                                              <?php
-                                              }?>
-                                         </select>
-                                       </div>
-                                   </div>
-                                  </div>
+
                                   <div class="form-group-inner">
                                    <div class="row">
                                        <div class="col-lg-2">
                                            <label class="login2 pull-right pull-right-pro">TMT Awal</label>
                                        </div>
-                                       <div class="col-lg-4">
-                                         <input type="date" name="tmt_awal" class="form-control">
+                                       <div class="col-lg-3">
+                                         <input type="text" readonly="true" name="tmt_awal" value="<?php echo $detail['tgl_awal'] ?>" class="form-control">
                                        </div>
-                                       <div class="col-lg-2">
+                                       <div class="col-lg-1">
                                            <label class="login2 pull-right pull-right-pro">Akhir</label>
                                        </div>
                                        <div class="col-lg-4">
@@ -93,10 +70,10 @@
                                        <div class="col-lg-2">
                                            <label class="login2 pull-right pull-right-pro">Lokasi</label>
                                        </div>
-                                       <div class="col-lg-4">
+                                       <div class="col-lg-3">
                                          <input type="text" name="lokasi_pdk" class="form-control">
                                        </div>
-                                       <div class="col-lg-2">
+                                       <div class="col-lg-1">
                                            <label class="login2 pull-right pull-right-pro">Lembaga</label>
                                        </div>
                                        <div class="col-lg-4">
@@ -109,10 +86,13 @@
                                        <div class="col-lg-2">
                                            <label class="login2 pull-right pull-right-pro">No SK</label>
                                        </div>
-                                       <div class="col-lg-4">
+                                       <div class="col-lg-3">
                                            <input name="no_sk" type="text" class="form-control" />
                                        </div>
-                                       <div class="col-lg-3">
+                                       <div class="col-lg-1">
+                                           <label class="login2 pull-right pull-right-pro">TMT SK</label>
+                                       </div>
+                                       <div class="col-lg-4">
                                            <input name="tgl_sk" type="date" class="form-control" required="true" placeholder="Tanggal SK" />
                                        </div>
                                    </div>
@@ -143,8 +123,8 @@
                 </div>
             </div>
         </div>
+      </div>
     </div>
-  </div>
   </div>
 </div>
 <br/>
