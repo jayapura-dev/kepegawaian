@@ -18,6 +18,53 @@ class tb extends MX_Controller {
     $data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
     $this->template->load('MasterLayout','r-tb',$data);
   }
+
+  public function usulan_ptb()
+  {
+    $data['title'] = 'Usulan PIB';
+    $data['usulan_ptb'] = $this->M_tb->usulan_ptb();
+    $this->template->load('MasterLayout','r-usulan-ptb',$data);
+  }
+
+  public function tugas_belajar()
+  {
+    $data['title'] = 'Usulan PTB';
+    $data['tb'] = $this->M_tb->pejabat_tb();
+    $data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
+    $this->template->load('MasterLayout','r-pejabat-tugas',$data);
+  }
+
+  public function update_tugas_pegawai_proses()
+  {
+    $id_pegawai = $this->input->post('id_pegawai');
+    $tgl_awal = $this->input->post('tgl_awal');
+    $tgl_akhir = $this->input->post('tgl_akhir');
+    $no_sk = $this->input->post('no_sk');
+    $id_jenjang = $this->input->post('id_jenjang');
+
+    $data = array(
+      'id_pegawai'    => $id_pegawai,
+      'tgl_awal'      => $tgl_awal,
+      'tgl_akhir'     => $tgl_akhir,
+      'no_sk'         => $no_sk,
+      'id_jenjang'    => $id_jenjang
+    );
+
+    $where = array(
+      'id_pegawai'    => $id_pegawai
+    );
+
+    $this->M_tb->update_tugas_pejabat($where,$data,'tb_pegawai');
+    $this->session->set_flashdata(
+        "simpan",
+        "<div class='alert alert-success fade in'>
+            <a href='#' class='close' data-dismiss='alert'>&times;</a>
+            <strong>Success !</strong> Berhasil Mengupdate Data!
+        </div>"
+    );
+    redirect('tb/tugas_belajar');
+  }
+
   public function create_tb()
   {
     $data['title'] = 'Tambah Tugas Belajar';

@@ -12,6 +12,9 @@ $data_pen = $this->M_home->data_pensiun();
 $notif_ib = $this->M_home->hitung_usulan_ib();
 $data_ib = $this->M_home->data_usulan_ijin();
 
+$notif_tb = $this->M_home->hitung_usulan_tb();
+$data_tb = $this->M_home->data_usulan_tb();
+
 foreach($notif as $i){
   $signal = $i->jumlah_pejabat;
 }
@@ -21,9 +24,11 @@ foreach($notif_kgb as $k){
 foreach($notif_pen as $p){
   $signal_pen = $p->jumlah_pejabat;
 }
-
 foreach($notif_ib as $ib){
   $signal_ib = $ib->jumlah_pejabat;
+}
+foreach($notif_tb as $tb){
+  $signal_tb = $tb->jumlah_pejabat;
 }
 ?>
 
@@ -198,6 +203,51 @@ else:?>
         </ul>
         <div class="notification-view">
             <a href="<?php echo base_url()?>ib/usulan_pib">Lihat Data Usualan PIB</a>
+        </div>
+    </div>
+</li>
+<?php endif ?>
+<!-- End Notifikasi Ijin Belajar !-->
+
+<!-- Start Notifikasi Ijin Belajar !-->
+<?php if ($signal_tb === '0'): ?>
+<li class="nav-item">
+  <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+    <i class="fa fa-briefcase" aria-hidden="true"></i>
+  </a>
+  <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated flipInX">
+    <text class="text-center"><strong>Tidak Ada Notifikasi PTB</strong></text>
+  </div>
+</li>
+
+<?php else: ?>
+<li class="nav-item">
+  <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+
+    <i class="fa fa-briefcase" aria-hidden="true"></i>
+    <span class="badge badge-info"><?php echo $signal_tb ?></span>
+  </a>
+    <div role="menu" class="notification-author dropdown-menu animated flipInX">
+        <div class="notification-single-top">
+            <h1>Usulan PTB</h1>
+        </div>
+        <ul class="notification-menu">
+            <?php foreach($data_tb as $tb){?>
+            <li>
+                <a href="#">
+                    <div class="notification-icon">
+                        <img src="<?php echo base_url()?>images/foto_pegawai/<?php echo $tb->path_foto ?>" width="70px" alt="">
+                    </div>
+                    <div class="notification-content">
+                        <p><strong><?php echo $tb->nama ?></strong> <?php echo $tb->tgl_akhir ?> <br/><?php echo $tb->selisih ?> Hari Lagi </p>
+                        <h5></h5>
+                    </div>
+                </a>
+            </li>
+          <?php } ?>
+        </ul>
+        <div class="notification-view">
+            <a href="<?php echo base_url()?>tb/usulan_ptb">Lihat Data Usualan PTB</a>
         </div>
     </div>
 </li>

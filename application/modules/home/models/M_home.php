@@ -78,7 +78,7 @@ class M_home extends CI_Model{
     return $query->result();
   }
 
-  // Data Ijin Belajar
+  // Notif Ijin Belajar
   function data_usulan_ijin()
   {
     $query = $this->db->query("SELECT
@@ -101,4 +101,30 @@ class M_home extends CI_Model{
       WHERE selisih <= 30 ");
     return $query->result();
   }
+  // End Notif Ijin Belajar
+
+  // Notif Ijin Belajar
+  function data_usulan_tb()
+  {
+    $query = $this->db->query("SELECT
+    id_pegawai as id_pegawai,
+    nama as nama,
+    nip as nip,
+    tgl_akhir as tgl_akhir,
+    path_foto as path_foto,
+    selisih as selisih
+    FROM data_tgsbelajar_notif
+    WHERE selisih <= 30 ");
+
+    return $query->result();
+  }
+  function hitung_usulan_tb()
+  {
+    $query = $this->db->query("SELECT
+      COUNT(id_pegawai) as jumlah_pejabat
+      FROM data_tgsbelajar_notif
+      WHERE selisih <= 30 ");
+    return $query->result();
+  }
+  // End Notif Ijin Belajar
 }

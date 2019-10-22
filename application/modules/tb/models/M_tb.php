@@ -10,6 +10,33 @@ class M_tb extends CI_Model{
 
     return $query->result();
   }
+  function pejabat_tb()
+  {
+    $query = $this->db->query("SELECT * FROM tb_pegawai
+    LEFT JOIN tb_jenjang ON tb_pegawai.id_jenjang = tb_jenjang.id_jenjang
+    WHERE status_tgs_belajar = 'ya'
+    ORDER BY id_pegawai ");
+
+    return $query->result();
+  }
+  function update_tugas_pejabat($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
+  function usulan_ptb()
+  {
+    $query = $this->db->query("SELECT
+    id_pegawai as id_pegawai,
+    nama as nama,
+    nip as nip,
+    tgl_akhir as tgl_akhir,
+    path_foto as path_foto
+    FROM data_tgsbelajar_notif
+    WHERE selisih <= 30 ");
+
+    return $query->result();
+  }
   function create_tugas($data)
   {
     $this->db->insert('tb_tgs_bljr',$data);

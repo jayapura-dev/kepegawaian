@@ -97,5 +97,8 @@
   - Menambahkan Modul Tugas belajar [Solved]
   - Menambahkan fungsi CRUD Tugas Belajar [Solved]
 
-* Senin 22 Oktober 2019
+* Senin 21 Oktober 2019
   - Menambahkan Fungsi Reminder Ijin Belajar [Solved]
+  - Menambahkan Fungsi Reminder Tugas Belajar [Solved]
+  - Menambahkan Fungsi Lihat Usulan Perpanjangan Ijin Belajar [Solved]
+  - Menambahkan Fungsi Lihat Usulan Perpanjangan Tugas Belajar [Solved]
