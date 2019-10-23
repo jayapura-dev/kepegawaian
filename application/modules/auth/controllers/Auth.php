@@ -31,7 +31,7 @@ class auth extends MX_Controller{
 				$data['login'] = TRUE;
 				$this->session->set_userdata($data);
         if ($this->session->userdata('level')=='1'){
-				redirect('Home');
+				redirect('home');
 			  }
   			elseif ($this->session->userdata('level')=='2'){
           //helper_log("login", "Login ke applikasi");

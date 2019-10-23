@@ -107,3 +107,4 @@
   - Memperbaiki View Dashboard [Not Solved]
   - Memperbaiki View Reminder [Solved]
   - Memperbaiki Menu Side bar [Solved]
+  - Memperbaiki View Login [Solved]

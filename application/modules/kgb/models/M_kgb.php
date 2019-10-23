@@ -40,6 +40,11 @@ class M_kgb extends CI_Model{
     $this->db->where($where_pegawai);
     $this->db->update($table,$data_pegawai);
   }
+  function update_tmt_gapok($where,$data_pegawai,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data_pegawai);
+  }
   function update_file_kgb($where,$data,$table)
   {
     $this->db->where($where);

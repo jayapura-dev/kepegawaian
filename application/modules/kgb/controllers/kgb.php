@@ -69,6 +69,7 @@ class kgb extends MX_Controller {
       $id_pegawai = $this->input->post('id_pegawai');
       $tmt_gapok = $this->input->post('tmt_kgb');
       $gapok = $this->input->post('gapok_baru');
+
       $update_data = array(
         'id_pegawai'    => $id_pegawai,
         'gapok_pegawai' => $gapok,
