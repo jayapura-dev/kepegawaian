@@ -1,4 +1,4 @@
-SELECT 
+SELECT
 tb_pegawai.id_pegawai as id_pegawai,
 tb_pegawai.nama as nama,
 tb_pegawai.nip as nip,

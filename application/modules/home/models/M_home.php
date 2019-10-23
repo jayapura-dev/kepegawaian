@@ -140,4 +140,16 @@ class M_home extends CI_Model{
 
     return $query->result();
   }
+  function hitung_kp1()
+  {
+    $query = $this->db->query("SELECT
+      tb_kp.jenis_kp as jenis_kp,
+      tb_pegawai.id_kp as id_kp,
+      COUNT(tb_pegawai.id_pegawai) as jp
+      FROM tb_pegawai
+      LEFT JOIN tb_kp ON tb_pegawai.id_kp = tb_kp.id_kp
+      GROUP BY tb_pegawai.id_kp");
+
+      return $query->result();
+  }
 }

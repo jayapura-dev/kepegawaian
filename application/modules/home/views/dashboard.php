@@ -1,3 +1,7 @@
+<script src="<?php echo base_url('assets/js/highcharts.js')?>"></script>
+<script src="<?php echo base_url('assets/js/exporting.js')?>"></script>
+<script src="<?php echo base_url('assets/js/export-data.js')?>"></script>
+
 <?php
 foreach($jumlah_pejabat as $i){
   $jp = $i->jumlah_pejabat;
@@ -6,7 +10,7 @@ foreach($jumlah_pejabat as $i){
   $jpft = $i->jafung_tertentu;
 }
 
- ?>
+?>
 
 <div class="breadcome-area mg-b-30 small-dn">
     <div class="container-fluid">
@@ -34,7 +38,8 @@ foreach($jumlah_pejabat as $i){
   <div class="container-fluid">
     <div class="row">
         <div class="col-lg-3">
-            <div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
+            <div id="jpkp" style="min-width: 80px; height: 60px; max-width: 600px; margin: 0 auto"></div>
+            <!--<div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
                 <div class="income-title">
                     <div class="main-income-head">
                         <h5>Jumlah Pejabat</h5>
@@ -58,7 +63,7 @@ foreach($jumlah_pejabat as $i){
                     </div>
                     <div class="clear"></div>
                 </div>
-            </div>
+            </div>!-->
         </div>
         <div class="col-lg-3">
             <div class="income-dashone-total orders-monthly shadow-reset nt-mg-b-30">
@@ -144,3 +149,57 @@ foreach($jumlah_pejabat as $i){
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+  Highcharts.chart('jpkp', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Jumlah Pegawai Berdasarkan KP',
+        style: {
+                  fontSize: '10px',
+                  fontFamily: 'Verdana, sans-serif'
+             }
+    },
+    subtitle: {
+        text: ''
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.2f}%</b>'
+    },
+    credits: {
+            enabled: false
+        },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.2f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+      name: 'APBD',
+      data: [
+          <?php
+          if(count($hitung_kp)>0)
+          {
+             foreach ($hitung_kp as $data) {
+             echo "['" .$data->jenis_kp . "'," . $data->jp ."],\n";
+             }
+          }
+          ?>
+      ]
+    }]
+  });
+</script>
