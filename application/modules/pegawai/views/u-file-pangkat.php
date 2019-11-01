@@ -7,15 +7,15 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="all-form-element-inner">
-                                <form action="<?php echo base_url()?>pegawai/update_foto_proses" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo base_url()?>pegawai/update_file_pangkat_proses" method="post" enctype="multipart/form-data">
                                    <div class="form-group-inner">
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <label class="login2 pull-right pull-right-pro"></label>
                                         </div>
                                         <div class="col-lg-9">
-                                          <input name="id_pegawai" type="hidden" id="xxid_pegawai" class="form-control" />
-                                          <input name="path_foto" id="xxpath_foto" type="file" class="form-control" />
+                                          <input name="id_pegawai" type="hidden" id="pidpegawai" class="form-control" />
+                                          <input name="path_pangkat" type="file" class="form-control" />
                                         </div>
                                     </div>
                                   </div>

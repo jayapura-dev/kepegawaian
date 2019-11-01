@@ -112,3 +112,8 @@
 * Jumat 1 November 2019
   - Menambahkan Field Agama pada tb pegawai [Solved]
   - Memperbaiki Form Create Pegawai [Solved]
+
+* Sabtu 2 November 2019
+  - Menambahkan Field Path_jabatan, Path_pangkat, Path_gaji, Path_cpns Pada Tb Pegawai [Solved]
+  - Menambahkan Upload Jabatan, Pangkat, gaji, tmt CPNS [Solved]
+  - Memperbaiki Tampilan Halaman Table Pegawai [Solved]

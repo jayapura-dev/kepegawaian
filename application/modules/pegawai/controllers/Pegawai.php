@@ -200,6 +200,242 @@ class pegawai extends MX_Controller {
       redirect('pegawai/detail_pegawai/'.$id_pegawai.'');
     }
   }
+  public function update_file_cpns_proses()
+  {
+    $config['upload_path'] = './images/cpns';
+		$config['allowed_types'] = 'gif|jpg|png';
+    $config['encrypt_name'] = TRUE;
+    $config['overwrite'] = TRUE;
+		$config['max_width']  = 1024*3;
+		$config['max_height']  = 768*3;
+    $config['max_size'] = 1024*3;
+
+    $id_pegawai = $this->input->post('id_pegawai');
+    $file = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai]);
+
+    if($file->num_rows() > 0){
+      $gambar = $file->row();
+      $name = $gambar->path_cpns;
+      if($name != null){
+        $delete_path = './images/cpns/'.$name;
+        @unlink($delete_path);
+      }
+    }
+
+    $this->upload->initialize($config);
+
+    if ( ! $this->upload->do_upload('path_cpns'))
+		{
+			$path_cpns = "";
+			$this->session->set_flashdata(
+        "error",
+        "<div class='alert alert-danger fade in'>
+            <a href='#' class='close' data-dismiss='alert'>&times;</a>
+            <strong>error !</strong> Gagal Menambah Data!
+        </div>"
+      );
+      redirect('pegawai');
+		} else{
+      $path_cpns = $this->upload->file_name;
+
+      $id_pegawai = $this->input->post('id_pegawai');
+
+      $data = array(
+        'id_pegawai' => $id_pegawai,
+        'path_cpns' => $path_cpns
+      );
+
+      $where = array(
+        'id_pegawai' => $id_pegawai
+      );
+
+      $this->M_pegawai->update_file_cpns($where, $data,'tb_pegawai');
+      $this->session->set_flashdata("update_file_cpns","
+                <div class='alert alert-success fade in'>
+                    <a href='#' class='close' data-dismiss='alert'>&times;</a>
+                    <strong>Success !</strong> Berhasil Mengganti File CPNS!
+                </div>");
+      redirect('pegawai/detail_pegawai/'.$id_pegawai.'');
+    }
+  }
+
+  public function update_file_jabatan_proses()
+  {
+    $config['upload_path'] = './images/jabatan';
+		$config['allowed_types'] = 'gif|jpg|png';
+    $config['encrypt_name'] = TRUE;
+    $config['overwrite'] = TRUE;
+		$config['max_width']  = 1024*3;
+		$config['max_height']  = 768*3;
+    $config['max_size'] = 1024*3;
+
+    $id_pegawai = $this->input->post('id_pegawai');
+    $file = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai]);
+
+    if($file->num_rows() > 0){
+      $gambar = $file->row();
+      $name = $gambar->path_jbt;
+      if($name != null){
+        $delete_path = './images/jabatan/'.$name;
+        @unlink($delete_path);
+      }
+    }
+
+    $this->upload->initialize($config);
+
+    if ( ! $this->upload->do_upload('path_jbt'))
+		{
+			$path_jbt = "";
+			$this->session->set_flashdata(
+        "error",
+        "<div class='alert alert-danger fade in'>
+            <a href='#' class='close' data-dismiss='alert'>&times;</a>
+            <strong>error !</strong> Gagal Mengupdate File!
+        </div>"
+      );
+      redirect('pegawai');
+		} else{
+      $path_jbt = $this->upload->file_name;
+
+      $id_pegawai = $this->input->post('id_pegawai');
+
+      $data = array(
+        'id_pegawai' => $id_pegawai,
+        'path_jbt'   => $path_jbt
+      );
+
+      $where = array(
+        'id_pegawai' => $id_pegawai
+      );
+
+      $this->M_pegawai->update_file_jbt($where, $data,'tb_pegawai');
+      $this->session->set_flashdata("update_file_cpns","
+                <div class='alert alert-success fade in'>
+                    <a href='#' class='close' data-dismiss='alert'>&times;</a>
+                    <strong>Success !</strong> Berhasil Mengganti File Jabatan!
+                </div>");
+      redirect('pegawai/detail_pegawai/'.$id_pegawai.'');
+    }
+  }
+
+  public function update_file_pangkat_proses()
+  {
+    $config['upload_path'] = './images/kpb';
+		$config['allowed_types'] = 'gif|jpg|png';
+    $config['encrypt_name'] = TRUE;
+    $config['overwrite'] = TRUE;
+		$config['max_width']  = 1024*3;
+		$config['max_height']  = 768*3;
+    $config['max_size'] = 1024*3;
+
+    $id_pegawai = $this->input->post('id_pegawai');
+    $file = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai]);
+
+    if($file->num_rows() > 0){
+      $gambar = $file->row();
+      $name = $gambar->path_pangkat;
+      if($name != null){
+        $delete_path = './images/kpb/'.$name;
+        @unlink($delete_path);
+      }
+    }
+
+    $this->upload->initialize($config);
+
+    if ( ! $this->upload->do_upload('path_pangkat'))
+		{
+			$path_pangkat = "";
+			$this->session->set_flashdata(
+        "error",
+        "<div class='alert alert-danger fade in'>
+            <a href='#' class='close' data-dismiss='alert'>&times;</a>
+            <strong>error !</strong> Gagal Mengupdate File!
+        </div>"
+      );
+      redirect('pegawai');
+		} else{
+      $path_pangkat = $this->upload->file_name;
+
+      $id_pegawai = $this->input->post('id_pegawai');
+
+      $data = array(
+        'id_pegawai' => $id_pegawai,
+        'path_pangkat'   => $path_pangkat
+      );
+
+      $where = array(
+        'id_pegawai' => $id_pegawai
+      );
+
+      $this->M_pegawai->update_file_pangkat($where, $data,'tb_pegawai');
+      $this->session->set_flashdata("update_file_cpns","
+                <div class='alert alert-success fade in'>
+                    <a href='#' class='close' data-dismiss='alert'>&times;</a>
+                    <strong>Success !</strong> Berhasil Mengganti File Pangkat!
+                </div>");
+      redirect('pegawai/detail_pegawai/'.$id_pegawai.'');
+    }
+  }
+
+  public function update_file_gaji_proses()
+  {
+    $config['upload_path'] = './images/kgb';
+		$config['allowed_types'] = 'gif|jpg|png';
+    $config['encrypt_name'] = TRUE;
+    $config['overwrite'] = TRUE;
+		$config['max_width']  = 1024*3;
+		$config['max_height']  = 768*3;
+    $config['max_size'] = 1024*3;
+
+    $id_pegawai = $this->input->post('id_pegawai');
+    $file = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai]);
+
+    if($file->num_rows() > 0){
+      $gambar = $file->row();
+      $name = $gambar->path_gaji;
+      if($name != null){
+        $delete_path = './images/kgb/'.$name;
+        @unlink($delete_path);
+      }
+    }
+
+    $this->upload->initialize($config);
+
+    if ( ! $this->upload->do_upload('path_gaji'))
+		{
+			$path_gaji = "";
+			$this->session->set_flashdata(
+        "error",
+        "<div class='alert alert-danger fade in'>
+            <a href='#' class='close' data-dismiss='alert'>&times;</a>
+            <strong>error !</strong> Gagal Mengupdate File!
+        </div>"
+      );
+      redirect('pegawai');
+		} else{
+      $path_gaji = $this->upload->file_name;
+
+      $id_pegawai = $this->input->post('id_pegawai');
+
+      $data = array(
+        'id_pegawai' => $id_pegawai,
+        'path_gaji'   => $path_gaji
+      );
+
+      $where = array(
+        'id_pegawai' => $id_pegawai
+      );
+
+      $this->M_pegawai->update_file_gaji($where, $data,'tb_pegawai');
+      $this->session->set_flashdata("update_file_cpns","
+                <div class='alert alert-success fade in'>
+                    <a href='#' class='close' data-dismiss='alert'>&times;</a>
+                    <strong>Success !</strong> Berhasil Mengganti File Gaji!
+                </div>");
+      redirect('pegawai/detail_pegawai/'.$id_pegawai.'');
+    }
+  }
+
   public function delete_pegawai($id_pegawai)
   {
     $data['title'] = 'Hapus Pegawai';

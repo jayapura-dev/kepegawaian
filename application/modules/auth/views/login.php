@@ -33,7 +33,7 @@
     }
 
     .container .left{
-        background: url(http://read-k4.com/assets/login/images/green-bg.png)
+        background: url(http://read-k4.com/assets/login/images/green-bg.png);
         padding: 20px;
     }
 
@@ -75,7 +75,7 @@
                 </p>-->
 
 
-                <p style="font-size: 13px; color: #ccc">
+                <p style="font-size: 14px; color: #010101">
                     <b>Address: </b><br>
                     Jl. Raya Abepura - Sentani<br>
                     Jayapura 99351 Indonesia.<br>

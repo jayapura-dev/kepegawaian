@@ -62,6 +62,26 @@ class M_pegawai extends CI_Model{
     $this->db->where($where);
     $this->db->update($table,$data);
   }
+  function update_file_cpns($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
+  function update_file_jbt($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
+  function update_file_pangkat($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
+  function update_file_gaji($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
   function delete_pejabat($where = 0)
   {
     $hapus_kpb = $this->db->get_where('tb_kpb',['id_pegawai'  => $where]);

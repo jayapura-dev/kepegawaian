@@ -83,7 +83,7 @@
                                     <!--<td><?php echo $item->masa_kerja ?> Tahun </td>!-->
                                     <td>
                                       <!--<a href="<?php echo base_url()?>pegawai/detail_pegawai/<?php echo $item->id_pegawai ?>" type="button" title="Detail Data Pegawai" class="btn btn-success"><i class="fa fa-user"></i></a>!-->
-                                      <a href="#modalupdate" data-toggle="modal" class="btn btn-primary" onclick="update(
+                                      <a href="#modalupdate" data-toggle="modal" class="btn btn-warning" onclick="update(
                                         '<?php echo $item->id_pegawai ?>',
                                         '<?php echo $item->nama ?>',
                                         '<?php echo $item->nip ?>',
@@ -103,7 +103,6 @@
                                         '<?php echo $item->notifikasi ?>',
                                         '<?php echo $item->ket ?>'
                                       )"><i class="fa fa-edit"></i></a>
-                                      <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-success"><i class="fa fa-trash"></i></a>
                                       <a href="<?php echo base_url()?>jabatan/create_jabatan/<?php echo $item->id_pegawai ?>" title="Tambah Jabatan Baru" class="btn btn-primary"><i class="fa fa-cogs"></i></a>
                                     </td>
                                   </tr>
