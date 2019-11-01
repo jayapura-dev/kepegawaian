@@ -70,7 +70,7 @@
                                     <td><?php echo $item->nama ?> <br/> <?php echo $item->nip ?></td>
                                     <td><?php echo $item->jenjang ?></td>
                                     <td><?php echo $item->no_sk ?></td>
-                                    <td><?php echo $item->tgl_awal ?> s/d</br>  <?php echo $item->tgl_akhir ?></td>
+                                    <td><?php echo $this->indo_tanggal->tgl_indo($item->tgl_awal) ?> s/d </br>  <?php echo $this->indo_tanggal->tgl_indo($item->tgl_akhir) ?></td>
                                     <td></td>
                                     <td>
                                       <a href="#modalupdate" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs" onclick="update(
@@ -118,7 +118,7 @@
 				<h4 class="modal-title" id=""><i class="fa fa-plus-circle"></i> Form Edit file Ijin Belajar </h4>
 			</div>
 			<div class="modal-body">
-        
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>

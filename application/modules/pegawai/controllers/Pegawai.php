@@ -29,6 +29,7 @@ class pegawai extends MX_Controller {
     $data['unit'] = $this->db->query("SELECT * FROM tb_unit")->result();
     $this->template->load('MasterLayout','c-pegawai',$data);
   }
+
   function get_jabatan($id_kp)
   {
       $result = $this->db->where("id_kp",$id_kp)->get("tb_jabatan")->result();
@@ -40,12 +41,14 @@ class pegawai extends MX_Controller {
     $nip = $this->input->post('nip');
     $tgl_lahir = $this->input->post('tgl_lahir');
     $jekel = $this->input->post('jekel');
+    $agama = $this->input->post('agama');
     $pend_terahir = $this->input->post('pend_terahir');
     $bidang = $this->input->post('bidang');
     $id_pangkat = $this->input->post('id_pangkat');
     $tmt_pkt = $this->input->post('tmt_pkt');
     $id_jabatan = $this->input->post('id_jabatan');
     $tmt_jbt = $this->input->post('tmt_jbt');
+    $subjabatan = $this->input->post('subjabatan');
     $gapok_pegawai = $this->input->post('gapok_pegawai');
     $tmt_gapok = $this->input->post('tmt_gapok');
     $tmt_cpns = $this->input->post('tmt_cpns');
@@ -59,19 +62,21 @@ class pegawai extends MX_Controller {
       'nip'           => $nip,
       'tgl_lahir'     => $tgl_lahir,
       'jekel'         => $jekel,
+      'agama'         => $agama,
       'pend_terahir'  => $pend_terahir,
       'bidang'        => $bidang,
       'id_pangkat'    => $id_pangkat,
       'tmt_pkt'       => $tmt_pkt,
       'id_jabatan'    => $id_jabatan,
       'tmt_jbt'       => $tmt_jbt,
+      'subjabatan'    => $subjabatan,
       'gapok_pegawai' => $gapok_pegawai,
       'tmt_gapok'     => $tmt_gapok,
       'tmt_cpns'      => $tmt_cpns,
       'id_kp'         => $id_kp,
       'id_unit'       => $id_unit,
       'status_ijin_belajar' => $status_ijin_belajar,
-      'status_tgs_belajar' => $status_tgs_belajar
+      'status_tgs_belajar' => $status_tgs_belajar,
     );
 
     $this->M_pegawai->create_pegawai($data);
@@ -91,11 +96,13 @@ class pegawai extends MX_Controller {
     $nip = $this->input->post('nip');
     $tgl_lahir = date($this->input->post('tgl_lahir'));
     $jekel = $this->input->post('jekel');
+    $agama = $this->input->post('agama');
     $pend_terahir = $this->input->post('pend_terahir');
     $id_pangkat = $this->input->post('id_pangkat');
     $tmt_pkt = $this->input->post('tmt_pkt');
     $id_jabatan = $this->input->post('id_jabatan');
     $tmt_jbt = $this->input->post('tmt_jbt');
+    $subjabatan = $this->input->post('subjabatan');
     $gapok_pegawai = $this->input->post('gapok_pegawai');
     $tmt_gapok = $this->input->post('tmt_gapok');
     $tmt_cpns = $this->input->post('tmt_cpns');
@@ -110,18 +117,20 @@ class pegawai extends MX_Controller {
       'nip'           => $nip,
       'tgl_lahir'     => $tgl_lahir,
       'jekel'         => $jekel,
+      'agama'         => $agama,
       'pend_terahir'  => $pend_terahir,
       'id_pangkat'    => $id_pangkat,
       'tmt_pkt'       => $tmt_pkt,
       'id_jabatan'    => $id_jabatan,
       'tmt_jbt'       => $tmt_jbt,
+      'subjabatan'    => $subjabatan,
       'gapok_pegawai' => $gapok_pegawai,
       'tmt_gapok'     => $tmt_gapok,
       'tmt_cpns'      => $tmt_cpns,
       'id_kp'         => $id_kp,
       'id_unit'       => $id_unit,
       'status_ijin_belajar' => $status_ijin_belajar,
-      'status_tgs_belajar' => $status_tgs_belajar
+      'status_tgs_belajar' => $status_tgs_belajar,
     );
 
     $where = array(
@@ -190,5 +199,28 @@ class pegawai extends MX_Controller {
                 </div>");
       redirect('pegawai/detail_pegawai/'.$id_pegawai.'');
     }
+  }
+  public function delete_pegawai($id_pegawai)
+  {
+    $data['title'] = 'Hapus Pegawai';
+    $data['detail'] = $this->db->get_where('tb_pegawai', ['id_pegawai'  => $id_pegawai])->row_array();
+
+    $this->template->load('MasterLayout','d-pegawai',$data);
+  }
+  function delete_pegawai_proses($id_pegawai = 0)
+  {
+    $id_pegawai = $this->input->post('id_pegawai');
+
+    $where = array(
+      'id_pegawai'    => $id_pegawai
+    );
+
+    $this->M_pegawai->delete_pejabat($id_pegawai);
+    $this->session->set_flashdata("hapus_pejabat","
+                <div class='alert alert-success fade in'>
+                    <a href='#' class='close' data-dismiss='alert'>&times;</a>
+                    <strong>Success !</strong> Berhasil Menghapus Data!
+                </div>");
+      redirect('pegawai');
   }
 }

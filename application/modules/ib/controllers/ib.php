@@ -26,6 +26,8 @@ class ib extends MX_Controller {
   }
   public function ijin_belajar()
   {
+    $this->load->library('Indo_tanggal');
+
     $data['title'] = 'Ijin Belajar';
     $data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
     $data['ijin'] = $this->M_ib->pejabat_ijin();

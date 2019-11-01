@@ -34,9 +34,9 @@
         <div class="left-sidebar-pro">
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <a href="<?php echo base_url()?>home"><img src="<?php echo base_url()?>assets/img/message/users.png" alt="" />
+                    <a href="<?php echo base_url()?>home"><img src="<?php echo base_url()?>assets/img/message/users1.png" alt="" />
                     </a>
-                    <h3 class="uppercase">READ K-4 </h3>
+                    <h3 class="uppercase">READ-K.4</h3>
                     <p>Administrator</p>
                     <strong>APP</strong>
                 </div>
@@ -68,8 +68,6 @@
 
                                             </div>
                                         </li>
-
-
                                     </ul>
                                 </div>
                             </div>

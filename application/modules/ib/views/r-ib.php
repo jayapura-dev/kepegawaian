@@ -152,7 +152,7 @@
     $('#tmt_akhir').val(tmt_akhir);
     $('#lokasi_pdk').val(lokasi_pdk);
     $('#lembaga').val(lembaga);
-    $('#no_sk').val(no_sk);
+    $('#xno_sk').val(no_sk);
     $('#tgl_sk').val(tgl_sk);
   }
   function update_file(id_ijin,nama,dok_ijin){

@@ -33,7 +33,7 @@
     }
 
     .container .left{
-        background: url(https://qualita-indonesia.net/resources/themes/template-simple/images/bg-transparent-black.png);
+        background: url(http://read-k4.com/assets/login/images/green-bg.png)
         padding: 20px;
     }
 
@@ -77,12 +77,10 @@
 
                 <p style="font-size: 13px; color: #ccc">
                     <b>Address: </b><br>
-                    XXX <br>
-                    Jl. XXXX - XXX<br>
-                    Jayapura 195532 Indonesia.<br>
-
-                    Tel. +62 21 8269 3000<br>
-
+                    Jl. Raya Abepura - Sentani<br>
+                    Jayapura 99351 Indonesia.<br>
+                    Tel / Fax (0967 5170465)<br>
+                    Fax.
                     E-mail  : admin@read-k4.com<br>
                     <br>
                 </p>
@@ -95,7 +93,7 @@
 								<?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
         				<?php echo form_open('auth/login_proses'); ?>
                 <form>
-                    <input type="text" name="nip" value="" placeholder="NIK">
+                    <input type="text" name="nip" value="" placeholder="NIP">
                     <input type="password" name="sandi" value="" placeholder="Password">
                     <input type="submit" name="commit" value="Login" class="btn">
                     <div style="font-size: 13px; text-align: center">
@@ -110,5 +108,5 @@
 </div>
 
 <div class="footer">
-    <span style="opacity: 1;">SIM Reminder | BBKSDA Regional Papua &copy; 2019 | Email : admin@read-k4.com</span>
+    <span style="opacity: 1;">Read-K.4 | BBKSDA Papua &copy; 2019 | Email : admin@read-k4.com</span>
 </div>

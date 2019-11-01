@@ -12,15 +12,19 @@ class M_pegawai extends CI_Model{
     tb_pegawai.tmt_pkt as tmt_pkt,
     tb_pegawai.tmt_jbt as tmt_jbt,
     tb_pegawai.jekel as jekel,
+    tb_pegawai.agama as agama,
     tb_pegawai.pend_terahir as pend_terahir,
     tb_pegawai.bidang as bidang,
     tb_pegawai.id_jabatan as id_jabatan,
+    tb_pegawai.subjabatan as subjabatan,
     tb_pegawai.id_pangkat as id_pangkat,
     tb_pegawai.id_unit as id_unit,
     tb_pegawai.id_kp as id_kp,
     tb_pegawai.gapok_pegawai as gapok_pegawai,
     tb_pegawai.tmt_gapok as tmt_gapok,
     tb_pegawai.tmt_cpns as tmt_cpns,
+    tb_pegawai.notifikasi as notifikasi,
+    tb_pegawai.ket as ket,
     tb_kp.jenis_kp as jenis_kp,
     tb_unit.unit_kerja as unit_kerja,
     tb_pangkat.pangkat as pangkat,
@@ -57,5 +61,34 @@ class M_pegawai extends CI_Model{
   {
     $this->db->where($where);
     $this->db->update($table,$data);
+  }
+  function delete_pejabat($where = 0)
+  {
+    $hapus_kpb = $this->db->get_where('tb_kpb',['id_pegawai'  => $where]);
+    if($hapus_kpb->num_rows() > 1){
+      $this->db->delete('tb_kpb', array('id_pegawai' => $where));
+    }
+
+    $hapus_kgb = $this->db->get_where('tb_kgb',['id_pegawai' => $where]);
+    if($hapus_kgb->num_rows() > 1){
+      $this->db->delete('tb_kgb', array('id_pegawai' => $where));
+    }
+
+    $hapus_jbt = $this->db->get_where('tb_jp',['id_pegawai' => $where]);
+    if($hapus_jbt->num_rows() > 1){
+      $this->db->delete('tb_jp', array('id_pegawai' => $where));
+    }
+
+    $hapus_ijin = $this->db->get_where('tb_ijin_bljr',['id_pegawai' => $where]);
+    if($hapus_ijin->num_rows() > 1){
+      $this->db->delete('tb_ijin_bljr', array('id_pegawai' => $where));
+    }
+
+    $hapus_tgs = $this->db->get_where('tb_tgs_bljr',['id_pegawai' => $where]);
+    if($hapus_tgs->num_rows() > 1){
+      $this->db->delete('tb_tgs_bljr', array('id_pegawai' => $where));
+    }
+
+    $this->db->delete('tb_pegawai', array('id_pegawai' => $where));
   }
 }

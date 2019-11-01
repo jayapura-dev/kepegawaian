@@ -54,8 +54,8 @@
                                       <th data-field="no">No</th>
                                       <th data-field="nama">Nama Pegawai</th>
                                       <th data-field="jenjang">Jenjang</th>
-                                      <th data-field="tgl">Tgl Awal/Akhir</th>
                                       <th data-field="nosk">No SK</th>
+                                      <th data-field="tgl">Tgl Awal/Akhir</th>
                                       <th data-field="file">File</th>
                                       <th></th>
                                     </tr>
@@ -70,7 +70,7 @@
                                     <td><?php echo $item->nama ?> <br/> <?php echo $item->nip ?></td>
                                     <td><?php echo $item->jenjang ?></td>
                                     <td><?php echo $item->no_sk ?></td>
-                                    <td><?php echo $item->tgl_awal ?> s/d</br>  <?php echo $item->tgl_akhir ?></td>
+                                    <td><?php echo $this->indo_tanggal->tgl_indo($item->tgl_awal) ?> s/d </br>  <?php echo $this->indo_tanggal->tgl_indo($item->tgl_akhir) ?>
                                     <td></td>
                                     <td>
                                       <a href="#modalupdate" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs" onclick="update(
@@ -78,7 +78,8 @@
                                         '<?php echo $item->nama ?>',
                                         '<?php echo $item->tgl_awal ?>',
                                         '<?php echo $item->tgl_akhir ?>',
-                                        '<?php echo $item->id_jenjang ?>'
+                                        '<?php echo $item->id_jenjang ?>',
+                                        '<?php echo $item->no_sk ?>'
                                       )"><i class="fa fa-edit"></i></a>
                                     </td>
                                   </tr>
@@ -128,12 +129,13 @@
 </div>
 
 <script type="text/javascript">
-  function update(id_pegawai,nama,tgl_awal,tgl_akhir,id_jenjang){
+  function update(id_pegawai,nama,tgl_awal,tgl_akhir,id_jenjang,no_sk){
     $('#id_pegawai').val(id_pegawai);
     $('#nama').val(nama);
     $('#tgl_awal').val(tgl_awal);
     $('#tgl_akhir').val(tgl_akhir);
     $('#id_jenjang').val(id_jenjang);
+    $('#no_sk').val(no_sk);
   }
   function update_file(id_ijin,nama,dok_ijin){
     $('#xid_ijin').val(id_ijin);

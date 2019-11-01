@@ -27,6 +27,7 @@
         <div class="row">
             <div class="col-lg-12">
               <?php echo $this->session->flashdata('simpan');?>
+              <?php echo $this->session->flashdata('update_notif');?>
               <?php echo $this->session->flashdata('update');?>
               <?php echo $this->session->flashdata('hapus');?>
                 <div class="sparkline13-list shadow-reset">
@@ -64,8 +65,12 @@
                                     <td><?php echo $item->nip ?></td>
 
                                     <td>
-                                      <a href="<?php echo base_url()?>kpb/create_kpb/<?php echo $item->id_pegawai ?>" title="Tambah Data KP" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
-                                      <a href="#" type="button" title="Matikan Notifikasi Untuk Pegawai ini" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-bell"></i></a>
+                                      <a href="<?php echo base_url()?>kpb/create_kpb/<?php echo $item->id_pegawai ?>" title="Tambah Data KP" type="button" class="btn btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
+                                      <a href="#modalupdate" data-toggle="modal" type="button" title="Matikan Notifikasi Untuk Pegawai ini" class="btn btn-danger btn-xs" onclick="update(
+                                        '<?php echo $item->id_pegawai ?>',
+                                        '<?php echo $item->notifikasi ?>',
+                                        '<?php echo $item->ket ?>'
+                                      )"><i class="fa fa-bell"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>
@@ -78,3 +83,28 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modalupdate" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id=""><i class="fa fa-plus-circle"></i> Update Notif Pejabat</h4>
+			</div>
+			<div class="modal-body">
+        <?php $this->load->view('kpb/u-notif-pangkat'); ?>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  function update(id_pegawai,notifikasi,ket){
+    $('#idpegawai').val(id_pegawai);
+    $('#notifikasi').val(notifikasi);
+    $('#ket').val(ket);
+  }
+</script>

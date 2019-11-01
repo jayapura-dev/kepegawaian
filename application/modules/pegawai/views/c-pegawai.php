@@ -7,7 +7,6 @@
                 <div class="breadcome-list map-mg-t-40-gl shadow-reset">
                     <div class="row">
                         <div class="col-lg-6">
-
                         </div>
                         <div class="col-lg-6">
                             <ul class="breadcome-menu">
@@ -54,7 +53,7 @@
                                   <div class="form-group-inner">
                                    <div class="row">
                                        <div class="col-lg-2">
-                                           <label class="login2 pull-right pull-right-pro">Nip</label>
+                                           <label class="login2 pull-right pull-right-pro">NIP</label>
                                        </div>
                                        <div class="col-lg-4">
                                            <input name="nip" type="text" id="nip" onchange="get_tgl_lahir()" class="form-control" />
@@ -71,13 +70,31 @@
                                           <label class="login2 pull-right pull-right-pro">TMT CPNS</label>
                                       </div>
                                       <div class="col-lg-4">
-                                          <input type="text" name="tmt_cpns" id="tmt_cpns" readonly="true" onchange="get_tgl_lahir()" class="form-control">
+                                          <input type="text" name="tmt_cpns" id="tmt_cpns" onclick="get_tgl_lahir()" class="form-control">
                                       </div>
                                       <div class="col-lg-4">
                                         <input name="jekel" type="text" id="jekel" readonly="true" onchange="get_tgl_lahir()" class="form-control" />
                                       </div>
                                   </div>
                                 </div>
+                                <div class="form-group-inner">
+                                 <div class="row">
+                                     <div class="col-lg-2">
+                                         <label class="login2 pull-right pull-right-pro">Agama</label>
+                                     </div>
+                                     <div class="col-lg-4">
+                                       <select class="form-control" name="agama">
+                                         <option value="">--- Pilih ---</option>
+                                         <option value="Islam">Islam</option>
+                                         <option value="Protestan">Protestan</option>
+                                         <option value="Khatolik">Khatolik</option>
+                                         <option value="Budha">Budha</option>
+                                         <option value="Hindu">Hindu</option>
+                                         <option value="Khonghucu">Khonghucu</option>
+                                       </select>
+                                     </div>
+                                 </div>
+                               </div>
                                 <div class="form-group-inner">
                                  <div class="row">
                                      <div class="col-lg-2">
@@ -106,7 +123,7 @@
                                        <label class="login2 pull-right pull-right-pro">Jenis KP</label>
                                    </div>
                                    <div class="col-lg-4">
-                                     <select name="id_kp" class="form-control">
+                                     <select name="id_kp" class="form-control" id="id_kp">
                                          <option value="">-- Pilih --</option>
                                           <?php
                                           foreach($kp as $j => $val)
@@ -123,14 +140,27 @@
                                     <div class="col-lg-2">
                                         <label class="login2 pull-right pull-right-pro">Jabatan</label>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                       <select class="form-control" name="id_jabatan">
 
                                       </select>
                                     </div>
+                                    <div class="col-lg-2" id="sub_jabatan" hidden="true">
+                                        <select class="form-control" name="subjabatan">
+                                          <option value="-">--- Pilih ---</option>
+                                          <option value="Madya">Madya</option>
+                                          <option value="Muda">Muda</option>
+                                          <option value="Pertama">Pertama</option>
+                                          <option value="Penyelia">Penyelia</option>
+                                          <option value="Pelaksana Lanjutan">Pelaksana Lanjutan</option>
+                                          <option value="Pelaksana">Pelaksana</option>
+                                          <option value="Pelaksana Pemula">Pelaksana Pemula</option>
+                                        </select>
+                                    </div>
                                     <div class="col-lg-1">
                                         <label class="login2 pull-right pull-right-pro">TMT</label>
                                     </div>
+
                                     <div class="col-lg-3">
                                         <input name="tmt_jbt" type="date" class="form-control" />
                                     </div>
@@ -221,16 +251,40 @@
                                 </div>
                             </div>
                           </div>
-                              <div class="form-group-inner">
-                               <div class="row">
+
+                             <!--<div class="form-group-inner">
+                              <div class="row">
+                                  <div class="col-lg-2">
+                                      <label class="login2 pull-right pull-right-pro">Notif</label>
+                                  </div>
+                                  <div class="col-lg-1">
+                                    <input type="radio" value="aktif" checked="" name="notifikasi"> <i></i> On </label>
+                                  </div>
+                                  <div class="col-lg-1">
+                                    <input type="radio" value="nonaktif" name="notifikasi"> <i></i> Off </label>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="form-group-inner">
+                             <div class="row">
                                  <div class="col-lg-2">
+                                     <label class="login2 pull-right pull-right-pro">Keterangan</label>
                                  </div>
-                                 <div class="col-lg-2">
-                                   <input type="submit" class="btn btn-primary" value="Simpan">
-                                   <a class="btn btn-danger" href="<?php echo base_url()?>pegawai">Batal</a>
+                                 <div class="col-lg-9">
+                                     <input name="ket" type="text" class="form-control" />
                                  </div>
-                               </div>
                              </div>
+                           </div>!-->
+                           <div class="form-group-inner">
+                            <div class="row">
+                              <div class="col-lg-2">
+                              </div>
+                              <div class="col-lg-2">
+                                <input type="submit" class="btn btn-primary" value="Simpan">
+                                <a class="btn btn-danger" href="<?php echo base_url()?>pegawai">Batal</a>
+                              </div>
+                            </div>
+                          </div>
                           </form>
                         </div>
                     </div>
@@ -263,6 +317,11 @@
       }
   });
 
+  $('#id_kp').change(function() {
+    var id_kp = $(this).val();
+    $('#sub_jabatan').prop('hidden', id_kp != 3);
+  })
+
   function get_tgl_lahir()
   {
     var nip = $('#nip').val();
@@ -280,7 +339,7 @@
     var tahun_cpns = tmt_cp.substr(0, 4);
     var bulan_cpns = tmt_cp.substr(4,2);
 
-    var gabung_tmt_cp = tahun_cpns + '-' + bulan_cpns + '-01';
+    var gabung_tmt_cp = tahun_cpns + '-' + bulan_cpns + '-';
     $('#tmt_cpns').val(gabung_tmt_cp);
 
     // Membuat Validasi untuk Jenis Kelamin

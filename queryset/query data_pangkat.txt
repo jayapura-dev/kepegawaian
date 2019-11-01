@@ -1,8 +1,10 @@
-SELECT 
+SELECT
 tb_pegawai.id_pegawai as id_pegawai,
 tb_pegawai.nama as nama,
 tb_pegawai.nip as nip,
 tb_pegawai.path_foto as path_foto,
+tb_pegawai.notifikasi as notifikasi,
+tb_pegawai.ket as ket,
 tb_pegawai.tmt_pkt + INTERVAL tb_kp.naik_pangkat DAY as tgl_kp,
 DATEDIFF(tb_pegawai.tmt_pkt + INTERVAL tb_kp.naik_pangkat DAY, NOW()) as selisih
 FROM tb_pegawai

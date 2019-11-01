@@ -7,8 +7,8 @@ class M_home extends CI_Model{
   {
     $query = $this->db->query("SELECT
       COUNT(id_pegawai) as jumlah_pejabat
-      FROM view_selisih_pangkat
-      WHERE selisih <= 60 ");
+      FROM data_kp_notif
+      WHERE selisih <= 100 AND notifikasi = 'aktif' ");
 
     return $query->result();
   }
@@ -20,9 +20,11 @@ class M_home extends CI_Model{
     nip,
     tgl_kp,
     selisih,
-    path_foto
+    path_foto,
+    notifikasi,
+    ket
     FROM data_kp_notif
-    WHERE selisih <= 60 ");
+    WHERE selisih <= 100 AND notifikasi = 'aktif' ");
 
     return $query->result();
   }

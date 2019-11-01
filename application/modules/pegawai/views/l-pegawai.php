@@ -63,6 +63,17 @@
                 <div class="project-details-mg">
                   <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                      <text> Agama</text>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <label>: <?php echo $item->agama ?></label>
+                    </div>
+                  </div>
+                </div>
+                <hr/>
+                <div class="project-details-mg">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                       <text> NIP</text>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -106,11 +117,17 @@
                 </div>
                 <hr/>
               </div>
+              <br/>
+              <a href="#" class="btn btn-primary"><i class="fa fa-trash"></i> Recyle</a>
+              <a href="<?php echo base_url()?>pegawai/delete_pegawai/<?php echo $item->id_pegawai ?>" class="btn btn-danger"><i class="fa fa-remove"></i> Hapus</a>
+              <a href="#" class="btn btn-warning"><i class="fa fa-exchange"></i> Mutasi</a>
             </div>
           </div>
         </div>
       </div>
+
     </br>
+
       <?php } ?>
     </div>
   </div>

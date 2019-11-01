@@ -63,7 +63,7 @@
                                     <td><?php echo $item->nama ?></td>
                                     <td><?php echo $item->nip ?></td>
                                     <td>
-                                      <a href="<?php echo base_url()?>kgb/create_kgb/<?php echo $item->id_pegawai ?>" title="Tambah Data KP" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
+                                      <a href="<?php echo base_url()?>kgb/create_kgb/<?php echo $item->id_pegawai ?>" title="Tambah Data KGB" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
                                       <a href="#" type="button" title="Matikan Notifikasi Untuk Pegawai ini" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-bell"></i></a>
                                     </td>
                                   </tr>

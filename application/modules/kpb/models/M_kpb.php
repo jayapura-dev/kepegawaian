@@ -9,6 +9,11 @@ class M_kpb extends CI_Model{
     LEFT JOIN tb_pangkat ON tb_kpb.id_pangkat = tb_pangkat.id_pangkat");
     return $query->result();
   }
+  function update_notif($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
   function create_kpb($data)
   {
     $this->db->insert('tb_kpb',$data);
@@ -56,9 +61,11 @@ class M_kpb extends CI_Model{
     $query = $this->db->query("SELECT
     id_pegawai,
     nama,
-    nip
-    FROM view_selisih_pangkat
-    WHERE selisih <= 60 ");
+    nip,
+    notifikasi,
+    ket
+    FROM data_kp_notif
+    WHERE selisih <= 60 AND notifikasi = 'aktif' ");
 
     return $query->result();
   }

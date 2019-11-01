@@ -38,13 +38,13 @@ foreach($jumlah_pejabat as $i){
   <div class="container-fluid">
     <div class="row">
         <div class="col-lg-3">
-            <div id="jpkp" style="min-width: 80px; height: 60px; max-width: 600px; margin: 0 auto"></div>
-            <!--<div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
+            <!--<div id="jpkp" style="min-width: 80px; height: 60px; max-width: 600px; margin: 0 auto"></div>!-->
+            <div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
                 <div class="income-title">
                     <div class="main-income-head">
                         <h5>Jumlah Pejabat</h5>
                         <div class="main-income-phara">
-                            <p>BKKSDA</p>
+                            <p>BBKSDA</p>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ foreach($jumlah_pejabat as $i){
                     </div>
                     <div class="clear"></div>
                 </div>
-            </div>!-->
+            </div>
         </div>
         <div class="col-lg-3">
             <div class="income-dashone-total orders-monthly shadow-reset nt-mg-b-30">
@@ -98,7 +98,7 @@ foreach($jumlah_pejabat as $i){
                     <div class="main-income-head">
                         <h5>Jumlah Pejabat</h5>
                         <div class="main-income-phara visitor-cl">
-                            <p>Fungsional Tertentu</p>
+                            <p title="Jabatan Fungsional Tertentu">JFT</p>
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ foreach($jumlah_pejabat as $i){
                     <div class="main-income-head">
                         <h5>Jumlah Pejabat</h5>
                         <div class="main-income-phara low-value-cl">
-                            <p>Fungsional Umum</p>
+                            <p title="Pejabat Fungsional Umum">JFU</p>
                         </div>
                     </div>
                 </div>

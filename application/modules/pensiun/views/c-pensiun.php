@@ -177,7 +177,7 @@
                              <div class="form-group-inner">
                               <div class="row">
                                   <div class="col-lg-2">
-                                      <label class="login2 pull-right pull-right-pro">Unit Kerja</label>
+                                      <label class="login2 pull-right pull-right-pro">Penempatan</label>
                                   </div>
                                   <div class="col-lg-4">
                                     <input type="hidden" name="id_unit" value="<?php echo $detail['id_unit'] ?>" class="form-control">
@@ -205,7 +205,14 @@
                                       <label class="login2 pull-right pull-right-pro">Keterangan</label>
                                   </div>
                                   <div class="col-lg-5">
-                                      <input name="ket_pensiun" type="text" class="form-control" />
+                                      <select class="form-control" name="keterangan">
+                                        <option value="">-- Pilih --</option>
+                                        <option value="Pensiun Normal">Pensiun Normal</option>
+                                        <option value="Pensiun Janda">Pensiun Janda</option>
+                                        <option value="Pensiun Duda">Pensiun Duda</option>
+                                        <option value="Pensiun Atas Permintaan Sendiri">Pensiun Atas Permintaan Sendiri</option>
+                                        <option value="Pensiun Anak">Pensiun Anak</option>
+                                      </select>
                                   </div>
                               </div>
                             </div>

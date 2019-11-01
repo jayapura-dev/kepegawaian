@@ -20,7 +20,7 @@
   - Pattern HMVC
 
 * Template :
-  - Admin Pro + (material design)
+  - Admin Pro + (Gradient design)
 
 ----------------------------------------------------
 
@@ -108,3 +108,7 @@
   - Memperbaiki View Reminder [Solved]
   - Memperbaiki Menu Side bar [Solved]
   - Memperbaiki View Login [Solved]
+
+* Jumat 1 November 2019
+  - Menambahkan Field Agama pada tb pegawai [Solved]
+  - Memperbaiki Form Create Pegawai [Solved]

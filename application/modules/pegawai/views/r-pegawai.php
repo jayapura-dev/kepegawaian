@@ -28,7 +28,7 @@
             <div class="col-lg-12">
               <?php echo $this->session->flashdata('simpan');?>
               <?php echo $this->session->flashdata('update');?>
-              <?php echo $this->session->flashdata('hapus');?>
+              <?php echo $this->session->flashdata('hapus_pejabat');?>
                 <div class="sparkline13-list shadow-reset" onload="waktu()">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
@@ -56,7 +56,7 @@
                                         <th data-field="jabatan">Jabatan</th>
                                         <th data-field="pangkat">Pangkat</th>
                                         <th data-field="kp">Jenis KP</th>
-                                        <th data-field="uk">Unit Kerja</th>
+                                        <th data-field="uk">Penempatan</th>
                                         <!--<th data-field="MK">MK</th>!-->
                                         <th>Aksi</th>
                                     </tr>
@@ -68,15 +68,22 @@
                                   ?>
                                   <tr>
                                     <td><?php echo $no++ ?></td>
-                                    <td><?php echo $item->nama ?> <br/> <?php echo $item->nip ?></td>
-                                    <td><?php echo $item->jabatan ?> </br> <?php echo $item->tmt_jbt ?></td>
-                                    <td><?php echo $item->pangkat ?> </br> <?php echo $item->tmt_pkt ?></td>
+                                    <td> <a href="<?php echo base_url()?>pegawai/detail_pegawai/<?php echo $item->id_pegawai ?>"><?php echo $item->nama ?></a>  <br/> <?php echo $item->nip ?></td>
+                                    <td>
+                                      <?php
+                                        if($item->id_kp == '3'):
+                                          echo $item->jabatan. "/" .$item->subjabatan. "<br/>" .$item->tmt_jbt;
+                                        else:
+                                          echo $item->jabatan. "<br/>" .$item->tmt_jbt;
+                                        endif
+                                      ?>
+                                    <td><?php echo $item->pangkat ?> /<?php echo $item->golongan ?> </br> <?php echo $item->tmt_pkt ?></td>
                                     <td><?php echo $item->jenis_kp ?></td>
                                     <td><?php echo $item->unit_kerja ?></td>
                                     <!--<td><?php echo $item->masa_kerja ?> Tahun </td>!-->
                                     <td>
-                                      <a href="<?php echo base_url()?>pegawai/detail_pegawai/<?php echo $item->id_pegawai ?>" type="button" title="Detail Data Pegawai" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-user"></i></a>
-                                      <a href="#modalupdate" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs" onclick="update(
+                                      <!--<a href="<?php echo base_url()?>pegawai/detail_pegawai/<?php echo $item->id_pegawai ?>" type="button" title="Detail Data Pegawai" class="btn btn-success"><i class="fa fa-user"></i></a>!-->
+                                      <a href="#modalupdate" data-toggle="modal" class="btn btn-primary" onclick="update(
                                         '<?php echo $item->id_pegawai ?>',
                                         '<?php echo $item->nama ?>',
                                         '<?php echo $item->nip ?>',
@@ -92,10 +99,12 @@
                                         '<?php echo $item->tmt_gapok ?>',
                                         '<?php echo $item->tmt_cpns ?>',
                                         '<?php echo $item->id_kp ?>',
-                                        '<?php echo $item->id_unit ?>'
+                                        '<?php echo $item->id_unit ?>',
+                                        '<?php echo $item->notifikasi ?>',
+                                        '<?php echo $item->ket ?>'
                                       )"><i class="fa fa-edit"></i></a>
-                                      <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>
-                                      <a href="<?php echo base_url()?>jabatan/create_jabatan/<?php echo $item->id_pegawai ?>" type="button" title="Tambah Jabatan Baru" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-cogs"></i></a>
+                                      <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-success"><i class="fa fa-trash"></i></a>
+                                      <a href="<?php echo base_url()?>jabatan/create_jabatan/<?php echo $item->id_pegawai ?>" title="Tambah Jabatan Baru" class="btn btn-primary"><i class="fa fa-cogs"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>
@@ -127,7 +136,28 @@
 </div>
 
 <script type="text/javascript">
-  function update(id_pegawai,nama,nip,tgl_lahir,jekel,pend_terahir,bidang,id_pangkat,tmt_pkt,id_jabatan,tmt_jbt,gapok,tmt_gapok,tmt_cpns,id_kp,id_unit)
+
+  $('select[name="id_kp"]').on('change', function() {
+      var id_kp = $(this).val();
+      if(id_kp) {
+          $.ajax({
+              url: '<?php echo base_url("pegawai/get_jabatan/") ?>'+id_kp,
+              type: "GET",
+              dataType: "json",
+              success:function(data) {
+                  $('select[name="id_jabatan"]').empty();
+                  $.each(data, function(key, value) {
+                      $('select[name="id_jabatan"]').append('<option value="'+ value.id_jabatan +'">'+ value.jabatan+'</option>');
+                  });
+              }
+          });
+      }else{
+          $('select[name="id_jabatan"]').empty();
+      }
+  });
+
+
+  function update(id_pegawai,nama,nip,tgl_lahir,jekel,pend_terahir,bidang,id_pangkat,tmt_pkt,id_jabatan,tmt_jbt,subjabatan,gapok,tmt_gapok,tmt_cpns,id_kp,id_unit)
   {
     $('#xid_pegawai').val(id_pegawai);
     $('#xnama').val(nama);
@@ -140,12 +170,19 @@
     $('#xtmt_pkt').val(tmt_pkt);
     $('#xid_jabatan').val(id_jabatan);
     $('#xtmt_jbt').val(tmt_jbt);
+    $('#xsubjabatan').val(subjabatan);
     $('#xgapok').val(gapok);
     $('#xtmt_gapok').val(tmt_gapok);
     $('#xtmt_cpns').val(tmt_cpns);
     $('#xid_kp').val(id_kp);
     $('#xid_unit').val(id_unit);
   }
+
+  $('#id_kp').change(function() {
+    var id_kp = $(this).val();
+    $('#sub_jabatan').prop('hidden', id_kp != 3);
+  })
+
   function get_tgl_lahir()
   {
     var nip = $('#xnip').val();

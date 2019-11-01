@@ -33,9 +33,9 @@
                 <a href="#" class="dropdown-item">Laporan</a>
             </div>
         </li>
-        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-calendar"></i> <span class="mini-dn">Pengsiun</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-calendar"></i> <span class="mini-dn">Pensiun</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                <a href="<?php echo base_url()?>pensiun/usulan_pensiun" class="dropdown-item">Usulan Pengsiun</a>
+                <a href="<?php echo base_url()?>pensiun/usulan_pensiun" class="dropdown-item">Usulan Pensiun</a>
                 <a href="<?php echo base_url()?>pensiun" class="dropdown-item">Data Pensiun</a>
             </div>
         </li>

@@ -28,6 +28,8 @@ class tb extends MX_Controller {
 
   public function tugas_belajar()
   {
+    $this->load->library('Indo_tanggal');
+    
     $data['title'] = 'Usulan PTB';
     $data['tb'] = $this->M_tb->pejabat_tb();
     $data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();

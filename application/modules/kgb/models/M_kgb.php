@@ -24,7 +24,7 @@ class M_kgb extends CI_Model{
     $this->db->insert('tb_kgb',$data);
   }
   function detail_kgb($id_kgb)
-  {
+  {;
     $query = $this->db->query("SELECT * FROM tb_kgb
     LEFT JOIN tb_pegawai ON tb_kgb.id_pegawai = tb_pegawai.id_pegawai
     WHERE tb_kgb.id_kgb = '$id_kgb' ");

@@ -24,6 +24,34 @@ class kpb extends MX_Controller {
 
     $this->template->load('MasterLayout','r-usulan-naikpangkat',$data);
   }
+
+  function update_notif_proses()
+  {
+    $id_pegawai = $this->input->post('id_pegawai');
+    $notifikasi = $this->input->post('notifikasi');
+    $ket = $this->input->post('ket');
+
+    $data = array(
+      'id_pegawai'    => $id_pegawai,
+      'notifikasi'    => $notifikasi,
+      'ket'           => $ket
+    );
+
+    $where = array(
+      'id_pegawai'    => $id_pegawai
+    );
+
+    $this->M_kpb->update_notif($where,$data,'tb_pegawai');
+    $this->session->set_flashdata(
+      "update_notif",
+      "<div class='alert alert-success fade in'>
+          <a href='#' class='close' data-dismiss='alert'>&times;</a>
+          <strong>error !</strong> Success Update Notifikasi!
+      </div>"
+    );
+    redirect('kpb/usulan_kp');
+  }
+
   public function create_kpb($id_pegawai)
   {
     $data['title'] = 'Tambah Data kenaikan Pangkat';
