@@ -154,4 +154,23 @@ class M_home extends CI_Model{
 
       return $query->result();
   }
+  // View Dashboard
+  function table_struktural()
+  {
+    $query = $this->db->query("SELECT * FROM tb_pegawai WHERE id_kp = '1' ");
+
+    return $query->result();
+  }
+  function table_jfu()
+  {
+    $query = $this->db->query("SELECT * FROM tb_pegawai WHERE id_kp = '2' ");
+
+    return $query->result();
+  }
+  function table_jft()
+  {
+    $query = $this->db->query("SELECT * FROM tb_pegawai WHERE id_kp = '3' ");
+
+    return $query->result();
+  }
 }

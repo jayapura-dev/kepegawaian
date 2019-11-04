@@ -16,6 +16,9 @@ class home extends MX_Controller {
 		$data['title'] = 'Dashboard | READ K-4';
 		$data['jumlah_pejabat'] = $this->M_home->hitung_pejabat();
 		$data['hitung_kp'] = $this->M_home->hitung_kp1();
+		$data['struktural'] = $this->M_home->table_struktural();
+		$data['jfu'] = $this->M_home->table_jfu();
+		$data['jft'] = $this->M_home->table_jft();
 		$this->template->load('MasterLayout','dashboard',$data);
 	}
 }

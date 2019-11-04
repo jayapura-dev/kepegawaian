@@ -23,8 +23,8 @@ class M_pegawai extends CI_Model{
     tb_pegawai.gapok_pegawai as gapok_pegawai,
     tb_pegawai.tmt_gapok as tmt_gapok,
     tb_pegawai.tmt_cpns as tmt_cpns,
-    tb_pegawai.notifikasi as notifikasi,
-    tb_pegawai.ket as ket,
+    tb_pegawai.status_tgs_belajar as status_tgs_belajar,
+    tb_pegawai.status_ijin_belajar as status_ijin_belajar,
     tb_kp.jenis_kp as jenis_kp,
     tb_unit.unit_kerja as unit_kerja,
     tb_pangkat.pangkat as pangkat,
@@ -111,4 +111,38 @@ class M_pegawai extends CI_Model{
 
     $this->db->delete('tb_pegawai', array('id_pegawai' => $where));
   }
+
+  // Histori Pejabat
+  // Start Kenaikan Pangkat Berkala
+  function kpb($id_pegawai)
+  {
+    $query = $this->db->query("SELECT * FROM tb_kpb
+    LEFT JOIN tb_pegawai ON tb_kpb.id_pegawai = tb_pegawai.id_pegawai
+    LEFT JOIN tb_pangkat ON tb_kpb.id_pangkat = tb_pangkat.id_pangkat
+    WHERE tb_kpb.id_pegawai = '$id_pegawai' ");
+    return $query->result();
+  }
+  // End Kenaikan Pangkat Berkala
+
+  // Start Kenaikan Gaji Berkala
+  function kgb($id_pegawai)
+  {
+    $query = $this->db->query("SELECT * FROM tb_kgb
+    LEFT JOIN tb_pegawai ON tb_kgb.id_pegawai = tb_pegawai.id_pegawai
+    WHERE tb_kgb.id_pegawai = '$id_pegawai' ");
+    return $query->result();
+  }
+  // End Kenaikan Gaji Berkala
+
+  // Start Jabatan
+  function jabatan($id_pegawai)
+  {
+    $query = $this->db->query("SELECT * FROM tb_jp
+    LEFT JOIN tb_jabatan ON tb_jp.id_jabatan = tb_jabatan.id_jabatan
+    LEFT JOIN tb_pegawai ON tb_jp.id_pegawai = tb_pegawai.id_pegawai
+    WHERE tb_jp.id_pegawai = '$id_pegawai' ");
+
+    return $query->result();
+  }
+  // End Jabatan
 }

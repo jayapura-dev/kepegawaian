@@ -53,12 +53,10 @@ foreach($jumlah_pejabat as $i){
                         <div class="price-adminpro-rate">
                             <h3><span></span><span class="counter"><?php echo $jp ?></span></h3>
                         </div>
-                        <div class="price-graph">
-                            <span id="sparkline1"></span>
-                        </div>
+
                     </div>
                     <div class="income-range">
-                        <h5>Prosentase</h5>
+                        <p>Prosentase</p>
                         <span class="income-percentange">98% <i class="fa fa-bolt"></i></span>
                     </div>
                     <div class="clear"></div>
@@ -80,9 +78,7 @@ foreach($jumlah_pejabat as $i){
                         <div class="price-adminpro-rate">
                             <h3><span class="counter"><?php echo $jps ?></span></h3>
                         </div>
-                        <div class="price-graph">
-                            <span id="sparkline6"></span>
-                        </div>
+
                     </div>
                     <div class="income-range order-cl">
                         <p>Prosentase</p>
@@ -107,9 +103,7 @@ foreach($jumlah_pejabat as $i){
                         <div class="price-adminpro-rate">
                             <h3><span class="counter"><?php echo $jpfu ?></span></h3>
                         </div>
-                        <div class="price-graph">
-                            <span id="sparkline2"></span>
-                        </div>
+
                     </div>
                     <div class="income-range visitor-cl">
                         <p>Prosentase</p>
@@ -134,9 +128,7 @@ foreach($jumlah_pejabat as $i){
                         <div class="price-adminpro-rate">
                             <h3><span class="counter"><?php echo $jpfu ?></span></h3>
                         </div>
-                        <div class="price-graph">
-                            <span id="sparkline5"></span>
-                        </div>
+                        
                     </div>
                     <div class="income-range low-value-cl">
                         <p>Prosentase</p>
@@ -146,6 +138,97 @@ foreach($jumlah_pejabat as $i){
                 </div>
             </div>
         </div>
+    </div>
+  </div>
+</div>
+
+<div class="feed-mesage-project-area">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="sparkline11-list shadow-reset mg-tb-30">
+          <div class="sparkline11-hd">
+            <div class="main-sparkline11-hd">
+                <h1>Struktural</h1>
+                <div class="sparkline11-outline-icon">
+                    <span class="sparkline11-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                    <span><i class="fa fa-wrench"></i></span>
+                    <span class="sparkline11-collapse-close"><i class="fa fa-times"></i></span>
+                </div>
+            </div>
+          </div>
+          <div class="sparkline11-graph dashone-comment dashtwo-comment comment-scrollbar">
+            <?php foreach($struktural as $s){?>
+            <div class="daily-feed-list">
+              <div class="daily-feed-img">
+                <img src="<?php echo base_url()?>assets/img/notification/1.jpg" width="90px" alt="" />
+              </div>
+              <div class="daily-feed-content">
+                  <h4><span class="feed-author"><?php echo $s->nama ?></span></h4>
+                  <p class="res-ds-n-t"><?php echo $s->nip ?></p>
+                  <p class="res-ds-n-t">TMT CPNS : <?php echo $s->tmt_cpns ?></p>
+              </div>
+            </div>
+          <?php } ?>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="sparkline11-list shadow-reset mg-tb-30">
+          <div class="sparkline11-hd">
+            <div class="main-sparkline11-hd">
+                <h1>Fungsional Umum</h1>
+                <div class="sparkline11-outline-icon">
+                    <span class="sparkline11-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                    <span><i class="fa fa-wrench"></i></span>
+                    <span class="sparkline11-collapse-close"><i class="fa fa-times"></i></span>
+                </div>
+            </div>
+          </div>
+          <div class="sparkline11-graph dashone-comment dashtwo-comment comment-scrollbar">
+            <?php foreach($jfu as $j){ ?>
+            <div class="daily-feed-list">
+              <div class="daily-feed-img">
+                  <img src="<?php echo base_url()?>assets/img/notification/1.jpg" width="90px" alt="" />
+              </div>
+              <div class="daily-feed-content">
+                  <h4><span class="feed-author"><?php echo $j->nama ?></span></h4>
+                  <p class="res-ds-n-t"><?php echo $j->nip ?></p>
+                  <p class="res-ds-n-t">TMT CPNS : <?php echo $j->tmt_cpns ?></p>
+              </div>
+            </div>
+          <?php } ?>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="sparkline11-list shadow-reset mg-tb-30">
+          <div class="sparkline11-hd">
+            <div class="main-sparkline11-hd">
+                <h1>Fungsional Tertentu</h1>
+                <div class="sparkline11-outline-icon">
+                    <span class="sparkline11-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                    <span><i class="fa fa-wrench"></i></span>
+                    <span class="sparkline11-collapse-close"><i class="fa fa-times"></i></span>
+                </div>
+            </div>
+          </div>
+          <div class="sparkline11-graph dashone-comment dashtwo-comment comment-scrollbar">
+            <?php foreach($jft as $t){ ?>
+            <div class="daily-feed-list">
+              <div class="daily-feed-img">
+                  <img src="<?php echo base_url()?>assets/img/notification/1.jpg" width="90px" alt="" />
+              </div>
+              <div class="daily-feed-content">
+                  <h4><span class="feed-author"><?php echo $t->nama ?></span></h4>
+                  <p class="res-ds-n-t"><?php echo $t->nip ?></p>
+                  <p class="res-ds-n-t">TMT CPNS : <?php echo $t->tmt_cpns ?></p>
+              </div>
+            </div>
+          <?php  } ?>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

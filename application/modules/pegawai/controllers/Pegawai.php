@@ -89,6 +89,16 @@ class pegawai extends MX_Controller {
     );
     redirect('pegawai');
   }
+  public function update_pegawai($id_pegawai)
+  {
+    $data['title'] = 'Edit Pegawai';
+    $data['detail'] = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai])->row_array();
+    $data['pangkat'] = $this->db->query("SELECT * FROM tb_pangkat ORDER BY id_pangkat DESC")->result();
+    $data['jabatan'] = $this->db->query("SELECT * FROM tb_jabatan")->result();
+    $data['kp'] = $this->db->query("SELECT * FROM tb_kp")->result();
+    $data['unit'] = $this->db->query("SELECT * FROM tb_unit")->result();
+    $this->template->load('MasterLayout','u-pegawai-form',$data);
+  }
   function update_pegawai_proses()
   {
     $id_pegawai = $this->input->post('id_pegawai');
@@ -98,6 +108,7 @@ class pegawai extends MX_Controller {
     $jekel = $this->input->post('jekel');
     $agama = $this->input->post('agama');
     $pend_terahir = $this->input->post('pend_terahir');
+    $bidang = $this->input->post('bidang');
     $id_pangkat = $this->input->post('id_pangkat');
     $tmt_pkt = $this->input->post('tmt_pkt');
     $id_jabatan = $this->input->post('id_jabatan');
@@ -119,6 +130,7 @@ class pegawai extends MX_Controller {
       'jekel'         => $jekel,
       'agama'         => $agama,
       'pend_terahir'  => $pend_terahir,
+      'bidang'        => $bidang,
       'id_pangkat'    => $id_pangkat,
       'tmt_pkt'       => $tmt_pkt,
       'id_jabatan'    => $id_jabatan,
@@ -151,7 +163,9 @@ class pegawai extends MX_Controller {
   {
     $data['title'] = 'Detail Pegawai';
     $data['detail'] = $this->M_pegawai->detail_pegawai($this->uri->segment(3));
-
+    $data['kpb'] = $this->M_pegawai->kpb($id_pegawai);
+    $data['kgb'] = $this->M_pegawai->kgb($id_pegawai);
+    $data['jabatan'] = $this->M_pegawai->jabatan($id_pegawai);
     $this->template->load('MasterLayout','l-pegawai',$data);
   }
   public function update_foto_proses()

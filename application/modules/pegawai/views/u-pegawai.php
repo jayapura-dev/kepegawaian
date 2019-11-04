@@ -45,6 +45,24 @@
            <div class="form-group-inner">
             <div class="row">
                 <div class="col-lg-2">
+                    <label class="login2 pull-right pull-right-pro">Agama</label>
+                </div>
+                <div class="col-lg-4">
+                  <select class="form-control" name="agama" id="xagama">
+                    <option value="">--- Pilih ---</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Protestan">Protestan</option>
+                    <option value="Khatolik">Khatolik</option>
+                    <option value="Budha">Budha</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Khonghucu">Khonghucu</option>
+                  </select>
+                </div>
+            </div>
+          </div>
+           <div class="form-group-inner">
+            <div class="row">
+                <div class="col-lg-2">
                     <label class="login2 pull-right pull-right-pro">Pend.Terahir</label>
                 </div>
                 <div class="col-lg-4">
@@ -59,7 +77,7 @@
                     <label class="login2 pull-right pull-right-pro">Bidang</label>
                 </div>
                 <div class="col-lg-4">
-                    <input name="bidang" type="text" class="form-control" placeholder="Bidang Kekhususan" />
+                    <input name="bidang" type="text" id="xbidang" class="form-control" placeholder="Bidang Kekhususan" />
                 </div>
             </div>
           </div>
@@ -70,7 +88,7 @@
                   <label class="login2 pull-right pull-right-pro">Jenis KP</label>
               </div>
               <div class="col-lg-4">
-                <select name="id_kp" class="form-control" id="id_kp">
+                <select name="id_kp" class="form-control" id="xid_kp">
                     <option value="">-- Pilih --</option>
                      <?php
                      foreach($kp as $j => $val)
@@ -92,7 +110,7 @@
 
                  </select>
                </div>
-               <div class="col-lg-2" id="sub_jabatan" hidden="true">
+               <div class="col-lg-2" hidden="true" id="xsubjabatan">
                    <select class="form-control" name="subjabatan">
                      <option value="-">--- Pilih ---</option>
                      <option value="Madya">Madya</option>
@@ -109,7 +127,7 @@
                </div>
 
                <div class="col-lg-3">
-                   <input name="tmt_jbt" type="date" class="form-control" />
+                   <input name="tmt_cpns" type="text" id="xtmt_cpns" class="form-control" />
                </div>
            </div>
          </div>
@@ -143,7 +161,7 @@
                   <label class="login2 pull-right pull-right-pro">Gaji Pokok</label>
               </div>
               <div class="col-lg-4">
-                 <input name="gapok_pegawai" type="text" class="form-control" id="xgapok_pegawai" />
+                 <input name="gapok_pegawai" type="text" class="form-control" id="xgapok" />
               </div>
               <div class="col-lg-1">
                   <label class="login2 pull-right pull-right-pro">TMT</label>

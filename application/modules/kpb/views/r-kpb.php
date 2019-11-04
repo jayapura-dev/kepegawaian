@@ -33,7 +33,6 @@
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
                             <h1>Data<span class="table-project-n"></span> Kenaikan Pangkat Pejabat</h1>
-
                         </div>
                     </div>
                     <div class="sparkline13-graph">
@@ -101,6 +100,8 @@
         </div>
     </div>
 </div>
+
+
 
 <div class="modal fade" id="modalupdate" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
 	<div class="modal-dialog modal-lg">

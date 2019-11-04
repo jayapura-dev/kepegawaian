@@ -187,10 +187,119 @@
           </div>
         </div>
       </div>
-
     </br>
-
       <?php } ?>
+    </div>
+  </div>
+</div>
+
+<div class="feed-mesage-project-area">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="sparkline8-list shadow-reset mg-tb-30">
+          <div class="sparkline8-hd">
+            <div class="main-sparkline8-hd">
+              <h1><i class="fa fa-clock-o"></i> Histori KPB</h1>
+              <div class="sparkline8-outline-icon">
+                  <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                  <span><i class="fa fa-wrench"></i></span>
+                  <span class="sparkline8-collapse-close"><i class="fa fa-times"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="sparkline8-graph dashone-comment messages-scrollbar dashtwo-messages">
+            <?php
+            $no = 1;
+            foreach($kpb as $k){?>
+            <div class="comment-phara">
+              <div class="comment-adminpr">
+                  <a class="dashtwo-messsage-title" href="#"><?php echo $no++ ?> . <?php echo $k->pangkat ?></a>
+                  <p class="comment-content">Naik Pangkat Dari <strong><?php echo $k->pkt_lama ?></strong> ke  <strong><?php echo $k->pangkat ?></strong></p>
+              </div>
+              <div class="admin-comment-month">
+                  <p class="comment-clock"><i class="fa fa-calendar"></i> TMT : <?php echo $k->tmt_pkt ?> <a href="<?php echo base_url()?>images/kpb/<?php echo $k->dok_kpb ?>" target="_blank" title="File SK"> <img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a> </p>
+                  <p class="comment-clock">
+                    <!--<a class="btn btn-xs btn-default" href="#" title="Edit"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-xs btn-primary" href="#" title="Hapus"><i class="fa fa-trash"></i></a>!-->
+                  </p>
+
+              </div>
+            </div>
+          <?php } ?>
+          </div>
+        </div>
+      </div>
+      <!--  End Histori Kenaikan Pangkat Berkala  !-->
+      <!--  Start Histori Kenaikan Gaji Berkala  !-->
+      <div class="col-lg-4">
+        <div class="sparkline8-list shadow-reset mg-tb-30">
+          <div class="sparkline8-hd">
+            <div class="main-sparkline8-hd">
+              <h1><i class="fa fa-clock-o"></i> Histori KGB</h1>
+              <div class="sparkline8-outline-icon">
+                  <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                  <span><i class="fa fa-wrench"></i></span>
+                  <span class="sparkline8-collapse-close"><i class="fa fa-times"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="sparkline8-graph dashone-comment messages-scrollbar dashtwo-messages">
+            <?php
+            $no = 1;
+            foreach($kgb as $g){?>
+            <div class="comment-phara">
+              <div class="comment-adminpr">
+                  <a class="dashtwo-messsage-title" href="#"><?php echo $no++ ?> . <?php echo number_format($g->gapok_baru) ?></a>
+                  <p class="comment-content">Naik Gaji Dari Jumlah Gaji Pokok <strong><?php echo number_format($g->gapok_lama) ?></strong> ke  <strong><?php echo number_format($g->gapok_baru) ?></strong></p>
+              </div>
+              <div class="admin-comment-month">
+                  <p class="comment-clock"><i class="fa fa-calendar"></i> TMT : <?php echo $g->tmt_kgb ?> <a href="<?php echo base_url()?>images/kgb/<?php echo $g->dok_kgb ?>" target="_blank" title="File SK"> <img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a> </p>
+                  <p class="comment-clock">
+                    <!--<a class="btn btn-xs btn-default" href="#" title="Edit"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-xs btn-primary" href="#" title="Hapus"><i class="fa fa-trash"></i></a>!-->
+                  </p>
+              </div>
+            </div>
+          <?php } ?>
+          </div>
+        </div>
+      </div>
+      <!--  End Histori Kenaikan Gaji Berkala  !-->
+      <!--  Start Histori Jabatan  !-->
+      <div class="col-lg-4">
+        <div class="sparkline8-list shadow-reset mg-tb-30">
+          <div class="sparkline8-hd">
+            <div class="main-sparkline8-hd">
+              <h1><i class="fa fa-clock-o"></i> Histori Jabatan</h1>
+              <div class="sparkline8-outline-icon">
+                  <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                  <span><i class="fa fa-wrench"></i></span>
+                  <span class="sparkline8-collapse-close"><i class="fa fa-times"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="sparkline8-graph dashone-comment messages-scrollbar dashtwo-messages">
+            <?php
+            $no = 1;
+            foreach($jabatan as $j){?>
+            <div class="comment-phara">
+              <div class="comment-adminpr">
+                  <a class="dashtwo-messsage-title" href="#"><?php echo $no++ ?> . <?php echo $j->jabatan ?></a>
+                  <p class="comment-content">Berganti Jabatan Dari <strong><?php echo $j->jbt_lama ?></strong> ke  <strong><?php echo $j->jabatan ?></strong></p>
+              </div>
+              <div class="admin-comment-month">
+                  <p class="comment-clock"><i class="fa fa-calendar"></i> TMT : <?php echo $j->tmt_menjabat ?> <a href="<?php echo base_url()?>images/jabatan/<?php echo $j->dok_jabatan ?>" target="_blank" title="File SK"> <img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a> </p>
+                  <p class="comment-clock">
+                    <!--<a class="btn btn-xs btn-default" href="#" title="Edit"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-xs btn-primary" href="#" title="Hapus"><i class="fa fa-trash"></i></a>!-->
+                  </p>
+              </div>
+            </div>
+          <?php } ?>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

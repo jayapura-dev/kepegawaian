@@ -1,3 +1,4 @@
+<script src="<?php echo base_url()?>assets/js/jquery-1.11.3.min.js"></script>
 <div class="breadcome-area mg-b-30 small-dn">
     <div class="container-fluid">
         <div class="row">
@@ -82,27 +83,30 @@
                                     <td><?php echo $item->unit_kerja ?></td>
                                     <!--<td><?php echo $item->masa_kerja ?> Tahun </td>!-->
                                     <td>
-                                      <!--<a href="<?php echo base_url()?>pegawai/detail_pegawai/<?php echo $item->id_pegawai ?>" type="button" title="Detail Data Pegawai" class="btn btn-success"><i class="fa fa-user"></i></a>!-->
-                                      <a href="#modalupdate" data-toggle="modal" class="btn btn-warning" onclick="update(
+                                      <a href="<?php echo base_url()?>pegawai/update_pegawai/<?php echo $item->id_pegawai ?>" class="btn btn-warning" title="Update Data Pejabat"><i class="fa fa-edit"></i></a>
+                                      <!--<a href="#modalupdate" data-toggle="modal" class="btn btn-warning" onclick="update(
                                         '<?php echo $item->id_pegawai ?>',
                                         '<?php echo $item->nama ?>',
                                         '<?php echo $item->nip ?>',
                                         '<?php echo $item->tgl_lahir ?>',
                                         '<?php echo $item->jekel ?>',
+                                        '<?php echo $item->agama ?>',
                                         '<?php echo $item->pend_terahir ?>',
                                         '<?php echo $item->bidang ?>',
                                         '<?php echo $item->id_pangkat ?>',
                                         '<?php echo $item->tmt_pkt ?>',
                                         '<?php echo $item->id_jabatan ?>',
                                         '<?php echo $item->tmt_jbt ?>',
+                                        '<?php echo $item->subjabatan ?>',
                                         '<?php echo $item->gapok_pegawai ?>',
                                         '<?php echo $item->tmt_gapok ?>',
                                         '<?php echo $item->tmt_cpns ?>',
                                         '<?php echo $item->id_kp ?>',
+                                        '<?php echo $item->subjabatan ?>',
                                         '<?php echo $item->id_unit ?>',
-                                        '<?php echo $item->notifikasi ?>',
-                                        '<?php echo $item->ket ?>'
-                                      )"><i class="fa fa-edit"></i></a>
+                                        '<?php echo $item->status_tgs_belajar ?>',
+                                        '<?php echo $item->status_ijin_belajar ?>'
+                                      )"><i class="fa fa-edit"></i></a>!-->
                                       <a href="<?php echo base_url()?>jabatan/create_jabatan/<?php echo $item->id_pegawai ?>" title="Tambah Jabatan Baru" class="btn btn-primary"><i class="fa fa-cogs"></i></a>
                                     </td>
                                   </tr>
@@ -135,7 +139,6 @@
 </div>
 
 <script type="text/javascript">
-
   $('select[name="id_kp"]').on('change', function() {
       var id_kp = $(this).val();
       if(id_kp) {
@@ -155,14 +158,14 @@
       }
   });
 
-
-  function update(id_pegawai,nama,nip,tgl_lahir,jekel,pend_terahir,bidang,id_pangkat,tmt_pkt,id_jabatan,tmt_jbt,subjabatan,gapok,tmt_gapok,tmt_cpns,id_kp,id_unit)
+  function update(id_pegawai,nama,nip,tgl_lahir,jekel,agama,pend_terahir,bidang,id_pangkat,tmt_pkt,id_jabatan,tmt_jbt,subjabatan,gapok_pegawai,tmt_gapok,tmt_cpns,id_kp,id_unit,status_tgs_belajar,status_ijin_belajar)
   {
     $('#xid_pegawai').val(id_pegawai);
     $('#xnama').val(nama);
     $('#xnip').val(nip);
-    $('#tgl_lahir').val(tgl_lahir);
+    $('#xtgl_lahir').val(tgl_lahir);
     $('#xjekel').val(jekel);
+    $('#xagama').val(agama);
     $('#xpend_terahir').val(pend_terahir);
     $('#xbidang').val(bidang);
     $('#xid_pangkat').val(id_pangkat);
@@ -175,11 +178,13 @@
     $('#xtmt_cpns').val(tmt_cpns);
     $('#xid_kp').val(id_kp);
     $('#xid_unit').val(id_unit);
+    $('#xstatus_tgs_belajar').val(status_tgs_belajar);
+    $('#xstatus_ijin_belajar').val(status_ijin_belajar);
   }
 
-  $('#id_kp').change(function() {
+  $('#xid_kp').change(function() {
     var id_kp = $(this).val();
-    $('#sub_jabatan').prop('hidden', id_kp != 3);
+    $('#xsubjabatan').prop('hidden', id_kp != 3);
   })
 
   function get_tgl_lahir()
@@ -194,13 +199,13 @@
     var bulan_lahir = tgl_lahir.substr(4,2);
     var hari_lahir = tgl_lahir.substr(6,2);
     var gabung = tahun_lahir + '-' + bulan_lahir + '-' + hari_lahir;
-    $('#tgl_lahir').val(gabung);
+    $('#xtgl_lahir').val(gabung);
 
     // Membuat Format Date untuk TMT CPNS
     var tahun_cpns = tmt_cp.substr(0, 4);
     var bulan_cpns = tmt_cp.substr(4,2);
 
-    var gabung_tmt_cp = tahun_cpns + '-' + bulan_cpns + '-01';
+    var gabung_tmt_cp = tahun_cpns + '-' + bulan_cpns + '-';
     $('#xtmt_cpns').val(gabung_tmt_cp);
 
     // Membuat Validasi untuk Jenis Kelamin
