@@ -121,3 +121,6 @@
 * Senin 4 November 2019
   - Menambahkan View Histori KPB, KGB, Jabatan [Solved]
   - Memperbaiki View Detail Pegawai [Solved]
+
+* Selasa 5 November 2019
+  - Memperbaiki View Dashboard [Solved]

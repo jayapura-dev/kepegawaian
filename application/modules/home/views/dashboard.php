@@ -3,13 +3,15 @@
 <script src="<?php echo base_url('assets/js/export-data.js')?>"></script>
 
 <?php
-foreach($jumlah_pejabat as $i){
+foreach($hitung_pejabat as $i){
   $jp = $i->jumlah_pejabat;
   $jps = $i->jastruk;
   $jpfu = $i->jafung_umum;
   $jpft = $i->jafung_tertentu;
+  $ps = $i->jastruk / $i->jumlah_pejabat * 100;
+  $pfu = $i->jafung_umum / $i->jumlah_pejabat * 100;
+  $pft = $i->jafung_tertentu / $i->jumlah_pejabat * 100;
 }
-
 ?>
 
 <div class="breadcome-area mg-b-30 small-dn">
@@ -57,7 +59,7 @@ foreach($jumlah_pejabat as $i){
                     </div>
                     <div class="income-range">
                         <p>Prosentase</p>
-                        <span class="income-percentange">98% <i class="fa fa-bolt"></i></span>
+                        <span class="income-percentange">100 % <i class="fa fa-bolt"></i></span>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -82,7 +84,7 @@ foreach($jumlah_pejabat as $i){
                     </div>
                     <div class="income-range order-cl">
                         <p>Prosentase</p>
-                        <span class="income-percentange">66% <i class="fa fa-level-up"></i></span>
+                        <span class="income-percentange"><?php echo number_format($ps) ?> % <i class="fa fa-level-up"></i></span>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -101,13 +103,13 @@ foreach($jumlah_pejabat as $i){
                 <div class="income-dashone-pro">
                     <div class="income-rate-total">
                         <div class="price-adminpro-rate">
-                            <h3><span class="counter"><?php echo $jpfu ?></span></h3>
+                            <h3><span class="counter"><?php echo $jpft ?></span></h3>
                         </div>
 
                     </div>
                     <div class="income-range visitor-cl">
                         <p>Prosentase</p>
-                        <span class="income-percentange">40% <i class="fa fa-level-up"></i></span>
+                        <span class="income-percentange"><?php echo number_format($pft) ?> % <i class="fa fa-level-up"></i></span>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -128,11 +130,11 @@ foreach($jumlah_pejabat as $i){
                         <div class="price-adminpro-rate">
                             <h3><span class="counter"><?php echo $jpfu ?></span></h3>
                         </div>
-                        
+
                     </div>
                     <div class="income-range low-value-cl">
                         <p>Prosentase</p>
-                        <span class="income-percentange">33% <i class="fa fa-level-down"></i></span>
+                        <span class="income-percentange"><?php echo number_format($pfu) ?> % <i class="fa fa-level-down"></i></span>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -232,57 +234,3 @@ foreach($jumlah_pejabat as $i){
     </div>
   </div>
 </div>
-
-
-<script type="text/javascript">
-  Highcharts.chart('jpkp', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'Jumlah Pegawai Berdasarkan KP',
-        style: {
-                  fontSize: '10px',
-                  fontFamily: 'Verdana, sans-serif'
-             }
-    },
-    subtitle: {
-        text: ''
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.2f}%</b>'
-    },
-    credits: {
-            enabled: false
-        },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.2f} %',
-                style: {
-                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                }
-            }
-        }
-    },
-    series: [{
-      name: 'APBD',
-      data: [
-          <?php
-          if(count($hitung_kp)>0)
-          {
-             foreach ($hitung_kp as $data) {
-             echo "['" .$data->jenis_kp . "'," . $data->jp ."],\n";
-             }
-          }
-          ?>
-      ]
-    }]
-  });
-</script>

@@ -133,13 +133,12 @@ class M_home extends CI_Model{
   function hitung_pejabat()
   {
     $query = $this->db->query("SELECT
-    COUNT(id_pegawai) as jumlah_pejabat,
-    COUNT(Distinct CASE WHEN id_kp = '1' THEN id_pegawai END) as jastruk,
-    COUNT(Distinct CASE WHEN id_kp = '2' THEN id_pegawai END) as jafung_umum,
-    COUNT(Distinct CASE WHEN id_kp = '3' THEN id_pegawai END) as jafung_tertentu
+    COUNT(DISTINCT id_pegawai) as jumlah_pejabat,
+    COUNT(DISTINCT CASE WHEN id_kp = '1' THEN id_pegawai END) as jastruk,
+    COUNT(DISTINCT CASE WHEN id_kp = '2' THEN id_pegawai END) as jafung_umum,
+    COUNT(DISTINCT CASE WHEN id_kp = '3' THEN id_pegawai END) as jafung_tertentu
     FROM tb_pegawai
-    ");
-
+    WHERE id_pegawai");
     return $query->result();
   }
   function hitung_kp1()
@@ -147,10 +146,10 @@ class M_home extends CI_Model{
     $query = $this->db->query("SELECT
       tb_kp.jenis_kp as jenis_kp,
       tb_pegawai.id_kp as id_kp,
-      COUNT(tb_pegawai.id_pegawai) as jp
+      COUNT(Distinct tb_pegawai.id_pegawai) as jp
       FROM tb_pegawai
       LEFT JOIN tb_kp ON tb_pegawai.id_kp = tb_kp.id_kp
-      GROUP BY tb_pegawai.id_kp");
+      GROUP BY tb_kp.jenis_kp");
 
       return $query->result();
   }

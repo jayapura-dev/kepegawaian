@@ -200,7 +200,7 @@
         <div class="sparkline8-list shadow-reset mg-tb-30">
           <div class="sparkline8-hd">
             <div class="main-sparkline8-hd">
-              <h1><i class="fa fa-clock-o"></i> Histori KPB</h1>
+              <h1><i class="fa fa-clock-o"></i> Histori KP</h1>
               <div class="sparkline8-outline-icon">
                   <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
                   <span><i class="fa fa-wrench"></i></span>

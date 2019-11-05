@@ -264,7 +264,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-copy-right">
-                        <p>Created By Budi Handoko And Friends</a></p>
+                        <p>Created By Diah Warastuti deweq</a></p>
                     </div>
                 </div>
             </div>

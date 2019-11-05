@@ -70,7 +70,7 @@
                                           <label class="login2 pull-right pull-right-pro">TMT CPNS</label>
                                       </div>
                                       <div class="col-lg-4">
-                                          <input type="text" name="tmt_cpns" id="tmt_cpns" onclick="get_tgl_lahir()" class="form-control">
+                                          <input type="text" name="tmt_cpns" id="tmt_cpns" readonly="true" onclick="get_tgl_lahir()" class="form-control">
                                       </div>
                                       <div class="col-lg-4">
                                         <input name="jekel" type="text" id="jekel" readonly="true" onchange="get_tgl_lahir()" class="form-control" />
@@ -339,7 +339,7 @@
     var tahun_cpns = tmt_cp.substr(0, 4);
     var bulan_cpns = tmt_cp.substr(4,2);
 
-    var gabung_tmt_cp = tahun_cpns + '-' + bulan_cpns + '-';
+    var gabung_tmt_cp = tahun_cpns + '-' + bulan_cpns + '-01';
     $('#tmt_cpns').val(gabung_tmt_cp);
 
     // Membuat Validasi untuk Jenis Kelamin
