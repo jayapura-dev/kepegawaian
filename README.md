@@ -1,4 +1,4 @@
-# Sistem Informasi Reminder & Notifikasi Proper ( READ K-4 )
+# Sistem Informasi Reminder & Notifikasi Proper ( READ K-4 ) Versi 1.1
 -------------------------------------------------------------------
 
 ## System Requirements :
@@ -23,6 +23,18 @@
   - Admin Pro + (Gradient design)
 
 ----------------------------------------------------
+
+## Fitur Applikasi (Versi 1.1)
+  - Kelola Data Master Pegawai.
+  - Kelola Data pangkat & Jabatan.
+  - Kelola Data Pensiun, Ijin Belajar, & Tugas Belajar.
+  - Reminder/Notifikasi Kenaikan Pangkat (KP).
+  - Reminder/Notifikasi Kenaikan Gaji (KGB).
+  - Reminder/Notifikasi Perpanjangan Ijin Belajar.
+  - Reminder/Notifikasi Perpanjangan Tugas Belajar.
+  - Reminder/Notifikasi Pensiun.
+
+-----------------------------------------------------
 
 ## Progres Pembuatan & Pengembangan
 
