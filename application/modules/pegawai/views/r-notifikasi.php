@@ -9,9 +9,10 @@
                         </div>
                         <div class="col-lg-6">
                             <ul class="breadcome-menu">
-                                <li><a href="#">Pengguna</a> <span class="bread-slash">/</span>
+                                <li><a href="#">Data Master</a> <span class="bread-slash">/</span>
                                 </li>
-
+                                <li><span class="bread-blod">Notifikasi</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -25,15 +26,13 @@
         <div class="row">
             <div class="col-lg-12">
               <?php echo $this->session->flashdata('simpan');?>
+              <?php echo $this->session->flashdata('update_notif');?>
               <?php echo $this->session->flashdata('update');?>
               <?php echo $this->session->flashdata('hapus');?>
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data <span class="table-project-n"></span> Pengguna Applikasi</h1>
-                            <div class="sparkline13-outline-icon">
-                              <span><a href="<?php echo base_url()?>users/tambah_user" title="Tambah User" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i></a></i></span>
-                          </div>
+                            <h5>Daftar<span class="table-project-n"></span> Pejabat Yang Dimatikan Notifikasi Pangkat</h5>
                         </div>
                     </div>
                     <div class="sparkline13-graph">
@@ -49,27 +48,26 @@
                                 <thead>
                                     <tr>
                                         <th data-field="no">No</th>
-                                        <th data-field="nik">Nama / NIP</th>
-                                        <th data-field="level">Level</th>
-                                        <th data-field="user">User</th>
-                                        <th data-field="status">Status</th>
-                                        <th data-field="action">Action</th>
+                                        <th data-field="nama">Nama Pegawai</th>
+                                        <th data-field="nip">Nip</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   <?php
                                   $no = 1;
-                                  foreach($users as $item){
+                                  foreach($notif as $item){
                                   ?>
                                   <tr>
                                     <td><?php echo $no++ ?></td>
-                                    <td><?php echo $item->nama_lengkap ?> <br/><?php echo $item->nip ?></td>
-                                    <td><?php echo $item->level ?></td>
                                     <td><?php echo $item->nama ?></td>
-                                    <td><?php echo $item->status ?></td>
+                                    <td><?php echo $item->nip ?></td>
                                     <td>
-                                      <a class="btn btn-xs btn-default" href="<?php echo base_url()?>users/edit_users/<?php echo $item->id_user ?>" title="Edit"><i class="fa fa-edit"></i></a>
-                                      <a class="btn btn-xs btn-default" href="<?php echo base_url()?>users/delete_users/<?php echo $item->id_user ?>" title="Hapus"><i class="fa fa-trash"></i></a>
+                                      <a href="#modalupdate" data-toggle="modal" type="button" title="Aktifkan Notifikasi Untuk Pegawai ini" class="btn btn-danger btn-xs" onclick="update(
+                                        '<?php echo $item->id_pegawai ?>',
+                                        '<?php echo $item->notifikasi ?>',
+                                        '<?php echo $item->ket ?>'
+                                      )"><i class="fa fa-bell-o"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>
@@ -82,3 +80,28 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modalupdate" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id=""><i class="fa fa-plus-circle"></i> Update Notif Pejabat</h4>
+			</div>
+			<div class="modal-body">
+        <?php $this->load->view('kpb/u-notif-pangkat'); ?>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  function update(id_pegawai,notifikasi,ket){
+    $('#idpegawai').val(id_pegawai);
+    $('#notifikasi').val(notifikasi);
+    $('#ket').val(ket);
+  }
+</script>

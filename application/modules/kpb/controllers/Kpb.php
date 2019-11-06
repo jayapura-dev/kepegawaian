@@ -27,6 +27,7 @@ class kpb extends MX_Controller {
 
   function update_notif_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $id_pegawai = $this->input->post('id_pegawai');
     $notifikasi = $this->input->post('notifikasi');
     $ket = $this->input->post('ket');
@@ -54,6 +55,7 @@ class kpb extends MX_Controller {
 
   public function create_kpb($id_pegawai)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Tambah Data kenaikan Pangkat';
     //$data['detail'] = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai])->row_array();
     $data['detail'] = $this->M_kpb->detail($id_pegawai);
@@ -62,6 +64,7 @@ class kpb extends MX_Controller {
   }
   public function create_kpb_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/kpb';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -125,6 +128,7 @@ class kpb extends MX_Controller {
   }
   public function update_kpb($id_pegawai)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Edit Data KPB';
     $data['detail'] = $this->M_kpb->detail_kpb($id_pegawai);
 
@@ -132,6 +136,7 @@ class kpb extends MX_Controller {
   }
   public function update_kpb_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $id_kpb = $this->input->post('id_kpb');
     $id_pegawai = $this->input->post('id_pegawai');
     $no_sk = $this->input->post('no_sk');
@@ -165,6 +170,7 @@ class kpb extends MX_Controller {
   }
   public function updatefile_kpb_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/kpb';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -223,6 +229,7 @@ class kpb extends MX_Controller {
   }
   public function delete_kpb($id_kpb)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Hapus Item KP Pejabat';
     $data['detail'] = $this->M_kpb->detail_kpb($id_kpb);
 
@@ -230,6 +237,7 @@ class kpb extends MX_Controller {
   }
   function delete_kpb_proses($id_kpb = 0)
   {
+    Modules::run('auth/cek_login', 1);
     $id_kpb = $this->input->post('id_kpb');
     $file = $this->db->get_where('tb_kpb', ['id_kpb' => $id_kpb]);
 
@@ -254,12 +262,14 @@ class kpb extends MX_Controller {
 
   public function cari_kpb()
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Cari Data KPB';
     $this->template->load('MasterLayout','l-kpb',$data);
   }
 
   public function result_kpb($dari_tgl = 0,$smp_tgl = 0)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Data KP Result';
     $dari_tgl = $this->input->post('dari_tgl');
     $smp_tgl = $this->input->post('smp_tgl');

@@ -145,4 +145,12 @@ class M_pegawai extends CI_Model{
     return $query->result();
   }
   // End Jabatan
+
+  function notifikasi()
+  {
+    $query = $this->db->query("SELECT * FROM tb_pegawai
+    WHERE notifikasi = 'nonaktif' ");
+
+    return $query->result();
+  }
 }

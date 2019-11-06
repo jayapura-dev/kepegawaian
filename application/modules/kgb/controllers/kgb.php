@@ -24,6 +24,7 @@ class kgb extends MX_Controller {
   }
   public function create_kgb($id_pegawai)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Tambah Data KGB';
     //$data['detail'] = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai])->row_array();
     $data['detail'] = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai])->row_array();
@@ -31,6 +32,7 @@ class kgb extends MX_Controller {
   }
   function create_kgb_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/kgb';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -94,6 +96,7 @@ class kgb extends MX_Controller {
   }
   function update_kgb_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $id_kgb = $this->input->post('id_kgb');
     $id_pegawai = $this->input->post('id_pegawai');
     $no_sk = $this->input->post('no_sk');
@@ -141,6 +144,7 @@ class kgb extends MX_Controller {
   }
   public function updatefile_kgb_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/kgb';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -199,6 +203,7 @@ class kgb extends MX_Controller {
   }
   public function delete_kgb($id_kgb)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Hapus Item KGB ';
     $data['detail'] = $this->M_kgb->detail_kgb($id_kgb);
 
@@ -206,6 +211,7 @@ class kgb extends MX_Controller {
   }
   function delete_kgb_proses($id_kgb = 0)
   {
+    Modules::run('auth/cek_login', 1);
     $id_kgb = $this->input->post('id_kgb');
     $file = $this->db->get_where('tb_kgb', ['id_kgb' => $id_kgb]);
 

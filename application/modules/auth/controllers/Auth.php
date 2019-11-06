@@ -37,18 +37,6 @@ class auth extends MX_Controller{
           //helper_log("login", "Login ke applikasi");
   		  redirect('home');
   			}
-        elseif ($this->session->userdata('level')=='3'){
-          //helper_log("login", "Login ke applikasi");
-  			redirect('home');
-  			}
-        elseif ($this->session->userdata('level')=='4'){
-          //helper_log("login", "Login ke applikasi");
-  			redirect('home');
-  			}
-        elseif ($this->session->userdata('level')=='5'){
-          //helper_log("login", "Login ke applikasi");
-  			redirect('home');
-  			}
 			}
 			else {
 				$this->session->set_flashdata(
@@ -82,12 +70,17 @@ class auth extends MX_Controller{
 				}
 				else {
 					if ($this->session->userdata('level') != $user_level){
-						redirect('auth');
+						redirect('auth/PageNotFound');
 					}
 				}
 			}
 		}
 	}
+  function PageNotFound()
+  {
+    $data['title'] = 'Halaman Tidak Ditemunkan';
+    $this->load->view('404',$data);
+  }
   function logout(){
 		$this->session->sess_destroy();
     //helper_log("logout", "Logout dari Applikasi");

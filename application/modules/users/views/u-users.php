@@ -43,14 +43,15 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="all-form-element-inner">
-                              <form action="<?php echo base_url()?>users/tambah_users_proses" method="post">
+                              <form action="<?php echo base_url()?>users/edit_user_proses" method="post">
                                   <div class="form-group-inner">
                                    <div class="row">
                                        <div class="col-lg-2">
                                            <label class="login2 pull-right pull-right-pro">NIP</label>
                                        </div>
                                        <div class="col-lg-8">
-                                           <input name="nip" id="xnip" type="text" class="form-control" />
+                                           <input name="id_user" value="<?php echo $detail['id_user'] ?>" type="hidden" class="form-control" />
+                                           <input name="nip" value="<?php echo $detail['nip'] ?>" id="xnip" type="text" class="form-control" />
                                        </div>
                                        <div class="col-lg-1">
                                            <a href="#modal_pegawai" data-toggle="modal" title="Data Pegawai" class="btn btn-primary"><i class="fa fa-list"></i></a>
@@ -63,7 +64,7 @@
                                             <label class="login2 pull-right pull-right-pro">Nama</label>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input name="nama" type="text" id="xnama" class="form-control" />
+                                            <input name="nama" type="text" value="<?php echo $detail['nama'] ?>" id="xnama" class="form-control" />
                                         </div>
                                       </div>
                                     </div>
@@ -73,7 +74,7 @@
                                            <label class="login2 pull-right pull-right-pro">Password</label>
                                        </div>
                                        <div class="col-lg-9">
-                                           <input name="sandi" type="password" id="xpass" class="form-control" />
+                                           <input name="sandi" type="password" value="<?php echo $detail['sandi_deskripsi'] ?>" id="xpass" class="form-control" />
                                        </div>
                                    </div>
                                   </div>
@@ -84,7 +85,7 @@
                                        </div>
                                        <div class="col-lg-9">
                                          <select name="level" class="form-control">
-                                           <option value="">-- Pilih --</option>
+                                           <option value="<?php echo $detail['level'] ?>">Selected</option>
                                               <?php
                                               foreach($level as $p => $val)
                                               {?>
@@ -114,7 +115,7 @@
                                          <label class="login2 pull-right pull-right-pro">Email</label>
                                      </div>
                                      <div class="col-lg-9">
-                                         <input name="email" type="text" class="form-control" />
+                                         <input name="email" type="text" class="form-control" value="<?php echo $detail['email'] ?>" />
                                      </div>
                                  </div>
                                </div>
@@ -124,7 +125,7 @@
                                         <label class="login2 pull-right pull-right-pro">Nama Lengkap</label>
                                     </div>
                                     <div class="col-lg-9">
-                                        <input name="nama_lengkap" id="xnama_lengkap" type="text" class="form-control" />
+                                        <input name="nama_lengkap" value="<?php echo $detail['nama_lengkap'] ?>" id="xnama_lengkap" type="text" class="form-control" />
                                     </div>
                                 </div>
                                </div>
@@ -134,7 +135,7 @@
                                         <label class="login2 pull-right pull-right-pro">Kontak</label>
                                     </div>
                                     <div class="col-lg-9">
-                                        <input name="kontak" type="text" class="form-control" />
+                                        <input name="kontak" value="<?php echo $detail['kontak'] ?>" type="text" class="form-control" />
                                     </div>
                                 </div>
                                </div>

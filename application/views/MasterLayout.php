@@ -37,7 +37,9 @@
                     <a href="<?php echo base_url()?>home"><img src="<?php echo base_url()?>assets/img/message/users1.png" alt="" />
                     </a>
                     <h3 class="uppercase">READ-K.4</h3>
+                    <?php if ($this->session->userdata('level') == '1'):?>
                     <p>Administrator</p>
+                  <?php endif ?>
                     <strong>APP</strong>
                 </div>
                 <?php $this->load->view('menu_level') ?>

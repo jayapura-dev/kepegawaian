@@ -136,3 +136,7 @@
 
 * Selasa 5 November 2019
   - Memperbaiki View Dashboard [Solved]
+
+* Rabu 6 November 2019
+  - Manambahkan Function Notifikasi pada modul pegawai [Solved]
+  - Menambahkan Fungsi CRUD Pengguna pada modul users [Solved]

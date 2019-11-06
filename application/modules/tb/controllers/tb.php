@@ -29,7 +29,7 @@ class tb extends MX_Controller {
   public function tugas_belajar()
   {
     $this->load->library('Indo_tanggal');
-    
+
     $data['title'] = 'Usulan PTB';
     $data['tb'] = $this->M_tb->pejabat_tb();
     $data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
@@ -38,6 +38,7 @@ class tb extends MX_Controller {
 
   public function update_tugas_pegawai_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $id_pegawai = $this->input->post('id_pegawai');
     $tgl_awal = $this->input->post('tgl_awal');
     $tgl_akhir = $this->input->post('tgl_akhir');
@@ -69,6 +70,7 @@ class tb extends MX_Controller {
 
   public function create_tb($id_pegawai)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Tambah Tugas Belajar';
     //$data['pegawai'] = $this->db->query("SELECT * FROM tb_pegawai")->result();
     //$data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
@@ -77,6 +79,7 @@ class tb extends MX_Controller {
   }
   public function create_tb_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/tugas_belajar';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -139,6 +142,7 @@ class tb extends MX_Controller {
   }
   public function update_tgs_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $id_tgs = $this->input->post('id_tgs');
     $id_pegawai = $this->input->post('id_pegawai');
     $id_jenjang = $this->input->post('id_jenjang');
@@ -177,6 +181,7 @@ class tb extends MX_Controller {
   }
   public function updatefile_tgs_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/tugas_belajar';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -235,6 +240,7 @@ class tb extends MX_Controller {
   }
   public function delete_tgs($id_tgs)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Hapus Item Tugas Belajar';
     $data['detail'] = $this->M_tb->detail_tgs($id_tgs);
 
@@ -242,6 +248,7 @@ class tb extends MX_Controller {
   }
   function delete_tgs_proses($id_tgs = 0)
   {
+    Modules::run('auth/cek_login', 1);
     $id_tgs= $this->input->post('id_tgs');
     $file = $this->db->get_where('tb_tgs_bljr', ['id_tgs' => $id_tgs]);
 

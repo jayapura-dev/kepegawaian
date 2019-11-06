@@ -20,6 +20,7 @@ class jabatan extends MX_Controller{
 
   function create_jabatan($id_pegawai)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Tambah Jabatan Pejabat';
     $data['detail'] = $this->M_jabatan->detail($id_pegawai);
     $data['kp'] = $this->db->query("SELECT * FROM tb_kp")->result();
@@ -34,6 +35,7 @@ class jabatan extends MX_Controller{
 
   public function create_jabatan_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/jabatan';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -101,6 +103,7 @@ class jabatan extends MX_Controller{
   }
   public function update_jabatan_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $id_jp = $this->input->post('id_jp');
     $id_pegawai = $this->input->post('id_pegawai');
     $no_sk = $this->input->post('no_sk');
@@ -152,6 +155,7 @@ class jabatan extends MX_Controller{
 
   public function updatefile_jabatan_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/jabatan';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -210,6 +214,7 @@ class jabatan extends MX_Controller{
   }
   public function delete_jabatan($id_jp)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Hapus Item Jabatan';
     $data['detail'] = $this->M_jabatan->detail_jabatan($id_jp);
 
@@ -217,6 +222,7 @@ class jabatan extends MX_Controller{
   }
   function delete_jabatan_proses($id_jp = 0)
   {
+    Modules::run('auth/cek_login', 1);
     $id_jp= $this->input->post('id_jp');
     $file = $this->db->get_where('tb_jp', ['id_jp' => $id_jp]);
 

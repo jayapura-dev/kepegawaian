@@ -22,6 +22,7 @@ class pegawai extends MX_Controller {
   }
   public function create_pegawai()
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Tambah Pegawai';
     $data['pangkat'] = $this->db->query("SELECT * FROM tb_pangkat ORDER BY id_pangkat DESC")->result();
     $data['jabatan'] = $this->db->query("SELECT * FROM tb_jabatan")->result();
@@ -37,6 +38,7 @@ class pegawai extends MX_Controller {
   }
   public function create_pegawai_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $nama = $this->input->post('nama');
     $nip = $this->input->post('nip');
     $tgl_lahir = $this->input->post('tgl_lahir');
@@ -91,6 +93,7 @@ class pegawai extends MX_Controller {
   }
   public function update_pegawai($id_pegawai)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Edit Pegawai';
     $data['detail'] = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai])->row_array();
     $data['pangkat'] = $this->db->query("SELECT * FROM tb_pangkat ORDER BY id_pangkat DESC")->result();
@@ -101,6 +104,7 @@ class pegawai extends MX_Controller {
   }
   function update_pegawai_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $id_pegawai = $this->input->post('id_pegawai');
     $nama = $this->input->post('nama');
     $nip = $this->input->post('nip');
@@ -170,6 +174,7 @@ class pegawai extends MX_Controller {
   }
   public function update_foto_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/foto_pegawai';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -216,6 +221,7 @@ class pegawai extends MX_Controller {
   }
   public function update_file_cpns_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/cpns';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -275,6 +281,7 @@ class pegawai extends MX_Controller {
 
   public function update_file_jabatan_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/jabatan';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -334,6 +341,7 @@ class pegawai extends MX_Controller {
 
   public function update_file_pangkat_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/kpb';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -393,6 +401,7 @@ class pegawai extends MX_Controller {
 
   public function update_file_gaji_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/kgb';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -452,6 +461,7 @@ class pegawai extends MX_Controller {
 
   public function delete_pegawai($id_pegawai)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Hapus Pegawai';
     $data['detail'] = $this->db->get_where('tb_pegawai', ['id_pegawai'  => $id_pegawai])->row_array();
 
@@ -459,6 +469,7 @@ class pegawai extends MX_Controller {
   }
   function delete_pegawai_proses($id_pegawai = 0)
   {
+    Modules::run('auth/cek_login', 1);
     $id_pegawai = $this->input->post('id_pegawai');
 
     $where = array(
@@ -472,5 +483,12 @@ class pegawai extends MX_Controller {
                     <strong>Success !</strong> Berhasil Menghapus Data!
                 </div>");
       redirect('pegawai');
+  }
+  public function notifikasi()
+  {
+    Modules::run('auth/cek_login', 1);
+    $data['title'] = 'Halaman Notifikasi';
+    $data['notif'] = $this->M_pegawai->notifikasi();
+    $this->template->load('MasterLayout','r-notifikasi',$data);
   }
 }

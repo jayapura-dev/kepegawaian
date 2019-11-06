@@ -26,6 +26,7 @@ class ib extends MX_Controller {
   }
   public function ijin_belajar()
   {
+
     $this->load->library('Indo_tanggal');
 
     $data['title'] = 'Ijin Belajar';
@@ -36,6 +37,7 @@ class ib extends MX_Controller {
   }
   public function update_ijin_pegawai_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $id_pegawai = $this->input->post('id_pegawai');
     $tgl_awal = $this->input->post('tgl_awal');
     $tgl_akhir = $this->input->post('tgl_akhir');
@@ -66,6 +68,7 @@ class ib extends MX_Controller {
   }
   public function create_ijin($id_pegawai)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Tambah Ijin Belajar';
     //$data['pegawai'] = $this->db->query("SELECT * FROM tb_pegawai WHERE status_ijin_belajar = 'ya' ")->result();
     //$data['jenjang'] = $this->db->query("SELECT * FROM tb_jenjang")->result();
@@ -74,6 +77,7 @@ class ib extends MX_Controller {
   }
   public function create_ijin_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/ijin_belajar';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -139,6 +143,7 @@ class ib extends MX_Controller {
   }
   public function update_ijin_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $id_ijin = $this->input->post('id_ijin');
     $id_pegawai = $this->input->post('id_pegawai');
     $id_jenjang = $this->input->post('id_jenjang');
@@ -190,6 +195,7 @@ class ib extends MX_Controller {
   }
   public function updatefile_ijin_proses()
   {
+    Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/ijin_belajar';
 		$config['allowed_types'] = 'gif|jpg|png';
     $config['encrypt_name'] = TRUE;
@@ -248,6 +254,7 @@ class ib extends MX_Controller {
   }
   public function delete_ijin($id_ijin)
   {
+    Modules::run('auth/cek_login', 1);
     $data['title'] = 'Hapus Item Ijin Belajar';
     $data['detail'] = $this->M_ib->detail_ijin($id_ijin);
 
@@ -255,6 +262,7 @@ class ib extends MX_Controller {
   }
   function delete_ijin_proses($id_ijin = 0)
   {
+    Modules::run('auth/cek_login', 1);
     $id_ijin= $this->input->post('id_ijin');
     $file = $this->db->get_where('tb_ijin_bljr', ['id_ijin' => $id_ijin]);
 
