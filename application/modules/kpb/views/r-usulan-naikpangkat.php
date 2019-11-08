@@ -50,7 +50,7 @@
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="nama">Nama Pegawai</th>
-                                        <th data-field="nip">Nip</th>
+                                        <th data-field="nip">NIP</th>
                                         <th></th>
                                     </tr>
                                 </thead>

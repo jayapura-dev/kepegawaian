@@ -10,14 +10,13 @@
               <a href="<?php echo base_url()?>data_master/jabatan" class="dropdown-item">Jabatan</a>
               <a href="<?php echo base_url()?>data_master/pangkat" class="dropdown-item">Pangkat</a>
               <a href="<?php echo base_url()?>pegawai" class="dropdown-item">Pegawai</a>
-              <a href="<?php echo base_url()?>pegawai/notifikasi" class="dropdown-item">Notifikasi</a>
+              <a href="<?php echo base_url()?>pegawai/notifikasi" class="dropdown-item">Pangkat Tentatif</a>
             </div>
         </li>
         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Pangkat</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
                 <a href="<?php echo base_url()?>kpb/usulan_kp" class="dropdown-item">Usulan KP</a>
                 <a href="<?php echo base_url()?>kpb" class="dropdown-item">KP</a>
-                <a href="<?php echo base_url()?>kpb/cari_kpb" class="dropdown-item">Laporan</a>
             </div>
         </li>
 
@@ -25,7 +24,6 @@
             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
                 <a href="<?php echo base_url()?>kgb/usulan_kgb" class="dropdown-item">Usulan KGB</a>
                 <a href="<?php echo base_url()?>kgb" class="dropdown-item">KGB</a>
-                <a href="#" class="dropdown-item">Laporan</a>
             </div>
         </li>
         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-plus-circle"></i> <span class="mini-dn">Jabatan</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>

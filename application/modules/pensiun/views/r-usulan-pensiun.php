@@ -67,7 +67,7 @@
                                     <td><?php echo $item->tgl_pensiun ?> </td>
                                     <td>
                                       <a href="<?php echo base_url()?>pensiun/create_pensiun/<?php echo $item->id_pegawai ?>" title="Tambah Data Pensiun Pejabat" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
-                                      <a href="#" type="button" title="Matikan Notifikasi Untuk Pegawai ini" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-bell"></i></a>
+                                      
                                     </td>
                                   </tr>
                                 <?php } ?>

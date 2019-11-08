@@ -49,7 +49,7 @@
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="nama">Nama Pegawai</th>
-                                        <th data-field="nip">Nip</th>
+                                        <th data-field="nip">NIP/th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -64,7 +64,6 @@
                                     <td><?php echo $item->nip ?></td>
                                     <td>
                                       <a href="<?php echo base_url()?>kgb/create_kgb/<?php echo $item->id_pegawai ?>" title="Tambah Data KGB" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
-                                      <a href="#" type="button" title="Matikan Notifikasi Untuk Pegawai ini" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-bell"></i></a>
                                     </td>
                                   </tr>
                                 <?php } ?>

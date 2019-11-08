@@ -209,7 +209,7 @@
                              <div class="form-group-inner">
                               <div class="row">
                                   <div class="col-lg-2">
-                                      <label class="login2 pull-right pull-right-pro">Unit Kerja</label>
+                                      <label class="login2 pull-right pull-right-pro">Penempatan</label>
                                   </div>
                                   <div class="col-lg-4">
                                     <select name="id_unit" class="form-control">

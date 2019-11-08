@@ -140,3 +140,6 @@
 * Rabu 6 November 2019
   - Manambahkan Function Notifikasi pada modul pegawai [Solved]
   - Menambahkan Fungsi CRUD Pengguna pada modul users [Solved]
+
+* Jummat 9 November 2019
+  - Memperbaiki View Pegawai pada Modul Pegawai [Solved]
