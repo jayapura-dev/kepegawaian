@@ -36,6 +36,11 @@ class M_ib extends CI_Model{
     $this->db->where($where);
     $this->db->update($table,$data);
   }
+  function update_file_ijin($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
   function create_ijin($data)
   {
     $this->db->insert('tb_ijin_bljr',$data);
@@ -50,11 +55,7 @@ class M_ib extends CI_Model{
     $this->db->where($where_pegawai);
     $this->db->update($table,$data_pegawai);
   }
-  function update_file_ijin($where,$data,$table)
-  {
-    $this->db->where($where);
-    $this->db->update($table,$data);
-  }
+  
   function detail_ijin($id_ijin)
   {
     $query = $this->db->query("SELECT * FROM tb_ijin_bljr

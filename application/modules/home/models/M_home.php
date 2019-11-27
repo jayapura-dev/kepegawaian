@@ -24,8 +24,8 @@ class M_home extends CI_Model{
     notifikasi,
     ket
     FROM data_kp_notif
-    WHERE selisih <= 100 AND notifikasi = 'aktif' ");
-
+    WHERE selisih <= 100 AND notifikasi = 'aktif'
+    ORDER BY tgl_kp ");
     return $query->result();
   }
   // End Notif Usulan KP
@@ -91,7 +91,7 @@ class M_home extends CI_Model{
     path_foto as path_foto,
     selisih as selisih
     FROM data_ijinbelajar_notif
-    WHERE selisih <= 30 ");
+    WHERE selisih <= 60 ");
 
     return $query->result();
   }
@@ -100,7 +100,7 @@ class M_home extends CI_Model{
     $query = $this->db->query("SELECT
       COUNT(id_pegawai) as jumlah_pejabat
       FROM data_ijinbelajar_notif
-      WHERE selisih <= 30 ");
+      WHERE selisih <= 60 ");
     return $query->result();
   }
   // End Notif Ijin Belajar
@@ -116,7 +116,7 @@ class M_home extends CI_Model{
     path_foto as path_foto,
     selisih as selisih
     FROM data_tgsbelajar_notif
-    WHERE selisih <= 30 ");
+    WHERE selisih <= 60 ");
 
     return $query->result();
   }
@@ -125,7 +125,7 @@ class M_home extends CI_Model{
     $query = $this->db->query("SELECT
       COUNT(id_pegawai) as jumlah_pejabat
       FROM data_tgsbelajar_notif
-      WHERE selisih <= 30 ");
+      WHERE selisih <= 60 ");
     return $query->result();
   }
   // End Notif Ijin Belajar

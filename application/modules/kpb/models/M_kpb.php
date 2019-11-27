@@ -63,9 +63,12 @@ class M_kpb extends CI_Model{
     nama,
     nip,
     notifikasi,
+    selisih,
+    tgl_kp,
     ket
     FROM data_kp_notif
-    WHERE selisih <= 60 AND notifikasi = 'aktif' ");
+    WHERE selisih <= 60 AND notifikasi = 'aktif'
+    ORDER BY selisih");
 
     return $query->result();
   }

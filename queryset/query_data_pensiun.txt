@@ -1,10 +1,10 @@
-SELECT 
+SELECT
 tb_pegawai.id_pegawai as id_pegawai,
 tb_pegawai.nama as nama,
 tb_pegawai.nip as nip,
 tb_pegawai.path_foto as path_foto,
 tb_pegawai.tgl_lahir as tgl_lahir,
-tb_pegawai.tgl_lahir + INTERVAL 21170 DAY as tgl_pensiun,
-DATEDIFF(tb_pegawai.tgl_lahir + INTERVAL 21170 DAY, NOW()) as selisih,
+tb_pegawai.tgl_lahir + INTERVAL 58 YEAR as tgl_pensiun,
+DATEDIFF(tb_pegawai.tgl_lahir + INTERVAL 58 YEAR, NOW()) as selisih,
 TIMESTAMPDIFF(YEAR, tb_pegawai.tgl_lahir, CURDATE()) as umur
 FROM tb_pegawai

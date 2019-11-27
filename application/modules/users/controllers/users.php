@@ -9,7 +9,7 @@ class users extends MX_Controller {
     $this->load->database();
     $this->load->helper('url');
     $this->load->model('M_users');
-    Modules::run('auth/cek_login');
+    Modules::run('auth/cek_login', 1);
   }
   public function index()
   {

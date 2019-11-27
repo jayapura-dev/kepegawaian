@@ -31,7 +31,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h5>Daftar<span class="table-project-n"></span> Pejabat Yang Harus Melakukan Perpajangan Ijin Belajar Kurang Dari 30 Hari</h5>
+                            <h5>Daftar<span class="table-project-n"></span> Pejabat Yang Harus Melakukan Perpajangan Ijin Belajar Kurang Dari 60 Hari</h5>
                         </div>
                     </div>
                     <div class="sparkline13-graph">

@@ -19,6 +19,7 @@ class kpb extends MX_Controller {
   }
   public function usulan_kp()
   {
+    $this->load->library('Indo_tanggal');
     $data['title'] = 'Pegawai Naik Pangkat';
     $data['naik'] = $this->M_kpb->data_naik_pangkat();
 

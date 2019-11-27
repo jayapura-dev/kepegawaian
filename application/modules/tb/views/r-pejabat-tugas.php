@@ -28,6 +28,7 @@
               <?php echo $this->session->flashdata('simpan');?>
               <?php echo $this->session->flashdata('update');?>
               <?php echo $this->session->flashdata('update_file');?>
+              <?php echo $this->session->flashdata('update_file_dasar');?>
               <?php echo $this->session->flashdata('error');?>
               <?php echo $this->session->flashdata('hapus');?>
                 <div class="sparkline13-list shadow-reset">
@@ -71,7 +72,14 @@
                                     <td><?php echo $item->jenjang ?></td>
                                     <td><?php echo $item->no_sk ?></td>
                                     <td><?php echo $this->indo_tanggal->tgl_indo($item->tgl_awal) ?> s/d </br>  <?php echo $this->indo_tanggal->tgl_indo($item->tgl_akhir) ?></td>
-                                    <td></td>
+                                    <td>
+                                      <?php if($item->path_tgs != ''): ?>
+                                        <a href="<?php echo base_url()?>images/tugas_belajar/<?php echo $item->path_tgs ?>" target="_blank"><img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a>
+                                        <a class="btn btn-xs btn primary" href="#modalupdatefiletgs" data-toggle="modal" onclick="update_file_tgs('<?php echo $item->id_pegawai ?>')" title="Edit File Ijin"><i class="fa fa-edit"></i></a>
+                                      <?php else: ?>
+                                        <a class="btn btn-xs btn primary" href="#modalupdatefiletgs" data-toggle="modal" onclick="update_file_tgs('<?php echo $item->id_pegawai ?>')" title="Upload File Ijin"><i class="fa fa-upload"></i></a>
+                                      <?php endif ?>
+                                    </td>
                                     <td>
                                       <a href="#modalupdate" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs" onclick="update(
                                         '<?php echo $item->id_pegawai ?>',
@@ -110,15 +118,15 @@
 	</div>
 </div>
 
-<div class="modal fade" id="modalupdatefile" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+<div class="modal fade" id="modalupdatefiletgs" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id=""><i class="fa fa-plus-circle"></i> Form Edit file Ijin Belajar </h4>
+				<h4 class="modal-title" id=""><i class="fa fa-plus-circle"></i> Form Edit file Tugas Belajar </h4>
 			</div>
 			<div class="modal-body">
-
+        <?php $this->load->view('tb/u-file-tgs'); ?>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
@@ -135,9 +143,7 @@
     $('#tgl_akhir').val(tgl_akhir);
     $('#id_jenjang').val(id_jenjang);
   }
-  function update_file(id_ijin,nama,dok_ijin){
-    $('#xid_ijin').val(id_ijin);
-    $('#xnama').val(nama);
-    $('#xdok_ijin').val(dok_ijin);
+  function update_file_tgs(id_pegawai){
+    $('#id_pegawai_tgs').val(id_pegawai);
   }
 </script>

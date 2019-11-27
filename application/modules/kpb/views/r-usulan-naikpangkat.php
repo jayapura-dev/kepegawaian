@@ -33,7 +33,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h5>Daftar<span class="table-project-n"></span> Pejabat yang akan naik pangkat Kurang dari 60 Hari</h5>
+                            <h5>Daftar<span class="table-project-n"></span> Pejabat yang akan naik pangkat Kurang dari 100 Hari</h5>
                         </div>
                     </div>
                     <div class="sparkline13-graph">
@@ -51,6 +51,8 @@
                                         <th data-field="no">No</th>
                                         <th data-field="nama">Nama Pegawai</th>
                                         <th data-field="nip">NIP</th>
+                                        <th data-field="tglkp">Tanggal KP</th>
+                                        <th data-field="seleisih">Selisih Hari</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -61,9 +63,10 @@
                                   ?>
                                   <tr>
                                     <td><?php echo $no++ ?></td>
-                                    <td><?php echo $item->nama ?></td>
+                                    <td><a href="<?php echo base_url()?>pegawai/detail_pegawai/<?php echo $item->id_pegawai ?>"><?php echo $item->nama ?></a></td>
                                     <td><?php echo $item->nip ?></td>
-
+                                    <td><?php echo $this->indo_tanggal->tgl_indo($item->tgl_kp) ?>
+                                    <td><?php echo $item->selisih ?></td>
                                     <td>
                                       <a href="<?php echo base_url()?>kpb/create_kpb/<?php echo $item->id_pegawai ?>" title="Tambah Data KP" type="button" class="btn btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
                                       <a href="#modalupdate" data-toggle="modal" type="button" title="Matikan Notifikasi Untuk Pegawai ini" class="btn btn-danger btn-xs" onclick="update(

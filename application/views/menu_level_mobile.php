@@ -17,7 +17,7 @@
                                     </li>
                                     <li><a href="<?php echo base_url()?>pegawai">Pegawai</a>
                                     </li>
-                                    <li><a href="<?php echo base_url()?>pegawai/notifikasi">Pangkat Tengtatif</a>
+                                    <li><a href="<?php echo base_url()?>pegawai/notifikasi">Pangkat Tentatif</a>
                                     </li>
                                 </ul>
                             </li>

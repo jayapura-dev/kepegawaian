@@ -84,7 +84,7 @@
                                                 <span class="author-project-icon adminpro-icon adminpro-down-arrow"></span>
                                             </a>
                                             <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated flipInX">
-                                                <li><a href="#"><span class="adminpro-icon adminpro-settings author-log-ic"></span>Akun</a>
+                                                <li><a href="<?php echo base_url()?>home/hukum"><span class="adminpro-icon adminpro-settings author-log-ic"></span>File Hukum</a>
                                                 </li>
                                                 <li><a href="<?php echo base_url()?>auth/logout"><span class="adminpro-icon adminpro-locked author-log-ic"></span>Keluar</a>
                                                 </li>

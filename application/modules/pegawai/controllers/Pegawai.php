@@ -223,7 +223,7 @@ class pegawai extends MX_Controller {
   {
     Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/cpns';
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'pdf|jpg|png';
     $config['encrypt_name'] = TRUE;
     $config['overwrite'] = TRUE;
 		$config['max_width']  = 1024*3;
@@ -283,7 +283,7 @@ class pegawai extends MX_Controller {
   {
     Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/jabatan';
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'pdf|jpg|png';
     $config['encrypt_name'] = TRUE;
     $config['overwrite'] = TRUE;
 		$config['max_width']  = 1024*3;
@@ -343,7 +343,7 @@ class pegawai extends MX_Controller {
   {
     Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/kpb';
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'pdf|jpg|png';
     $config['encrypt_name'] = TRUE;
     $config['overwrite'] = TRUE;
 		$config['max_width']  = 1024*3;
@@ -403,7 +403,7 @@ class pegawai extends MX_Controller {
   {
     Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/kgb';
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'pdf|jpg|png';
     $config['encrypt_name'] = TRUE;
     $config['overwrite'] = TRUE;
 		$config['max_width']  = 1024*3;

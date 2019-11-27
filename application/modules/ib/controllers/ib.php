@@ -26,7 +26,6 @@ class ib extends MX_Controller {
   }
   public function ijin_belajar()
   {
-
     $this->load->library('Indo_tanggal');
 
     $data['title'] = 'Ijin Belajar';
@@ -65,6 +64,65 @@ class ib extends MX_Controller {
         </div>"
     );
     redirect('ib/ijin_belajar');
+  }
+  function update_file_ijin_proses()
+  {
+    Modules::run('auth/cek_login', 1);
+    $config['upload_path'] = './images/ijin_belajar';
+		$config['allowed_types'] = 'pdf|jpg|png';
+    $config['encrypt_name'] = TRUE;
+    $config['overwrite'] = TRUE;
+		$config['max_width']  = 1024*3;
+		$config['max_height']  = 768*3;
+    $config['max_size'] = 1024*3;
+
+    $id_pegawai = $this->input->post('id_pegawai');
+    $file = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai]);
+
+    if($file->num_rows() > 0){
+      $gambar = $file->row();
+      $name = $gambar->path_ijin;
+      if($name != null){
+        $delete_path = './images/ijin_belajar/'.$name;
+        @unlink($delete_path);
+      }
+    }
+
+    $this->upload->initialize($config);
+
+    if ( ! $this->upload->do_upload('path_ijin'))
+		{
+			$path_ijin = "";
+			$this->session->set_flashdata(
+        "error",
+        "<div class='alert alert-danger fade in'>
+            <a href='#' class='close' data-dismiss='alert'>&times;</a>
+            <strong>error !</strong> Gagal Mengupdate File!
+        </div>"
+      );
+      redirect('ib/ijin_belajar');
+		} else{
+      $path_ijin = $this->upload->file_name;
+
+      $id_pegawai = $this->input->post('id_pegawai');
+
+      $data = array(
+        'id_pegawai' => $id_pegawai,
+        'path_ijin'   => $path_ijin
+      );
+
+      $where = array(
+        'id_pegawai' => $id_pegawai
+      );
+
+      $this->M_ib->update_file_ijin($where, $data,'tb_pegawai');
+      $this->session->set_flashdata("update_file_cpns","
+                <div class='alert alert-success fade in'>
+                    <a href='#' class='close' data-dismiss='alert'>&times;</a>
+                    <strong>Success !</strong> Berhasil Mengganti File Pangkat!
+                </div>");
+      redirect('ib/ijin_belajar');
+    }
   }
   public function create_ijin($id_pegawai)
   {
@@ -193,65 +251,7 @@ class ib extends MX_Controller {
     );
     redirect('ib');
   }
-  public function updatefile_ijin_proses()
-  {
-    Modules::run('auth/cek_login', 1);
-    $config['upload_path'] = './images/ijin_belajar';
-		$config['allowed_types'] = 'gif|jpg|png';
-    $config['encrypt_name'] = TRUE;
-    $config['overwrite'] = TRUE;
-		$config['max_width']  = 1024*3;
-		$config['max_height']  = 768*3;
-    $config['max_size'] = 1024*3;
 
-    $id_ijin = $this->input->post('id_ijin');
-    $file = $this->db->get_where('tb_ijin_bljr', ['id_ijin' => $id_ijin]);
-
-    if($file->num_rows() > 0){
-      $gambar = $file->row();
-      $name = $gambar->dok_ijin;
-      if($name != null){
-        $delete_path = './images/ijin_belajar/'.$name;
-        @unlink($delete_path);
-      }
-    }
-
-    $this->upload->initialize($config);
-
-    if ( ! $this->upload->do_upload('dok_ijin'))
-		{
-			$dok_ijin = "";
-			$this->session->set_flashdata(
-        "error",
-        "<div class='alert alert-danger fade in'>
-            <a href='#' class='close' data-dismiss='alert'>&times;</a>
-            <strong>error !</strong> Gagal Mengupdate Data!
-        </div>"
-      );
-      redirect('ib');
-		} else{
-			$dok_ijin = $this->upload->file_name;
-
-      $data = array(
-        'id_ijin' => $id_ijin,
-        'dok_ijin' => $dok_ijin,
-      );
-
-      $where = array(
-        'id_ijin'  => $id_ijin
-      );
-
-      $this->M_ib->update_file_ijin($where,$data,'tb_ijin_bljr');
-      $this->session->set_flashdata(
-          "update_file",
-          "<div class='alert alert-success fade in'>
-              <a href='#' class='close' data-dismiss='alert'>&times;</a>
-              <strong>Success !</strong> Berhasil Mengupdate File!
-          </div>"
-      );
-      redirect('ib');
-    }
-  }
   public function delete_ijin($id_ijin)
   {
     Modules::run('auth/cek_login', 1);

@@ -74,12 +74,7 @@
                                     <td><?php echo $item->no_sk ?> <br/> <?php echo $item->tgl_sk ?></td>
                                     <td><?php echo $item->tmt_awal ?> s/d</br>  <?php echo $item->tmt_akhir ?></td>
                                     <td>
-                                      <a href="<?php echo base_url()?>images/ijin_belajar/<?php echo $item->dok_ijin ?>" target="_blank"><img src="<?php echo base_url()?>assets/img/logo/file.png" width="25px"></img></a>
-                                      <a href="#modalupdatefile" data-toggle="modal" class="fa fa-edit" onclick="update_file(
-                                        '<?php echo $item->id_ijin ?>',
-                                        '<?php echo $item->nama ?>',
-                                        '<?php echo $item->dok_ijin ?>'
-                                      )"></a>
+
                                     </td>
                                     <td>
                                       <a href="#modalupdate" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs" onclick="update(
@@ -125,22 +120,7 @@
 	</div>
 </div>
 
-<div class="modal fade" id="modalupdatefile" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id=""><i class="fa fa-plus-circle"></i> Form Edit file Ijin Belajar </h4>
-			</div>
-			<div class="modal-body">
-        <?php $this->load->view('u-file-ib'); ?>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-			</div>
-		</div>
-	</div>
-</div>
+
 
 <script type="text/javascript">
   function update(id_ijin,id_pegawai,nama,id_jenjang,tmt_awal,tmt_akhir,lokasi_pdk,lembaga,no_sk,tgl_sk){
@@ -155,9 +135,7 @@
     $('#xno_sk').val(no_sk);
     $('#tgl_sk').val(tgl_sk);
   }
-  function update_file(id_ijin,nama,dok_ijin){
-    $('#xid_ijin').val(id_ijin);
-    $('#xnama').val(nama);
-    $('#xdok_ijin').val(dok_ijin);
+  function update_file_ijin(id_pegawai){
+    $('#id_pegawai_ijin').val(id_pegawai);
   }
 </script>

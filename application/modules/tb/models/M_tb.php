@@ -55,6 +55,11 @@ class M_tb extends CI_Model{
     $this->db->where($where);
     $this->db->update($table,$data);
   }
+  function update_file_dasar_tgs($where,$data,$table)
+  {
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }
   function update_file_tgs($where,$data,$table)
   {
     $this->db->where($where);

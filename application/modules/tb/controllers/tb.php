@@ -67,6 +67,65 @@ class tb extends MX_Controller {
     );
     redirect('tb/tugas_belajar');
   }
+  public function update_file_tgs_dasar_proses()
+  {
+    Modules::run('auth/cek_login', 1);
+    $config['upload_path'] = './images/tugas_belajar';
+		$config['allowed_types'] = 'pdf|jpg|png';
+    $config['encrypt_name'] = TRUE;
+    $config['overwrite'] = TRUE;
+		$config['max_width']  = 1024*3;
+		$config['max_height']  = 768*3;
+    $config['max_size'] = 1024*3;
+
+    $id_pegawai = $this->input->post('id_pegawai');
+    $file = $this->db->get_where('tb_pegawai', ['id_pegawai' => $id_pegawai]);
+
+    if($file->num_rows() > 0){
+      $gambar = $file->row();
+      $name = $gambar->path_tgs;
+      if($name != null){
+        $delete_path = './images/tugas_belajar/'.$name;
+        @unlink($delete_path);
+      }
+    }
+
+    $this->upload->initialize($config);
+
+    if ( ! $this->upload->do_upload('path_tgs'))
+		{
+			$path_tgs = "";
+			$this->session->set_flashdata(
+        "error",
+        "<div class='alert alert-danger fade in'>
+            <a href='#' class='close' data-dismiss='alert'>&times;</a>
+            <strong>error !</strong> Gagal Mengupdate Data!
+        </div>"
+      );
+      redirect('tb/tugas_belajar');
+		} else{
+			$path_tgs = $this->upload->file_name;
+
+      $data = array(
+        'id_pegawai' => $id_pegawai,
+        'path_tgs' => $path_tgs,
+      );
+
+      $where = array(
+        'id_pegawai'  => $id_pegawai
+      );
+
+      $this->M_tb->update_file_dasar_tgs($where,$data,'tb_pegawai');
+      $this->session->set_flashdata(
+          "update_file_dasar",
+          "<div class='alert alert-success fade in'>
+              <a href='#' class='close' data-dismiss='alert'>&times;</a>
+              <strong>Success !</strong> Berhasil Mengupdate File!
+          </div>"
+      );
+      redirect('tb/tugas_belajar');
+    }
+  }
 
   public function create_tb($id_pegawai)
   {
@@ -179,11 +238,11 @@ class tb extends MX_Controller {
     );
     redirect('tb');
   }
-  public function updatefile_tgs_proses()
+  public function update_file_tgs_proses()
   {
     Modules::run('auth/cek_login', 1);
     $config['upload_path'] = './images/tugas_belajar';
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'pdf|jpg|png';
     $config['encrypt_name'] = TRUE;
     $config['overwrite'] = TRUE;
 		$config['max_width']  = 1024*3;

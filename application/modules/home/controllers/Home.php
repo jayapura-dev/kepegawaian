@@ -20,4 +20,9 @@ class home extends MX_Controller {
 		$data['jft'] = $this->M_home->table_jft();
 		$this->template->load('MasterLayout','dashboard',$data);
 	}
+	public function hukum()
+	{
+		$data['title'] = 'Hukum';
+		$this->template->load('MasterLayout','file',$data);
+	}
 }

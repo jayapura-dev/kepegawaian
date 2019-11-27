@@ -31,7 +31,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data<span class="table-project-n"></span> Pejabat Yang Akan Pensiun Kurang dari 6 Bulan</h1>
+                            <h1>Data<span class="table-project-n"></span> Pejabat Yang Akan Pensiun Kurang dari 180 Hari</h1>
                         </div>
                     </div>
                     <div class="sparkline13-graph">
@@ -67,7 +67,7 @@
                                     <td><?php echo $item->tgl_pensiun ?> </td>
                                     <td>
                                       <a href="<?php echo base_url()?>pensiun/create_pensiun/<?php echo $item->id_pegawai ?>" title="Tambah Data Pensiun Pejabat" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-plus-circle"></i></a>
-                                      
+
                                     </td>
                                   </tr>
                                 <?php } ?>
