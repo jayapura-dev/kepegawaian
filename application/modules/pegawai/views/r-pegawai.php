@@ -33,10 +33,12 @@
                 <div class="sparkline13-list shadow-reset" onload="waktu()">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data<span class="table-project-n"></span> Master Pejabat</h1>
+                            <h1>Data<span class="table-project-n"></span> Master Pegawai</h1>
                             <div class="sparkline13-outline-icon">
                               <span><i class="fa fa-clock"></i><text id="jam"></text> : <text id="menit"></text> : <text id="detik"></text></span>
+                              <?php if ($this->session->userdata('level')=='1') {?>
                               <span><a href="<?php echo base_url()?>pegawai/create_pegawai" title="Tambah Pegawai" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i></a></i></span>
+                              <?php } ?>
                           </div>
                         </div>
                     </div>
@@ -58,8 +60,9 @@
                                         <th data-field="pangkat">Pangkat</th>
                                         <th data-field="kp">Jenis KP</th>
                                         <th data-field="uk">Penempatan</th>
-                                        <!--<th data-field="MK">MK</th>!-->
+                                        <?php if ($this->session->userdata('level')=='1') {?>
                                         <th>Aksi</th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -82,7 +85,9 @@
                                     <td><?php echo $item->jenis_kp ?></td>
                                     <td><?php echo $item->unit_kerja ?></td>
                                     <!--<td><?php echo $item->masa_kerja ?> Tahun </td>!-->
+                                    <?php if ($this->session->userdata('level')=='1') {?>
                                     <td>
+
                                       <a href="<?php echo base_url()?>pegawai/update_pegawai/<?php echo $item->id_pegawai ?>" class="btn btn-warning" title="Update Data Pejabat"><i class="fa fa-edit"></i></a>
                                       <!--<a href="#modalupdate" data-toggle="modal" class="btn btn-warning" onclick="update(
                                         '<?php echo $item->id_pegawai ?>',
@@ -109,6 +114,7 @@
                                       )"><i class="fa fa-edit"></i></a>!-->
                                       <a href="<?php echo base_url()?>jabatan/create_jabatan/<?php echo $item->id_pegawai ?>" title="Tambah Jabatan Baru" class="btn btn-primary"><i class="fa fa-cogs"></i></a>
                                     </td>
+                                    <?php } ?>
                                   </tr>
                                 <?php } ?>
                                 </tbody>

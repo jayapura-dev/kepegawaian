@@ -10,7 +10,7 @@ class M_datamaster extends CI_Model{
   function jabatan()
   {
     $query = $this->db->query("SELECT * FROM tb_jabatan
-    LEFT JOIN tb_kp ON tb_jabatan.id_kp = tb_kp.id_kp");
+    LEFT JOIN tb_penempatan ON tb_jabatan.id_penempatan = tb_penempatan.id_penempatan");
     return $query->result();
   }
 }

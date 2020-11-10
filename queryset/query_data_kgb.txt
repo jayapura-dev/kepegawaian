@@ -1,9 +1,0 @@
-SELECT 
-tb_pegawai.id_pegawai as id_pegawai,
-tb_pegawai.nama as nama,
-tb_pegawai.nip as nip,
-tb_pegawai.path_foto as path_foto,
-tb_pegawai.tmt_gapok + INTERVAL tb_kp.naik_gaji DAY as tgl_ukgb,
-DATEDIFF(tb_pegawai.tmt_gapok + INTERVAL tb_kp.naik_gaji DAY, NOW()) as selisih
-FROM tb_pegawai
-LEFT JOIN tb_kp ON tb_pegawai.id_kp = tb_kp.id_kp

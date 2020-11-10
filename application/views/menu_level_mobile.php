@@ -17,7 +17,7 @@
                                     </li>
                                     <li><a href="<?php echo base_url()?>pegawai">Pegawai</a>
                                     </li>
-                                    <li><a href="<?php echo base_url()?>pegawai/notifikasi">Pangkat Tentatif</a>
+                                    <li><a href="<?php echo base_url()?>pegawai/notifikasi">Pangkat Tengtatif</a>
                                     </li>
                                 </ul>
                             </li>
@@ -109,6 +109,8 @@ elseif ($this->session->userdata('level')=='2'){?>
                                       <li><a href="<?php echo base_url()?>data_master/pangkat">Pangkat</a>
                                       </li>
                                       <li><a href="<?php echo base_url()?>pegawai">Pegawai</a>
+                                      </li>
+                                      <li><a href="<?php echo base_url()?>pegawai/notifikasi">Pangkat Tengtatif</a>
                                       </li>
                                   </ul>
                               </li>

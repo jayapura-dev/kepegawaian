@@ -43,7 +43,7 @@ class auth extends MX_Controller{
           "wrong",
           "<div class='alert alert-danger fade in'>
             <a href='#' class='close' data-dismiss='alert'>&times;</a>
-            <strong>Wrong!</strong> Nama dan Sandi Anda Salah!!
+            <strong>Wrong!</strong> Nip Atau Sandi anda salah!!
             </div>"
         );
 				redirect('auth');
@@ -57,7 +57,7 @@ class auth extends MX_Controller{
   function cek_login($user_level = ""){
 		$status_login = $this->session->userdata('login');
 		if (!isset($status_login) || $status_login != TRUE){
-			redirect('login');
+			redirect('auth');
 		}
 		else {
       $this->nama = $this->session->userdata('nama');

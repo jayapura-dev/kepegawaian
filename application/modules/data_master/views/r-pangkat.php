@@ -49,8 +49,7 @@
                                     <tr>
                                         <th data-field="no">No</th>
                                         <th data-field="pangkat">Pangkat</th>
-                                        <th data-field="golongan">Golongan/Ruang</th>
-                                        <th></th>
+                                        <!--<th></th>!-->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,11 +60,10 @@
                                   <tr>
                                     <td><?php echo $no++ ?></td>
                                     <td><?php echo $item->pangkat ?> </td>
-                                    <td><?php echo $item->golongan ?> </td>
-                                    <td>
+                                    <!--<td>
                                       <a href="#" data-toggle="modal" type="button" class="btn btn-custon-three btn-primary btn-xs"><i class="fa fa-edit"></i></a>
                                       <a href="#" type="button" title="Hapus" onclick="return confirm('Hapus item ini Dari Database ?')" class="btn btn-custon-three btn-danger btn-xs"><i class="fa fa-trash"></i></a>
-                                    </td>
+                                    </td>!-->
                                   </tr>
                                 <?php } ?>
                                 </tbody>

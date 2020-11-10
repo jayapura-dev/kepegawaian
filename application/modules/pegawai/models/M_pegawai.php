@@ -2,156 +2,77 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_pegawai extends CI_Model{
-  function pegawai()
-  {
-    $query = $this->db->query("SELECT
-    tb_pegawai.id_pegawai as id_pegawai,
-    tb_pegawai.nip as nip,
-    tb_pegawai.nama as nama,
-    tb_pegawai.tgl_lahir as tgl_lahir,
-    tb_pegawai.tmt_pkt as tmt_pkt,
-    tb_pegawai.tmt_jbt as tmt_jbt,
-    tb_pegawai.jekel as jekel,
-    tb_pegawai.agama as agama,
-    tb_pegawai.pend_terahir as pend_terahir,
-    tb_pegawai.bidang as bidang,
-    tb_pegawai.id_jabatan as id_jabatan,
-    tb_pegawai.subjabatan as subjabatan,
-    tb_pegawai.id_pangkat as id_pangkat,
-    tb_pegawai.id_unit as id_unit,
-    tb_pegawai.id_kp as id_kp,
-    tb_pegawai.gapok_pegawai as gapok_pegawai,
-    tb_pegawai.tmt_gapok as tmt_gapok,
-    tb_pegawai.tmt_cpns as tmt_cpns,
-    tb_pegawai.status_tgs_belajar as status_tgs_belajar,
-    tb_pegawai.status_ijin_belajar as status_ijin_belajar,
-    tb_kp.jenis_kp as jenis_kp,
-    tb_unit.unit_kerja as unit_kerja,
-    tb_pangkat.pangkat as pangkat,
-    tb_pangkat.golongan as golongan,
-    tb_jabatan.jabatan as jabatan,
-    tb_pegawai.tmt_pkt + INTERVAL tb_kp.naik_pangkat DAY as selanjutnya,
-    TIMESTAMPDIFF(YEAR, tb_pegawai.tmt_cpns, CURDATE()) as masa_kerja
-    FROM tb_pegawai
-    LEFT JOIN tb_kp ON tb_pegawai.id_kp = tb_kp.id_kp
-    LEFT JOIN tb_unit ON tb_pegawai.id_unit = tb_unit.id_unit
-    LEFT JOIN tb_pangkat ON tb_pegawai.id_pangkat = tb_pangkat.id_pangkat
-    LEFT JOIN tb_jabatan ON tb_pegawai.id_jabatan = tb_jabatan.id_jabatan
-    ORDER BY tb_pangkat.id_pangkat DESC, tb_pegawai.tmt_pkt ASC ");
-    return $query->result();
-  }
-  function create_pegawai($data)
-  {
-    $this->db->insert('tb_pegawai',$data);
-  }
-  function update_pegawai($where,$data,$table)
-  {
-    $this->db->where($where);
-    $this->db->update($table,$data);
-  }
-  function detail_pegawai($id_pegawai)
-  {
-    $query = $this->db->query("SELECT * FROM tb_pegawai
-    LEFT JOIN tb_pangkat ON tb_pegawai.id_pangkat = tb_pangkat.id_pangkat
-    LEFT JOIN tb_jabatan ON tb_pegawai.id_jabatan = tb_jabatan.id_jabatan
-    WHERE id_pegawai = '$id_pegawai' ");
+    function asn_struktural()
+    {
+        $query = $this->db->query("SELECT * FROM v_asn_struktural");
 
-    return $query->result();
-  }
-  function update_foto($where,$data,$table)
-  {
-    $this->db->where($where);
-    $this->db->update($table,$data);
-  }
-  function update_file_cpns($where,$data,$table)
-  {
-    $this->db->where($where);
-    $this->db->update($table,$data);
-  }
-  function update_file_jbt($where,$data,$table)
-  {
-    $this->db->where($where);
-    $this->db->update($table,$data);
-  }
-  function update_file_pangkat($where,$data,$table)
-  {
-    $this->db->where($where);
-    $this->db->update($table,$data);
-  }
-  function update_file_gaji($where,$data,$table)
-  {
-    $this->db->where($where);
-    $this->db->update($table,$data);
-  }
-  function delete_pejabat($where = 0)
-  {
-    $hapus_kpb = $this->db->get_where('tb_kpb',['id_pegawai'  => $where]);
-    if($hapus_kpb->num_rows() > 1){
-      $this->db->delete('tb_kpb', array('id_pegawai' => $where));
+        return $query->result();
     }
 
-    $hapus_kgb = $this->db->get_where('tb_kgb',['id_pegawai' => $where]);
-    if($hapus_kgb->num_rows() > 1){
-      $this->db->delete('tb_kgb', array('id_pegawai' => $where));
+    function detail_pegawai($id)
+    {
+        $query = $this->db->query("SELECT
+        id_pegawai,
+        nama,
+        status_pegawai,
+        nip,
+        tb_penempatan.badan as penempatan,
+        tmp_lahir,
+        tgl_lahir,
+        jekel,
+        etnis,
+        agama,
+        tb_jabatan.jabatan as jabatan,
+        tb_pangkat.pangkat as pangkat,
+        pend_terahir
+        FROM tb_peg
+        LEFT JOIN tb_penempatan ON tb_peg.id_penempatan = tb_penempatan.id_penempatan
+        LEFT JOIN tb_jabatan ON tb_peg.id_jabatan = tb_jabatan.id_jabatan
+        LEFT JOIN tb_pangkat ON tb_peg.id_pangkat = tb_pangkat.id_pangkat
+        WHERE id_pegawai = '$id' ");
+
+        return $query->row_array();
     }
 
-    $hapus_jbt = $this->db->get_where('tb_jp',['id_pegawai' => $where]);
-    if($hapus_jbt->num_rows() > 1){
-      $this->db->delete('tb_jp', array('id_pegawai' => $where));
+    function asn_fungsional()
+    {
+        $query = $this->db->query("SELECT * FROM v_asn_fungsional");
+
+        return $query->result();
     }
 
-    $hapus_ijin = $this->db->get_where('tb_ijin_bljr',['id_pegawai' => $where]);
-    if($hapus_ijin->num_rows() > 1){
-      $this->db->delete('tb_ijin_bljr', array('id_pegawai' => $where));
+    function kontrak()
+    {
+        $query = $this->db->query("SELECT * FROM v_kontrak");
+        return $query->result();
     }
 
-    $hapus_tgs = $this->db->get_where('tb_tgs_bljr',['id_pegawai' => $where]);
-    if($hapus_tgs->num_rows() > 1){
-      $this->db->delete('tb_tgs_bljr', array('id_pegawai' => $where));
+    function get_api_sekolah()
+    {
+        $uri = "http://localhost/sekolah/api/sekolah";
+
+        $ch = curl_init();
+      	curl_setopt($ch, CURLOPT_URL, $uri);
+    		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    		$readjson = curl_exec($ch);
+
+    		$data = json_decode($readjson,TRUE);
+    		$hasil = $data['result'];
+    		return $hasil;
     }
 
-    $this->db->delete('tb_pegawai', array('id_pegawai' => $where));
-  }
+    function get_api_mapel()
+    {
+        $uri = "http://localhost/sekolah/api/mapel";
 
-  // Histori Pejabat
-  // Start Kenaikan Pangkat Berkala
-  function kpb($id_pegawai)
-  {
-    $query = $this->db->query("SELECT * FROM tb_kpb
-    LEFT JOIN tb_pegawai ON tb_kpb.id_pegawai = tb_pegawai.id_pegawai
-    LEFT JOIN tb_pangkat ON tb_kpb.id_pangkat = tb_pangkat.id_pangkat
-    WHERE tb_kpb.id_pegawai = '$id_pegawai' ");
-    return $query->result();
-  }
-  // End Kenaikan Pangkat Berkala
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $uri);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-  // Start Kenaikan Gaji Berkala
-  function kgb($id_pegawai)
-  {
-    $query = $this->db->query("SELECT * FROM tb_kgb
-    LEFT JOIN tb_pegawai ON tb_kgb.id_pegawai = tb_pegawai.id_pegawai
-    WHERE tb_kgb.id_pegawai = '$id_pegawai' ");
-    return $query->result();
-  }
-  // End Kenaikan Gaji Berkala
-
-  // Start Jabatan
-  function jabatan($id_pegawai)
-  {
-    $query = $this->db->query("SELECT * FROM tb_jp
-    LEFT JOIN tb_jabatan ON tb_jp.id_jabatan = tb_jabatan.id_jabatan
-    LEFT JOIN tb_pegawai ON tb_jp.id_pegawai = tb_pegawai.id_pegawai
-    WHERE tb_jp.id_pegawai = '$id_pegawai' ");
-
-    return $query->result();
-  }
-  // End Jabatan
-
-  function notifikasi()
-  {
-    $query = $this->db->query("SELECT * FROM tb_pegawai
-    WHERE notifikasi = 'nonaktif' ");
-
-    return $query->result();
-  }
+        $readjson = curl_exec($ch);
+        $data = json_decode($readjson,TRUE);
+        $hasil = $data['result'];
+        return $hasil;
+    }
 }

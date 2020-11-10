@@ -64,8 +64,7 @@
     <table border="0" cellpadding="0" cellspacing="0" width="100%" height='100%'>
         <tr>
             <td class="left">
-                <img src="<?php echo base_url()?>assets/img/logo/bksda1.png" width="120px">
-                <img src="<?php echo base_url()?>assets/img/logo/bbksdapapua.png" width ="120px"><br/>
+                <img src="<?php echo base_url()?>assets/img/logo/KabJayapura.png" width="120px">
                 <div style="border-bottom: 1px solid #222; margin: 15px 0px"></div>
 <!--                <span style="font-size: 30px; ">Welcome To Quest</span><br>
                 Qualita Integrated System
@@ -77,20 +76,26 @@
 
                 <p style="font-size: 14px; color: #010101">
                     <b>Address: </b><br>
-                    Jl. Raya Abepura - Sentani<br>
+                    Jl. Kemiri - Depapre<br>
                     Jayapura 99351 Indonesia.<br>
                     Tel / Fax (0967 5170465)<br>
                     Fax.
-                    E-mail  : admin@read-k4.com<br>
+                    E-mail  : admin@pendidikan.com<br>
                     <br>
                 </p>
                 <br>
             </td>
             <td width="250" class="right">
-                <div style="font-size: 35px; line-height: 20px">READ-K.4</div>
+                <div style="font-size: 35px; line-height: 20px">e - Pegawai</div>
 
                 <div style="border-bottom: 1px solid #ccc; margin: 15px 0px"></div>
 								<?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
+
+                <div style="font-size: 15px; line-height: 10px; font-style: italic; color:#FF0000;">
+                  <?php echo $this->session->flashdata('wrong');?>
+                </div>
+
+                <br/>
         				<?php echo form_open('auth/login_proses'); ?>
                 <form>
                     <input type="text" name="nip" value="" placeholder="NIP">
@@ -108,5 +113,5 @@
 </div>
 
 <div class="footer">
-    <span style="opacity: 1;">Read-K.4 | BBKSDA Papua &copy; 2019 | Email : admin@read-k4.com</span>
+    <span style="opacity: 1;">Kepegawaian | Dinas Pendidikan Kabupaten Jayapura &copy; 2020 | Email : admin@pendidikankabjayapura.com</span>
 </div>

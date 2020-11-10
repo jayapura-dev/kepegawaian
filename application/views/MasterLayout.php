@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/meanmenu.min.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/animate.css">
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/jvectormap/jquery-jvectormap-2.0.3.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/data-table/bootstrap-table.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/data-table/bootstrap-editable.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/normalize.css">
@@ -34,9 +33,9 @@
         <div class="left-sidebar-pro">
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <a href="<?php echo base_url()?>home"><img src="<?php echo base_url()?>assets/img/message/users1.png" alt="" />
+                    <a href="<?php echo base_url()?>home"><img src="<?php echo base_url()?>assets/img/logo/1.png" alt="" />
                     </a>
-                    <h3 class="uppercase">READ-K.4</h3>
+                    <h3 class="uppercase">Kepegawaian</h3>
                     <?php if ($this->session->userdata('level') == '1'):?>
                     <p>Administrator</p>
                   <?php endif ?>
@@ -76,7 +75,7 @@
                             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                                 <div class="header-right-info">
                                     <ul class="nav navbar-nav mai-top-nav header-right-menu">
-                                        <?php $this->load->view('reminder') ?>
+
                                         <li class="nav-item">
                                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                                 <span class="adminpro-icon adminpro-user-rounded header-riht-inf"></span>
@@ -110,6 +109,7 @@
             <?php $this->load->view('menu_level_mobile') ?>
             <!-- Start Content !-->
             <?php echo $contents?>
+            <br />
             <!-- End Content !-->
         </div>
     </div>
@@ -119,7 +119,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-copy-right">
-                        <p>Created By Diah Warastuti deweq</a></p>
+                        <p>Dinas Pendidikan Kabupaten Jayapura.</a></p>
                     </div>
                 </div>
             </div>
@@ -137,15 +137,10 @@
     <script src="<?php echo base_url()?>assets/js/counterup/jquery.counterup.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/counterup/waypoints.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/counterup/counterup-active.js"></script>
-    <script src="<?php echo base_url()?>assets/js/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="<?php echo base_url()?>assets/js/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="<?php echo base_url()?>assets/js/jvectormap/jvectormap-active.js"></script>
     <script src="<?php echo base_url()?>assets/js/peity/jquery.peity.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/peity/peity-active.js"></script>
     <script src="<?php echo base_url()?>assets/js/sparkline/jquery.sparkline.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/sparkline/sparkline-active.js"></script>
-    <script src="<?php echo base_url()?>assets/js/flot/Chart.min.js"></script>
-    <script src="<?php echo base_url()?>assets/js/flot/dashtwo-flot-active.js"></script>
 
     <script src="<?php echo base_url()?>assets/js/data-table/bootstrap-table.js"></script>
     <script src="<?php echo base_url()?>assets/js/data-table/tableExport.js"></script>

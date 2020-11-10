@@ -10,47 +10,12 @@
               <a href="<?php echo base_url()?>data_master/jabatan" class="dropdown-item">Jabatan</a>
               <a href="<?php echo base_url()?>data_master/pangkat" class="dropdown-item">Pangkat</a>
               <a href="<?php echo base_url()?>pegawai" class="dropdown-item">Pegawai</a>
-              <a href="<?php echo base_url()?>pegawai/notifikasi" class="dropdown-item">Pangkat Tentatif</a>
             </div>
         </li>
-        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Pangkat</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-bookmark"></i> <span class="mini-dn">Jurnal</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                <a href="<?php echo base_url()?>kpb/usulan_kp" class="dropdown-item">Usulan KP</a>
-                <a href="<?php echo base_url()?>kpb" class="dropdown-item">KP</a>
-            </div>
-        </li>
-
-        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-money"></i> <span class="mini-dn">Gaji Pokok</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                <a href="<?php echo base_url()?>kgb/usulan_kgb" class="dropdown-item">Usulan KGB</a>
-                <a href="<?php echo base_url()?>kgb" class="dropdown-item">KGB</a>
-            </div>
-        </li>
-        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-plus-circle"></i> <span class="mini-dn">Jabatan</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                <a href="<?php echo base_url()?>jabatan" class="dropdown-item">Jabatan</a>
-                <a href="#" class="dropdown-item">Laporan</a>
-            </div>
-        </li>
-        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-calendar"></i> <span class="mini-dn">Pensiun</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                <a href="<?php echo base_url()?>pensiun/usulan_pensiun" class="dropdown-item">Usulan Pensiun</a>
-                <a href="<?php echo base_url()?>pensiun" class="dropdown-item">Data Pensiun</a>
-            </div>
-        </li>
-        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-edit"></i> <span class="mini-dn">Ijin Belajar</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                <a href="<?php echo base_url()?>ib/usulan_pib">Usulan PIB</a>
-                <a href="<?php echo base_url()?>ib/ijin_belajar" class="dropdown-item">Ijin Belajar</a>
-                <a href="<?php echo base_url()?>ib">PIB</a>
-
-            </div>
-        </li>
-        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-briefcase"></i> <span class="mini-dn">Tugas Belajar</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-              <a href="<?php echo base_url()?>tb/usulan_ptb">Usulan PTB</a>
-              <a href="<?php echo base_url()?>tb/tugas_belajar" class="dropdown-item">Tugas Belajar</a>
-              <a href="<?php echo base_url()?>tb">PTB</a>
+              <a href="<?php echo base_url()?>jurnal" class="dropdown-item">Fungsional</a>
+              <a href="#" class="dropdown-item">Struktural</a>
             </div>
         </li>
         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-cogs"></i> <span class="mini-dn">Settings</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
@@ -75,6 +40,7 @@ elseif ($this->session->userdata('level')=='2'){?>
                 <a href="<?php echo base_url()?>data_master/jabatan" class="dropdown-item">Jabatan</a>
                 <a href="<?php echo base_url()?>data_master/pangkat" class="dropdown-item">Pangkat</a>
                 <a href="<?php echo base_url()?>pegawai" class="dropdown-item">Pegawai</a>
+                <a href="<?php echo base_url()?>pegawai/notifikasi" class="dropdown-item">Pangkat Tengtatif</a>
               </div>
           </li>
           <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Pangkat</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
